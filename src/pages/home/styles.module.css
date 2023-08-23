@@ -1,0 +1,113 @@
+.main {
+    position: relative;
+    z-index: 999;
+}
+.about {
+    position: sticky;
+    top: 0;
+    height: 150vh;
+    overflow: auto;
+    background-color: rgb(54, 54, 54);
+}
+.about > img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    opacity: .3;
+}
+.aboutItem {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    padding: 0 5px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.aboutItem__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.aboutItem:first-child {
+    z-index: 10;
+}
+.aboutItem:nth-child(2) {
+    z-index: 5;
+}
+.aboutItem:last-child {
+    z-index: 1;
+}
+.about.page1 .aboutItem:not(:first-of-type){
+    display: none;
+}
+.about.page2 .aboutItem:not(:nth-of-type(2)){
+    display: none;
+}
+.about.page3 .aboutItem:not(:last-of-type){
+    display: none;
+}
+.aboutItem p {
+    font-size: 6.5rem;
+    color: var(--color-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 120%;
+    font-weight: 500;
+    font-family: 'ibm', sans-serif;
+    font-variation-settings: "wght" 500;
+}
+.aboutItem p span {
+    color: var(--color-secondary);
+}
+.aboutItem h2 {
+    color: var(--color-secondary);
+    font-variation-settings: "wght" 100;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+.aboutItem.active h2 span {
+    transform: translateY(-50px);
+    display: block;
+}
+
+.portfolio {
+    position: relative;
+    z-index: 10;
+    background-color: var(--dark);
+}
+.portfolio_left {
+    position: sticky;
+    top: 85px;
+    padding: 10rem 10rem 10rem 31rem;
+    height: calc(100vh - 85px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.portfolio_title {
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0;
+    color: var(--white);
+}
+.portfolio_subtitle {
+    font-size: 3rem;
+}
+.portfolio_description {
+    font-size: 2rem;
+    font-variation-settings: "wght" 100;
+}
+.portfolio_link {
+    font-size: 1.5rem;
+    font-variation-settings: "wght" 300;
+    color: var(--color-secondary);
+    text-transform: uppercase;  
+    text-decoration: underline;
+    text-underline-position: under;
+}

@@ -1,0 +1,18 @@
+.btnPrimary, .btnSecondary, .btnWhite {
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: normal;
+}
+.btnPrimary {
+    background-color: var(--color-primary);
+    color: var(--dark);
+}
+.btnSecondary {
+    background-color: var(--color-secondary);
+    color: var(--dark);
+}
+.btnWhite {
+    background-color: var(--white);
+    color: var(--dark);
+}

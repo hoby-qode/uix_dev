@@ -1,0 +1,53 @@
+.headerPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    position: relative;
+    margin-bottom: 18px;
+}
+.imageHeader {
+    width: 100%;
+    height: 170vh;
+    will-change: clip-path;
+    margin-top: 30vh;
+}
+.headerPage p {
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: 300;
+	text-align: center; 
+    margin-bottom: 0;
+}
+.headerPage h1 {
+    color: var(--white);
+    font-size: 13vw;
+    font-variation-settings: "wght" 950, "wdth" 200;
+    will-change: font-variation-settings, font-size;
+    margin: 0;
+    text-align: center;
+}
+.headerPage img, .headerPage video {
+    opacity: .3;
+    max-height: 100vh;
+    object-position: 0% -50%;
+    transition: .5s;
+    position: sticky;
+    top: 0;
+}
+.headerPageText {
+    position: absolute;
+    z-index: 10;
+    top: 25vh;
+    transform: translate3d(0px, 0%, 0px);
+}
+.linkProject {
+    position: fixed;
+    bottom: 4rem;
+    left: 127px;
+    color: var(--white);
+    z-index: 100;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-variation-settings: "wght" 300;
+}
