@@ -1,0 +1,75 @@
+.headerPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    position: relative;
+    margin-bottom: 18px;
+}
+.imageHeader {
+    width: 100%;
+    height: 170vh;
+    will-change: clip-path;
+    margin-top: 30vh;
+}
+.headerPage p {
+    color: hsl(var(--foreground));
+    font-size: 3rem;
+    font-weight: 300;
+	text-align: center; 
+    margin-bottom: 0;
+}
+.headerPage h1 {
+    color: hsl(var(--foreground));
+    font-size: 13vw;
+    font-variation-settings: "wght" 950, "wdth" 200;
+    will-change: font-variation-settings, font-size;
+    margin: 0;
+    text-align: center;
+    line-height: 120%;
+    font-family: var(--antartica);
+}
+.headerPage img, .headerPage video {
+    max-height: 100vh;
+    transition: .5s;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+}
+.headerPageText {
+    position: absolute;
+    z-index: 10;
+    top: 25vh;
+    transform: translate3d(0px, 0%, 0px);
+}
+.linkProject {
+    position: fixed;
+    bottom: 4rem;
+    left: 127px;
+    color: hsl(var(--foreground));
+    z-index: 100;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-variation-settings: "wght" 300;
+}
+
+@media screen and (max-width:767px) {
+    .imageHeader {
+        margin-top: 0;
+        height: 100vh;
+        background-color: #000;
+    }
+    .headerPage h1 {
+        font-size: 17vw;
+    }
+    .headerPage p {
+        font-size: 6vw;
+    }
+    .headerPageText {
+        top: 55vh;
+    }
+    .headerPage img, .headerPage video { 
+        opacity: .5;
+    }
+}

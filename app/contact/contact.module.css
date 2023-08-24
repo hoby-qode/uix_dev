@@ -1,0 +1,22 @@
+.contact {
+    position: relative;
+}
+.footerHead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 37px;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.footerHead h2 {
+    line-height: 100%;
+    color: hsl(var(--primary));
+    font-family: var(--raleway);
+}
+.picture {
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid hsl(var(--primary));
+}

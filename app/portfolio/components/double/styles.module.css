@@ -1,0 +1,53 @@
+
+.double .imageContainer {
+    width: 100%;
+    margin-bottom: 15px;
+}
+@media screen and (min-width:768px) {
+    .double {
+        display: flex;
+        margin-top: 10vh;
+        gap: 12px;
+    }
+    .double .imageContainer:nth-of-type(1) {
+        width: 66.66%;
+    }
+    .double .imageContainer:nth-of-type(2) {
+        width: 33.33%;
+    }
+    .double:nth-child(even) .imageContainer:nth-of-type(1) {
+        width: 33.33%;
+    }
+    .double:nth-child(even) .imageContainer:nth-of-type(2) {
+        width: 66.66%;
+    }
+}
+.double .imageContainer .stretchyWrapper {
+    /* padding-bottom: 66%; */
+    position: relative;
+    height: 500px;
+}
+.double .imageContainer .stretchyWrapper img {
+    object-fit: cover;
+}
+
+.double .body {
+    font-size: 16px;
+    padding: 27px 33px 45px 33px;
+    background-color: #191919;
+    min-height: 180px;
+}
+.double .body h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 400;
+}
+.double .body p {
+    font-size: 1em;
+    margin: 0px;
+    color: #bbb;
+}
+.double .body p:nth-of-type(2) {
+    color: #656565;
+}

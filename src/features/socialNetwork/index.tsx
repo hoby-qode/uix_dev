@@ -1,0 +1,34 @@
+'use client'
+import styles from './styles.module.css'
+import Item from './item'
+import { useState, useEffect } from 'react'
+import {
+  AiFillBehanceCircle,
+  AiFillDribbbleCircle,
+  AiFillLinkedin,
+} from 'react-icons/ai'
+const SocialNetwork = () => {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+  },[isMobile])
+  return (
+    <div
+      className={isMobile ? styles.socialNetwork_mobile : styles.socialNetwork}
+    >
+      {isMobile ? 'Suivez moi sur :' : ''}
+      <ul>
+        <Item link="https://dribbble.com/">
+          {isMobile ? <AiFillDribbbleCircle /> : 'Dribbble'}
+        </Item>
+        <Item link="https://www.behance.net/">
+          {isMobile ? <AiFillBehanceCircle /> : 'Behance'}
+        </Item>
+        <Item link="https://www.linkedin.com/">
+          {isMobile ? <AiFillLinkedin /> : 'Linkedin'}
+        </Item>
+      </ul>
+    </div>
+  )
+}
+export default SocialNetwork

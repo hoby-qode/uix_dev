@@ -1,0 +1,70 @@
+.groupInput {
+    position: relative;
+    margin-bottom: 5rem;
+}
+.groupInput input , .groupInput textarea { 
+    border: 0;
+    border-bottom: 2px solid hsl(var(--border));
+    min-height: 50px;
+    line-height: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: transparent;
+    width: 100%;
+    outline: 0;
+    color: hsl(var(--primary-foreground));
+    transform-origin: left;
+    font-family: var(--antartica);
+    font-variation-settings: "wght"400, "wdth" 500;   
+    color: hsl(var(--primary));
+}
+    .groupInput textarea {
+        min-height: 150px;
+        padding-top: 2rem;
+    }
+.groupInput label {
+    position: absolute;
+    top: 17px;
+    left: 18px;
+
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: normal;
+    z-index: 10;
+    pointer-events: none;
+    width: 100%;
+    font-family: var(--antartica);
+    font-weight: 600;
+    color: hsl(var(--input));
+    
+    transform-origin: top left;
+    transition: top .5s ease-in-out, transform .5s ease-in-out;
+}
+.groupInput input:focus , .groupInput textarea:focus {
+    outline: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+.groupInput input:not(:placeholder-shown) + label, 
+.groupInput input:focus + label, 
+.groupInput textarea:not(:placeholder-shown) + label,
+.groupInput textarea:focus + label {
+    transform:  scale(.8) translateY(-30px);
+    transform-origin: top left;
+    transition: transform .5s ease-in-out;
+}
+.groupInput input::placeholder, .groupInput textarea::placeholder {
+    color: transparent;
+}
+.btnPrimary {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
