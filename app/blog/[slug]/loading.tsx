@@ -2,7 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import vs2015 from 'react-syntax-highlighter/dist/esm/styles/hljs/vs2015';
-import TeasePost from '../components/TeasePost';
+import TeasePost from '../components/TeasePost.1';
 import SearchFilter from '../components/SearchFilter';
 import TagFilter from '../components/TagFilter';
 import InnerHTML from '@/components/ui/InnerHTML';

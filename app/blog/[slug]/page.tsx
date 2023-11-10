@@ -16,6 +16,7 @@ import Image from 'next/image';
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb';
 import { ResolvingMetadata, Metadata } from 'next';
 import { Props } from 'next/script';
+import { getPost, getTags } from '@/src/query/posts.query';
 
 export const revalidate = 3600
 
@@ -25,14 +26,9 @@ export async function generateMetadata(
   ): Promise<Metadata> {
     // read route params
     const slug = params.slug
-
-    const post = await prisma.post.findFirst({
-        where: {
-            slug: String(params.slug)
-        }
-    })
+    console.log(slug);
     
-    
+    const post = await getPost(String(slug))
    
     return {
       title: post?.title,
@@ -65,16 +61,11 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             </SyntaxHighlighter>
         );
     }
-
-    const post = await prisma.post.findFirst({
-        where: {
-            slug: String(params.slug)
-        }
-    })
+    const posts = await getPost(String(params.slug))
     
-    const tags = await prisma.tag.findMany()
+    const tags = await getTags()
 
-    if (!post) {
+    if (!posts) {
 		return notFound()
 	}
     return (
@@ -93,20 +84,24 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                         capitalizeLinks
                     />
                     <div className="row mx-0 mt-5">
-                        <article>
-                            <div className="radius aspect-16-9 cover mb-5">
-                                <Image src={post.picture} alt={post.title} fill={true} sizes="(max-width: 768px) 100%, 33%" />
-                            </div>
-                            <h1>{post.title}</h1>
-                            <div className="desc">
-                                {post.resum}
-                            </div>
-                            <NotificationNewsletter />
-                            <InnerHTML html={{__html: post.content }} />
-                            {/* {post.tag.map((tag: any, key:number) => (
-                                <div key={key}>{tag.attributes.Titre}</div>
-                            ))} */}
-                        </article>
+                        
+                        {posts.map((post: any, key:number) => (
+                            <article key={key}>
+                                <div className="radius aspect-16-9 cover mb-5">
+                                    <Image src={post._embedded['wp:featuredmedia']['0'].source_url} alt={post.title} fill={true} sizes="(max-width: 768px) 100%, 33%" />
+                                </div>
+                                <h1>{post.title.rendered}</h1>
+                                <div className="desc">
+                                    <InnerHTML html={{__html: post.excerpt.rendered }} />
+                                </div>
+                                <NotificationNewsletter />
+                                <InnerHTML html={{__html: post.content.rendered }} />
+                                {/* {post.tag.map((tag: any, key:number) => (
+                                    <div key={key}>{tag.attributes.Titre}</div>
+                                ))} */}
+                                
+                            </article>
+                        ))}
                     </div>
                 </section>
                 <section className="col-md-2 order-1">

@@ -1,9 +1,12 @@
 
 import React from 'react'
+import { Metadata } from 'next'
+
+import { getAllPosts, getTags } from '@/src/query/posts.query'
+
 import SearchFilter from './components/SearchFilter'
 import TagFilter from './components/TagFilter'
 import TeasePost from './components/TeasePost'
-import { Metadata } from 'next'
 import Anchor from '@/components/ui/Anchor'
 import prisma from '@/libs/prisma'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
@@ -16,13 +19,6 @@ export const metadata: Metadata = {
     description: 'Description de la page blog',
 }
 
-async function getPosts(postsPerPage:number, skip:number) {
-    const res = await prisma.post.findMany({
-        take: postsPerPage,
-        skip: skip
-    })
-    return res;
-}
 
 export default async function Blog({
     searchParams,
@@ -33,10 +29,15 @@ export default async function Blog({
     const postsPerPage      = 2
     const skip              = ( (page-1) * postsPerPage) 
 
-    const posts             = await getPosts(postsPerPage, skip)
-    const allPosts          = await prisma.post.findMany()
+    // const allPosts = await getAllPosts(page)
+    const tags = await getTags()
+    const posts = await getAllPosts(page,postsPerPage,skip)
+    console.log(posts);
     
-    const tags = await prisma.tag.findMany()
+    // const posts             = await getPosts(postsPerPage, skip)
+    // const allPosts          = await prisma.post.findMany()
+    
+    // const tags = await prisma.tag.findMany()
   
     return (
         <main className="container">
@@ -64,7 +65,7 @@ export default async function Blog({
                             </div>
                         ))}
                     </div>
-                    <Pagination postsPerPage={postsPerPage} totalPosts={allPosts.length}/>
+                    <Pagination postsPerPage={postsPerPage} totalPosts={8}/>
                 </section>
             </div>
         </main>

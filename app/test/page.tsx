@@ -1,14 +1,6 @@
-import { PrismaClient } from '@prisma/client';
- 
-const prisma = new PrismaClient();
- 
+import { getAllPosts } from "@/src/query/posts.query";
+
 export default async function Test() {
-//   const newUser = await prisma.user.create({
-//     data: {
-//       name: 'Elliott',
-//       email: 'xelliottx@example-user.com',
-//     },
-//   });
- 
-//   const users = await prisma.user.findMany();
+    const data = await getAllPosts()
+    console.log(data);
 }

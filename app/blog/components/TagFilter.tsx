@@ -13,7 +13,7 @@ const TagFilter = ({tags}:{tags:Tag[]}) => {
             className="tag tag-outline-theme d-inline-flex mr-2 mb-2"
             key={key}
           >
-            {tag.title}
+            {tag.name}
           </Link>
         ))}
       </div>
