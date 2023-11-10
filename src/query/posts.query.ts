@@ -30,3 +30,19 @@ export async function getTags() {
     }
     return res.json()
 }
+
+export async function GetPostsBytag(tag:string) {
+  const getTag = await fetch(`${process.env.WORDPRESS_API_ENDPOINT}/tags?slug=${tag}`, { cache: 'force-cache' })
+  if (!getTag.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+
+  const tagJson = await getTag.json();
+  if (!tagJson) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  
+  const res = await fetch(`${process.env.WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}`, { cache: 'force-cache' })
+  
+  return res.json()
+}

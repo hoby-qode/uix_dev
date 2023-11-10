@@ -17,7 +17,6 @@ import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb';
 import { ResolvingMetadata, Metadata } from 'next';
 import { Props } from 'next/script';
 
-
 export default function Loading() {
     return (
         <main className="container content">

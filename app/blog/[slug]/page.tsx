@@ -1,8 +1,6 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import vs2015 from 'react-syntax-highlighter/dist/esm/styles/hljs/vs2015';
-import TeasePost from '../components/TeasePost';
 import SearchFilter from '../components/SearchFilter';
 import TagFilter from '../components/TagFilter';
 import InnerHTML from '@/components/ui/InnerHTML';
@@ -10,13 +8,16 @@ import Link from 'next/link';
 import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter';
 import ProgessBar from '@/components/ui/progessBar';
 import { notFound } from 'next/navigation';
-import prisma from '@/libs/prisma';
 import Anchor from '@/components/ui/Anchor';
 import Image from 'next/image';
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb';
 import { ResolvingMetadata, Metadata } from 'next';
 import { Props } from 'next/script';
 import { getPost, getTags } from '@/src/query/posts.query';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export const revalidate = 3600
 
@@ -26,8 +27,6 @@ export async function generateMetadata(
   ): Promise<Metadata> {
     // read route params
     const slug = params.slug
-    console.log(slug);
-    
     const post = await getPost(String(slug))
    
     return {
@@ -42,29 +41,16 @@ export async function generateMetadata(
 }
 
 export default async function Blog({ params }: { params: { slug: string } }) {
+
+    // Ajout du langage javascript dans le module highlightjs.org 
+    hljs.registerLanguage('javascript', javascript);
     
-    function CodeBlock({ content }:{content:any}) {
-        console.log(content);
-        
-        // Extract code between triple backticks
-        const codeRegex = /<pre><code[^>]*>([\s\S]*?)<\/code><\/pre>/g;
-        const matches = content.match(codeRegex);
-    
-        if (!matches) {
-            return null; // Handle case where no code blocks are found
-        }
-    
-        const code = matches.map((match: string) => match.replace(/<\/?pre><code[^>]*>|<\/code><\/pre>/g, ''));
-        return (
-            <SyntaxHighlighter language="javascript" style={vs2015} showLineNumbers>
-                {code.join('\n\n')}
-            </SyntaxHighlighter>
-        );
-    }
+    //Récupération du post avec son slug 
     const posts = await getPost(String(params.slug))
     
+    //Récupération des tags
     const tags = await getTags()
-
+    
     if (!posts) {
 		return notFound()
 	}
@@ -96,10 +82,6 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                 </div>
                                 <NotificationNewsletter />
                                 <InnerHTML html={{__html: post.content.rendered }} />
-                                {/* {post.tag.map((tag: any, key:number) => (
-                                    <div key={key}>{tag.attributes.Titre}</div>
-                                ))} */}
-                                
                             </article>
                         ))}
                     </div>
