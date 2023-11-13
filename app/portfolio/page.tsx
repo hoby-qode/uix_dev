@@ -5,20 +5,24 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import Anchor from '@/components/ui/Anchor'
 import styles from './galerie.module.css'
+import { findAllPorfolios } from '@/src/query/porfolio.query'
 
 export const metadata: Metadata = {
   title: 'UIX DEV : Portfolio',
   description: 'Description de la page portfolio',
 }
-const Portfolio = () => {
+export default async function Portfolio() {
+  const allProjects = await findAllPorfolios()
+
   return (
     <>
       <div className={`${styles.galleryProject_filter} container`}>
-      <Anchor />
+        <Anchor />
         <div className="row">
           <div className="col-md-8">
             <h2 className="my-0">
-              Mes <strong>réalisations</strong> de l&apos;année <strong>2023</strong>
+              Mes <strong>réalisations</strong> de l&apos;année{' '}
+              <strong>2023</strong>
             </h2>
           </div>
           <div className="col-md-4">
@@ -37,5 +41,3 @@ const Portfolio = () => {
     </>
   )
 }
-
-export default Portfolio

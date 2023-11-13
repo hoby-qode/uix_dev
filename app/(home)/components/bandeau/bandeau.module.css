@@ -1,0 +1,46 @@
+.bandeauContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.bandeau1 {
+    top: 76%;
+    transform: translate(-50%,-50%) rotate(351deg);
+    transform-origin: center center;
+    left: 50%;
+}
+.bandeau2 {
+    top: 73%;
+    transform: translate(-50%,-50%) rotate(371deg);
+    transform-origin: center center;
+    left: 50%;
+}
+.bandeau3 {
+    top: 23%;
+    transform: translate(-50%,-50%) rotate(354deg);
+    transform-origin: center center;
+    left: 50%;
+}
+.bandeau {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    padding: 15px;
+    font-size: 10rem;
+    font-family: var(--antartica);
+    font-variation-settings: "wght" 700;
+    white-space: nowrap;
+    position: absolute;
+    line-height: 1;
+    box-shadow: 0 0 50px rgb(0 0 1 / 55%);
+    border: 1px solid hsl(var(--border) / 20%);
+    text-transform: uppercase;
+}
+.bandeau span {
+    display: block;
+}
+.bandeau span:last-child {
+    position: absolute;
+    right: -100%;
+    top: 15px;
+}

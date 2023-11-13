@@ -1,11 +1,29 @@
 .btn {
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: var(--radius);
     font-size: 2rem;
     font-weight: normal;
     display: inline-block;
     transition:.5s;
     line-height: 120%;
+    border: 0;
+    cursor: pointer;
+}
+.btn__xxl {
+    padding: 20px 25px;
+}
+.btn__xl {
+    padding: 15px 20px;
+}
+.btn__lg {
+    padding: 10px 15px;
+}
+.btn__md {
+    padding: 5px 10px;
+}
+.btn__sm {
+    padding: 5px 10px;
+    font-size: 1.2rem;
 }
 .btn-primary, .tag-primary {
     background-color: hsl(var(--primary));
@@ -23,6 +41,22 @@
         background-color: hsl(var(--secondary)/40%);
         transition:.5s;
     }
+.btn-danger, .tag-danger {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+}
+    .btn-danger:hover, .tag-danger:hover {
+        background-color: hsl(var(--destructive)/40%);
+        transition:.5s;
+    }
+.btn-succes, .tag-succes {
+    background-color: hsl(var(--tertiary));
+    color: hsl(var(--tertiary-foreground));
+}
+    .btn-succes:hover, .tag-succes:hover {
+        background-color: hsl(var(--tertiary)/40%);
+        transition:.5s;
+    }    
 .btn-theme-color,.tag-theme-color {
     background-color: hsl(var(--foreground));
     color: hsl(var(--background));
@@ -51,6 +85,8 @@
     font-weight: normal;
     display: inline-block;
     margin: 5px;
+    outline: 0;
+    cursor: pointer;
 }
 @media screen and (max-width:768px) {
     .btn {

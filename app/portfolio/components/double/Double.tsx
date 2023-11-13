@@ -14,7 +14,7 @@ export default function Double({ projects, reversed }) {
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
     setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
-  },[isMobile])
+  }, [isMobile])
   const manageMouseMove = (e: EventSourceInit) => {
     if (isMobile) {
       return false
@@ -35,7 +35,6 @@ export default function Double({ projects, reversed }) {
     //Change width of images between 33.33% and 66.66% based on cursor
     const firstImagePercent = 66.66 - currentXPercent * 0.33
     const secondImagePercent = 33.33 + currentXPercent * 0.33
-    console.log(secondImagePercent)
     firstImage.current.style.width = `${firstImagePercent}%`
     secondImage.current.style.width = `${secondImagePercent}%`
 

@@ -68,3 +68,19 @@
     font-size: 2.2rem;
     cursor: pointer;
 }
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+.input-group input , .input-group textarea{
+    width: 100%;
+    padding: 10px 15px 10px 0;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid hsl(var(--border));
+    background: transparent;
+    color: hsl(var(--background));
+    font-family: var(--raleway);
+}

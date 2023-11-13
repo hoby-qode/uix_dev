@@ -1,0 +1,33 @@
+.newsletter {
+    padding: 2.5rem;
+    border: 1px solid hsl(var(--foreground)/10%);
+    border-radius: var(--radius);
+    font-size: 2.5rem;
+    line-height: 120%;
+    font-weight: 500;
+    background: hsl(var(--border));
+    margin: 4rem 0;
+}
+.form_newsletter {
+    display: flex;
+    align-items: center;
+}
+.form_newsletter form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form_newsletter form input {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 0;
+    padding: 1.2rem;
+    outline: 0;
+}
+.form_newsletter form button {
+    padding: 1.2rem;
+    margin-top: 10px;
+    font-family: var(--raleway);
+    cursor: pointer;
+    text-transform: uppercase;
+}

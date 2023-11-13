@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
       },
+      {
+        protocol: 'http',
+        hostname: "0.gravatar.com"
+      }
     ],
   },
 }

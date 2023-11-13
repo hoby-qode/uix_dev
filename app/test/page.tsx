@@ -1,6 +1,5 @@
-import { getAllPosts } from "@/src/query/posts.query";
+import { findAllPosts } from '@/src/query/posts.query'
 
 export default async function Test() {
-    const data = await getAllPosts()
-    console.log(data);
+  const data = await findAllPosts()
 }
