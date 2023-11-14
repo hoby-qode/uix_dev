@@ -4,6 +4,7 @@ import React from 'react'
 import ListsComments from '../components/comments/lists/ListsComments'
 import { embeddable } from '@/src/types/types'
 import Image from 'next/image'
+import FormComments from '../components/comments/form/FormComments'
 const Single = ({post}) => {
   console.log(post.id);
   return (
@@ -32,11 +33,12 @@ const Single = ({post}) => {
         <ListsComments
           comments={post._embedded.replies}
           postTitle={post.title.rendered}
+          idPost={post.id}
         />
       ) : (
         ''
       )}
-      {/* {post._embedded.replies ? <FormComments /> : ''} */}
+      <FormComments idPost={post.id} />
     </article>
   )
 }

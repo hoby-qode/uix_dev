@@ -16,7 +16,7 @@ import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import 'react-loading-skeleton/dist/skeleton.css'
 import ListsComments from '../components/comments/lists/ListsComments'
-import FormComments from '../components/comments/form/FormComments'
+import FormComments from '../components/comments/form/FormCommentsModal'
 import { Post, embeddable } from '@/src/types/types'
 import Single from './Single'
 
