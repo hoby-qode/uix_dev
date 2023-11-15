@@ -5,8 +5,24 @@ import ListsComments from '../components/comments/lists/ListsComments'
 import { embeddable } from '@/src/types/types'
 import Image from 'next/image'
 import FormComments from '../components/comments/form/FormComments'
-const Single = ({post}) => {
-  console.log(post.id);
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+const renderCodeBlocks = (html:any) => {
+  const codeBlocks = html.match(/<pre[\s\S]*?<\/pre>/g) || [];
+  return codeBlocks.map((codeBlock:any, index:number) => (
+    <SyntaxHighlighter key={index} language="javascript" style={vs2015}>
+      {codeBlock.replace(/<\/?(code|pre)[^>]*>/g, '')}
+    </SyntaxHighlighter>
+  ));
+};
+
+const extractCodeFromHtml = (html) => {
+  const codeBlocks = html.match(/<pre[\s\S]*?<\/pre>/g) || [];
+  return codeBlocks.map((codeBlock:any) => codeBlock.replace(/<\/?pre.*?>/g, ''));
+};
+const Single = ({post}:{post:any}) => {
+  console.log(post);
+  const codeBlocks = extractCodeFromHtml(post.content.rendered);
   return (
     <article >
       {post._embedded['wp:featuredmedia'] ? (
@@ -27,7 +43,10 @@ const Single = ({post}) => {
       </div>
       {}
       <NotificationNewsletter />
-      <InnerHTML html={{ __html: post.content.rendered }} />
+      <div className="post-content">
+        <InnerHTML html={{ __html: post.content.rendered.replace(/<pre[\s\S]*?<\/pre>/g, '') }} />
+        {renderCodeBlocks(post.content.rendered)}
+      </div>
 
       {post._embedded.replies ? (
         <ListsComments
