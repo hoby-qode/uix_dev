@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache';
 const FormComments = ({ idPost }: { idPost: number }) => {
     
   return (
-    <form action={async (formData:FormData) => {
+    <form style={{marginTop: "8rem"}} autoComplete='off' action={async (formData:FormData) => {
         'use server'
         const data = JSON.stringify({
           // status: 'approved',
@@ -31,21 +31,25 @@ const FormComments = ({ idPost }: { idPost: number }) => {
 
         revalidatePath('/blog/[slug]', 'page')
       }}>
-      <div className="input-group">
-        <input type="text" placeholder="Votre prénom" id="prenom" name='author'/>
-        <label htmlFor="prenom">Votre prénom</label>
+      <h2 className='like-h3'>Laisser un commentaire</h2>
+      <div className="row">
+        <div className="col-md-6 input-group mb-5 flex-column-reverse">
+          <input type="text" placeholder="Hobitiana Marcel" id="prenom" name='author' style={{color:"hsl(var(--foreground))"}}/>
+          <label htmlFor="prenom">Votre prénom</label>
+        </div>
+        <div className="col-md-6 input-group mb-5 flex-column-reverse">
+          <input type="email" placeholder="contact@gmail.com" id="email" name='mail' style={{color:"hsl(var(--foreground))"}}/>
+          <label htmlFor="email">Votre email</label>
+        </div>
       </div>
-      <div className="input-group">
-        <input type="email" placeholder="Votre mail" id="email" name='mail'/>
-        <label htmlFor="email">Votre email</label>
-      </div>
-      <div className="input-group">
+      <div className="input-group mb-5 flex-column-reverse">
         <textarea
-          placeholder="Votre commentaire"
+          placeholder="Bonjour,"
           id="commentaire"
           cols={10}
           rows={5}
           name='comment'
+          style={{color:"hsl(var(--foreground))"}}
           ></textarea>
         <label htmlFor="commentaire">Votre commentaire</label>
       </div>

@@ -34,7 +34,7 @@ export async function replyComment({idPost, idComment},formData: FormData) {
     author_name: formData.get('author'),
     author_email: formData.get('mail'),
     content: formData.get('comment'),
-    parent: 1
+    parent: idComment
   })
   
   try {

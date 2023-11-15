@@ -28,7 +28,7 @@ const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
           {date}
         </div>
       </div>
-      <div className="desc">
+      <div className={styles.teaseComment_content}>
         <InnerHTML html={{ __html: comment.content.rendered }} />
       </div>
       <span className="d-flex align-items-center" onClick={openModal}>

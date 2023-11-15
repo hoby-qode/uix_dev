@@ -1,10 +1,11 @@
-import { TbLoader } from 'react-icons/tb'
+import Image from 'next/image'
 
 export default function Loading() {
-  // Or a custom loading skeleton component
   return (
-    <div className="h-100 w-100 d-flex align-content-center justify-content-center">
-      <TbLoader />
+    <div className="vh-100 vw-100 d-flex align-content-center justify-content-center">
+      <Image src="/images/loader/loader.gif" priority 
+        layout='fill'
+        objectFit='contain' alt='loader'/>
     </div>
   )
 }
