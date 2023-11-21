@@ -16,7 +16,7 @@ const FormComments = ({ idPost }: { idPost: number }) => {
         
         try {
           const reponse = await fetch(
-            `${process.env.WORDPRESS_API_ENDPOINT}/comments/`,
+            `${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/comments/`,
             {
               method: 'POST', // ou 'PUT'
               headers: {
