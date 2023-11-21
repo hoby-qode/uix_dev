@@ -37,7 +37,7 @@ const NotificationNewsletter = () => {
               type="submit"
               className="d-flex align-items-center justify-content-between"
             >
-              S'inscrire <TbArrowRight />
+              S&apos;inscrire <TbArrowRight />
             </button>
           </form>
         </div>

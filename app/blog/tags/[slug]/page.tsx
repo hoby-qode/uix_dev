@@ -1,16 +1,15 @@
 import React from 'react'
 import SearchFilter from '../../components/searchFilter/SearchFilter'
 import TagFilter from '../../components/tagsFilter/TagFilter'
-import { findPostBySlugsBytag, getTags } from '@/src/query/posts.query'
+import { findPostBySlug, getTags } from '@/src/query/posts.query'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import Anchor from '@/components/ui/Anchor'
-import Pagination from '@/components/ui/Pagination'
 import TeasePost from '../../components/teasePost/TeasePost'
 
 export const revalidate = 3600
 
 export default async function Tags({ params }: { params: { slug: string } }) {
-  const posts = await findPostBySlugsBytag(params.slug)
+  const posts = await findPostBySlug(params.slug)
   const tags = await getTags()
   return (
     <main className="container">

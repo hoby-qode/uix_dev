@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <div className="container text-center pt-5 ">
-      <h2>Quelque chose s'est mal passé !</h2>
+      <h2>Quelque chose s&apos;est mal passé !</h2>
       <button className='btn btn-primary'
         onClick={
           // Attempt to recover by trying to re-render the segment

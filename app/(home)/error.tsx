@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <div>
-      <h2>Quelque chose s'est mal passé !</h2>
+      <h2>Quelque chose s&apos;est mal passé !</h2>
       <button
         onClick={
           // Attempt to recover by trying to re-render the segment
