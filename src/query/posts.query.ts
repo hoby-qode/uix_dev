@@ -1,5 +1,9 @@
 export async function findAllPosts() {
+  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`);
+  
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`, { cache: 'force-cache' })
+  console.log();
+  
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
