@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-email/render": "^0.0.7",
