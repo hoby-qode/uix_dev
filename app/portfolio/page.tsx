@@ -5,14 +5,14 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import Anchor from '@/components/ui/Anchor'
 import styles from './galerie.module.css'
-import { findAllPorfolios } from '@/src/query/porfolio.query'
+// import { findAllPorfolios } from '@/src/query/porfolio.query'
 
 export const metadata: Metadata = {
   title: 'UIX DEV : Portfolio',
   description: 'Description de la page portfolio',
 }
 export default async function Portfolio() {
-  const allProjects = await findAllPorfolios()
+  // const allProjects = await findAllPorfolios()
 
   return (
     <>
