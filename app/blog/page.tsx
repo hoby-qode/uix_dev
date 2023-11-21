@@ -2,7 +2,6 @@ import React from 'react'
 import { Metadata } from 'next'
 
 import {
-  GetCountPosts,
   findAllPosts,
   findPosts,
   getTags,
@@ -12,7 +11,6 @@ import SearchFilter from './components/searchFilter/SearchFilter'
 import TagFilter from './components/tagsFilter/TagFilter'
 import TeasePost from './components/teasePost/TeasePost'
 import Anchor from '@/components/ui/Anchor'
-import prisma from '@/libs/prisma'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import Pagination from '@/components/ui/Pagination'
 import { embeddable } from '@/src/types/types'
