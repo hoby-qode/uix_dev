@@ -1,12 +1,5 @@
 import React from 'react'
 import { Metadata } from 'next'
-
-import {
-  findAllPosts,
-  findPosts,
-  getTags,
-} from '@/src/query/posts.query'
-import TeasePost from './components/teasePost/TeasePost'
 import Anchor from '@/components/ui/Anchor'
 import { embeddable } from '@/src/types/types'
 
