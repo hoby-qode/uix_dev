@@ -1,18 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
-
-import {
-  findAllPosts,
-  findPosts,
-  getTags,
-} from '@/src/query/posts.query'
-
-import SearchFilter from './components/searchFilter/SearchFilter'
-import TagFilter from './components/tagsFilter/TagFilter'
-import TeasePost from './components/teasePost/TeasePost'
 import Anchor from '@/components/ui/Anchor'
-import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
-import Pagination from '@/components/ui/Pagination'
 import { embeddable } from '@/src/types/types'
 
 export const revalidate = 3600
@@ -21,54 +9,31 @@ export const metadata: Metadata = {
   title: 'UIX DEV : Blog',
   description: 'Description de la page blog',
 }
-if (process.env.NODE_ENV === 'production') {
-  console.error = (...args) => {
-    // Log errors in production
-    // You can also send the error data to a logging service
-    console.log(...args);
-  };
+
+export async function findAllPosts() {
+  const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?status=publish`, { cache: 'no-cache' })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return res.json()
 }
-export default async function Blog({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined }
-}) {
-  const page = parseInt(searchParams?.page as string) || 1
-  const postsPerPage = 2
-  const skip = (page - 1) * postsPerPage
+export default async function Blog() {
 
-  const allPosts = await findAllPosts()
-  const countAllPosts = allPosts.length
-
-  const tags = await getTags()
-  const posts = await findPosts(page, postsPerPage, skip)
+  const posts = await findAllPosts()
   return (
     <main className="container">
       <Anchor />
       <div className="row justify-content-between">
         <section className="col-xl-2 col-lg-3">
-          <div className="sticky-top">
-            <SearchFilter />
-            <TagFilter tags={tags} />
-          </div>
+          
         </section>
         <section className="col-md-9">
-          <NextBreadcrumb
-            homeElement={'Uix dev'}
-            separator={<span> &gt; </span>}
-            activeClasses="active"
-            containerClasses="d-flex gap-10 ml-0 pl-0"
-            listClasses="list-style-none"
-            capitalizeLinks
-          />
+          
           <div className="row">
             {posts.map((article: embeddable, key: number) => (
-              <div className="col-xl-4 col-lg-6" key={key}>
-                <TeasePost article={article} key={key} />
-              </div>
+              <h2 key={key}>{article.title.rendered}</h2>
             ))}
           </div>
-          <Pagination postsPerPage={postsPerPage} totalPosts={countAllPosts} />
         </section>
       </div>
     </main>
