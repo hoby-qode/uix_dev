@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import Anchor from '@/components/ui/Anchor'
 import { embeddable } from '@/src/types/types'
+import TeasePost from './components/TeasePost'
 
 export const revalidate = 3600
 
@@ -31,7 +32,7 @@ export default async function Blog() {
           
           <div className="row">
             {posts.map((article: embeddable, key: number) => (
-              <h2 key={key}>{article.title.rendered}</h2>
+              <TeasePost article={article} key={key} />
             ))}
           </div>
         </section>
