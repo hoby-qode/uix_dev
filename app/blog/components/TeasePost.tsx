@@ -27,7 +27,7 @@ const TeasePost = ({article}:{article:any}) => {
       <h3 className="like-h4 color-primary">
         <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
       </h3>
-      {/* <div className={styles.date}>Publié le : {createdAt}</div>
+       {/* <div className={styles.date}>Publié le : {createdAt}</div> */}
        <div>
         <InnerHTML html={{__html: article.excerpt.rendered }} />
       </div>
@@ -37,7 +37,7 @@ const TeasePost = ({article}:{article:any}) => {
         className="tag tag-theme-color d-inline-flex mt-5"
       >
         Voir l&apos;article
-      </Link>  */}
+      </Link>  
     </article>
   )
 }
