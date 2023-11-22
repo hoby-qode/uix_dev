@@ -97,7 +97,7 @@
     height: 80px;
     border-radius: 50%;
     background-color: hsl(var(--secondary));
-    color: hsl(var(--secondare-foreground));
+    color: hsl(var(--secondary-foreground));
     position: fixed;
     z-index: 2;
     display: flex;
