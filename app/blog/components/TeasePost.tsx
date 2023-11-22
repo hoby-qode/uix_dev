@@ -13,20 +13,21 @@ const TeasePost = ({article}:{article:any}) => {
     <article className={styles.card}>
       <div className="picture">
         <Link href={`/blog/${article.slug}`} className='position-relative cover zoom aspect-16-9 radius d-flex'>
-          <Image
+          {/* <Image
             src={article._embedded['wp:featuredmedia']['0'].source_url}
             alt="Lorem ipsum"
             layout="fill"
             fill={true}
             objectFit="cover"
             sizes="(max-width: 768px) 100%, 33%"
-          />
+          /> */}
+          Image
         </Link>
       </div> 
       <h3 className="like-h4 color-primary">
         <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
       </h3>
-      <div className={styles.date}>Publié le : {createdAt}</div>
+      {/* <div className={styles.date}>Publié le : {createdAt}</div>
        <div>
         <InnerHTML html={{__html: article.excerpt.rendered }} />
       </div>
@@ -36,7 +37,7 @@ const TeasePost = ({article}:{article:any}) => {
         className="tag tag-theme-color d-inline-flex mt-5"
       >
         Voir l&apos;article
-      </Link> 
+      </Link>  */}
     </article>
   )
 }
