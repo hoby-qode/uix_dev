@@ -24,7 +24,7 @@ const nextConfig = {
     return [
         {
             // matching all API routes
-            source: "/api/:path*",
+            source: "/wp-json/:path*",
             headers: [
                 { key: "Access-Control-Allow-Credentials", value: "true" },
                 { key: "Access-Control-Allow-Origin", value: "http://uixdev.s193304.mos2.atester.fr" }, // replace this your actual origin
