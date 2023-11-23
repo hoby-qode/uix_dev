@@ -1,7 +1,7 @@
 export async function findAllPosts() {
-  console.log(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?status=publish`);
+  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`);
   
-  const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?status=publish`, { cache: 'force-cache' })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`, { cache: 'force-cache' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -9,7 +9,7 @@ export async function findAllPosts() {
 }
 
 export async function findPosts(page:number, postsPerPage:number, skip:number) {
-    const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, { cache: 'no-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, { cache: 'no-cache' })
     
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
@@ -18,7 +18,7 @@ export async function findPosts(page:number, postsPerPage:number, skip:number) {
 }
 
 export async function findPostBySlug(slug:string) {
-    const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?_embed&slug=${slug}&status=publish`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&slug=${slug}&status=publish`, { cache: 'force-cache' })
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
     }
@@ -26,7 +26,7 @@ export async function findPostBySlug(slug:string) {
 }
 
 export async function getCategories() {
-    const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/category?hide_empty=true`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/category?hide_empty=true`, { cache: 'force-cache' })
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
     }
@@ -34,7 +34,7 @@ export async function getCategories() {
 }
 
 export async function getTags() {
-    const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/tags?hide_empty=true`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?hide_empty=true`, { cache: 'force-cache' })
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
     }
@@ -42,7 +42,7 @@ export async function getTags() {
 }
 
 export async function findPostsBytag(tag:string) {
-  const getTag = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/tags?slug=${tag}&status=publish`, { cache: 'force-cache' })
+  const getTag = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?slug=${tag}&status=publish`, { cache: 'force-cache' })
   if (!getTag.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -52,8 +52,8 @@ export async function findPostsBytag(tag:string) {
     throw new Error('Erreur lors de la récupération des données')
   }
   
-  const res = await fetch(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?tags=${tagJson[0].id}&_embed&status=publish`, { cache: 'force-cache' })
-  console.log(`http://uixdev.s193304.mos2.atester.fr/wp-json/wp/v2/posts?tags=${tagJson[0].id}&?_embed`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}&_embed&status=publish`, { cache: 'force-cache' })
+  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}&?_embed`);
   
   return res.json()
 }
