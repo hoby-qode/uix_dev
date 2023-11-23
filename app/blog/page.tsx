@@ -31,10 +31,10 @@ export default async function Blog({
   const postsPerPage = 2
   const skip = (page - 1) * postsPerPage
 
-  // const allPosts = await findAllPosts()
-  // const countAllPosts = allPosts.length
+  const allPosts = await findAllPosts()
+  const countAllPosts = allPosts.length
 
-  // const tags = await getTags()
+  const tags = await getTags()
   const posts = await findPosts(page, postsPerPage, skip)
   return (
     <main className="container">
@@ -43,7 +43,7 @@ export default async function Blog({
         <section className="col-xl-2 col-lg-3">
           <div className="sticky-top">
             <SearchFilter />
-            {/* <TagFilter tags={tags} /> */}
+            <TagFilter tags={tags} />
           </div>
         </section>
         <section className="col-md-9">
@@ -58,12 +58,11 @@ export default async function Blog({
           <div className="row">
              {posts.map((article: embeddable, key: number) => (
               <div className="col-xl-4 col-lg-6" key={key}>
-                {/* <TeasePost article={article} key={key} /> */}
-                <h2>{article.title.rendered}</h2>
+                <TeasePost article={article} key={key} />
               </div>
             ))} 
           </div>
-          {/* <Pagination postsPerPage={postsPerPage} totalPosts={countAllPosts} /> */}
+          <Pagination postsPerPage={postsPerPage} totalPosts={countAllPosts} />
         </section>
       </div>
     </main>
