@@ -12,7 +12,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 'http://uixdev.s193304.mos2.atester.fr',
+        hostname: 'uixdev.s193304.mos2.atester.fr',
       },
       {
         protocol: 'http',
