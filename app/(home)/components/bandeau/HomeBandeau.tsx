@@ -15,10 +15,6 @@ const HomeBandeau = () => {
   let direction = -1
 
   const theme = useTheme()
-
-  useEffect(() => {
-    requestAnimationFrame(animation)
-  }, [])
   const animation = () => {
     if (xPercent <= -100) {
       xPercent = 0
@@ -35,6 +31,10 @@ const HomeBandeau = () => {
     xPercent += 0.02 * direction
     requestAnimationFrame(animation)
   }
+  useEffect(() => {
+    requestAnimationFrame(animation)
+  }, [animation])
+  
   return (
     <div style={{ marginTop: '-72vh' }} className={styles.bandeauContainer}>
       <div className={`${styles.bandeau1} ${styles.bandeau}`}>

@@ -11,16 +11,18 @@ const TeasePost = ({article}:{article:any}) => {
   
   return (
     <article className={styles.card}>
-      <div className="picture">
-        <Link href={`/blog/${article.slug}`} className='position-relative cover zoom aspect-16-9 radius d-flex'>
-          {article.featured_media != 0 ? <Image
-            src={article._embedded['wp:featuredmedia']['0'].media_details.sizes.medium.source_url}
-            alt="Lorem ipsum"
-            fill
-            sizes="(max-width: 768px) 100%, 33%"
-          /> : ''}
-        </Link>
-      </div> 
+      {article.featured_media != 0 
+        ? <div className="picture">
+          <Link href={`/blog/${article.slug}`} className='position-relative cover zoom aspect-16-9 radius d-flex'>
+            <Image
+              src={article._embedded['wp:featuredmedia']['0'].media_details.sizes.medium.source_url}
+              alt="Lorem ipsum"
+              fill
+              sizes="(max-width: 768px) 100%, 33%"
+            /> 
+          </Link>
+        </div> 
+        : ''}
       <h3 className="like-h4 color-primary">
         <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
       </h3>
