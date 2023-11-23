@@ -22,7 +22,7 @@ const NotificationNewsletter = () => {
   return (
     <div className={styles.newsletter}>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6 mb-4 mb-md-0">
           Abonné à mon newsletter pour suivre mes nouvelles
         </div>
         <div className={`col-md-6 ${styles.form_newsletter}`}>

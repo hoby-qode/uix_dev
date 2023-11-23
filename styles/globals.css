@@ -19,7 +19,7 @@
   --muted: 0 0% 96.1%;
   --muted-foreground: 0 0% 98%;
 
-  --accent: 0 0% 81.1%;
+  --accent: 0 0% 95%;
   --accent-foreground: 0 0% 9%;
 
   --destructive: 0 84.2% 60.2%;
@@ -84,9 +84,18 @@ body {
   padding: 0;
   margin: 0;
 }
+body p {
+  color: hsl(var(--foreground)/80%);
+}
 @media screen and (max-width:991px) {
   body {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 140%;
+  }
+}
+@media screen and (max-width:768px) {
+  html,body {
+    overflow-x: hidden;
   }
 }
 .light header {
@@ -108,4 +117,18 @@ html.lenis {
 .content img {
   max-width: 100%;
   max-height: 100%;
+}
+
+em {
+  font-weight: 500;
+  margin-bottom: 0;
+  display: block;
+  font-size: 1.5rem;
+  color: hsl(var(--foreground));
+}
+
+pre {
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 10px 15px!important;
 }

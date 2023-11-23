@@ -11,12 +11,12 @@ const TeasePost = ({ article }: { article: embeddable }) => {
 
   return (
     <article className={styles.card}>
+      {article._embedded['wp:featuredmedia'] ? (
       <div className="picture">
         <Link
           href={`/blog/${article.slug}`}
           className="position-relative cover zoom aspect-16-9 radius d-flex"
         >
-          {article._embedded['wp:featuredmedia'] ? (
             <Image
               src={article._embedded['wp:featuredmedia']['0'].source_url}
               alt="Lorem ipsum"
@@ -25,11 +25,11 @@ const TeasePost = ({ article }: { article: embeddable }) => {
               objectFit="cover"
               sizes="(max-width: 768px) 100%, 33%"
             />
-          ) : (
-            ''
-          )}
         </Link>
       </div>
+      ) : (
+        ''
+      )}
       <h3 className="like-h4 color-primary">
         <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
       </h3>

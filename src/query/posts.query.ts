@@ -1,6 +1,4 @@
 export async function findAllPosts() {
-  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`);
-  
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`, { cache: 'force-cache' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
@@ -53,7 +51,5 @@ export async function findPostsBytag(tag:string) {
   }
   
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}&_embed&status=publish`, { cache: 'force-cache' })
-  console.log(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}&?_embed`);
-  
   return res.json()
 }

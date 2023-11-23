@@ -21,7 +21,6 @@ const extractCodeFromHtml = (html) => {
   return codeBlocks.map((codeBlock:any) => codeBlock.replace(/<\/?pre.*?>/g, ''));
 };
 const Single = ({post}:{post:any}) => {
-  console.log(post);
   const codeBlocks = extractCodeFromHtml(post.content.rendered);
   return (
     <article >

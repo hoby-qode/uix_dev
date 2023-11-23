@@ -7,6 +7,7 @@ import styles from './comment.module.css'
 import Image from 'next/image'
 import {FaRegCommentDots} from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const date = new Date(comment.date).toLocaleDateString()
@@ -18,7 +19,11 @@ const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
   }
   
   return (
-    <div className={styles.teaseComment}>
+    <motion.div 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }} 
+    className={styles.teaseComment}>
       <div className={styles.teaseComment_head}>
         <div className={styles.teaseComment_head_picture}>
           <Image src={comment.author_avatar_urls['96']} alt='' width={40} height={40} />
@@ -46,7 +51,7 @@ const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
       ) : (
         ''
       )}
-    </div>
+    </motion.div>
   )
 }
 

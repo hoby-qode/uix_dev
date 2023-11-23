@@ -80,7 +80,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        <section className="col-lg-3 order-3">
+        <section className="col-lg-3 order-3  d-none d-md-block">
           <div className="sticky-top">
             <div className="tab-navigation d-flex flex-column">
               <Link href="#" className="active">
