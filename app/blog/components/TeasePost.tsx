@@ -16,9 +16,7 @@ const TeasePost = ({article}:{article:any}) => {
           {article.featured_media != 0 ? <Image
             src={article._embedded['wp:featuredmedia']['0'].media_details.sizes.medium.source_url}
             alt="Lorem ipsum"
-            layout="fill"
-            fill={true}
-            objectFit="cover"
+            fill
             sizes="(max-width: 768px) 100%, 33%"
           /> : ''}
         </Link>
