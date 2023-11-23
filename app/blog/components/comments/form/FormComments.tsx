@@ -1,6 +1,8 @@
+"use client"
 import React, { useState } from 'react'
+import {useFormStatus} from 'react-dom'
+
 import { createComment } from '@/app/actions/actions';
-import { revalidatePath } from 'next/cache';
 const FormComments = ({ idPost }: { idPost: number }) => {
   const CommentWithId = createComment.bind(null,idPost)
   return (
@@ -28,12 +30,13 @@ const FormComments = ({ idPost }: { idPost: number }) => {
         <label htmlFor="commentaire">Votre commentaire</label>
       </div>
       <div className="text-right">
-        <button type="submit" className="btn btn-primary">
-          Envoyer
-        </button>
+        <Submit />
       </div>
     </form>
   )
 }
-
+function Submit() {
+  const status = useFormStatus();
+   return <button type="submit" className="btn btn-primary" disabled={status.pending}>{status.pending ? 'Loading...' : 'Envoyer'}</button>
+}
 export default FormComments
