@@ -1,16 +1,14 @@
 'use server'
 import { revalidatePath } from 'next/cache';
-export async function createComment(formData: FormData) {
-
+export async function createComment(idPost:number,formData: FormData) {
   const data = JSON.stringify({
-    // status: 'approved',
-    post: 31,
+    post: idPost,
     author_name: formData.get('author'),
     author_email: formData.get('mail'),
     content: formData.get('comment'),
   })
   try {
-    const reponse = await fetch(
+    await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/comments/`,
       {
         method: 'POST', // ou 'PUT'
@@ -27,7 +25,7 @@ export async function createComment(formData: FormData) {
   revalidatePath('/blog/[slug]', 'page')
 }
 
-export async function replyComment({idPost, idComment},formData: FormData) {
+export async function replyComment({idPost, idComment}:{idPost:number;idComment:number},formData: FormData) {
 
   const data = JSON.stringify({
     post: idPost,
@@ -38,7 +36,7 @@ export async function replyComment({idPost, idComment},formData: FormData) {
   })
   
   try {
-    const reponse = await fetch(
+    await fetch(
       `${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/comments/`,
       {
         method: 'POST', // ou 'PUT'

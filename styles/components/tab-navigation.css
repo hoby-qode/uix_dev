@@ -26,3 +26,8 @@
 .tab-navigation a.active::before {
     opacity: 1;
 }
+.page-number.active {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    border-radius: var(--radius);
+}

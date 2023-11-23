@@ -28,7 +28,7 @@ export default async function Blog({
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const page = parseInt(searchParams?.page as string) || 1
-  const postsPerPage = 2
+  const postsPerPage = 3
   const skip = (page - 1) * postsPerPage
 
   const allPosts = await findAllPosts()

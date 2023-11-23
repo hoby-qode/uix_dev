@@ -2,35 +2,9 @@ import React, { useState } from 'react'
 import { createComment } from '@/app/actions/actions';
 import { revalidatePath } from 'next/cache';
 const FormComments = ({ idPost }: { idPost: number }) => {
-    
+  const CommentWithId = createComment.bind(null,idPost)
   return (
-    <form style={{marginTop: "8rem"}} autoComplete='off' action={async (formData:FormData) => {
-        'use server'
-        const data = JSON.stringify({
-          // status: 'approved',
-          post: idPost,
-          author_name: formData.get('author'),
-          author_email: formData.get('mail'),
-          content: formData.get('comment'),
-        })
-        
-        try {
-          const reponse = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/comments/`,
-            {
-              method: 'POST', // ou 'PUT'
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: data,
-            },
-          )
-        } catch (erreur) {
-          console.error('Erreur :', erreur)
-        }
-
-        revalidatePath('/blog/[slug]', 'page')
-      }}>
+    <form style={{marginTop: "8rem"}} autoComplete='off' action={CommentWithId} >
       <h2 className='like-h3'>Laisser un commentaire</h2>
       <div className="row">
         <div className="col-md-6 input-group mb-5 flex-column-reverse">

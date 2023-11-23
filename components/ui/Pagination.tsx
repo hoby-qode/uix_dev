@@ -5,7 +5,7 @@ import React from 'react'
 
 const Pagination = ({postsPerPage, totalPosts}:{postsPerPage: number ;totalPosts:number}) => {
     const pageNumbers = [];
- 
+    
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
         pageNumbers.push(i);
     }
@@ -22,13 +22,13 @@ const Pagination = ({postsPerPage, totalPosts}:{postsPerPage: number ;totalPosts
             </Link>
         </li> : ''}
 
-        {pageNumbers.map((number) => (
-            <li key={number} className="page-number list-style-none">
+        {pageNumbers.length > 1 ? pageNumbers.map((number) => (
+            <li key={number} className={`page-number list-style-none ${number === pageCurrent ? 'active' : '' }`}>
                 <Link href={`/blog?page=${number}`} className="page-number-link btn">
                     {number}
                 </Link>
             </li>
-        ))}
+        )) : ''}
         
         {pageCurrent == pageNumbers.length 
             ? '' 
