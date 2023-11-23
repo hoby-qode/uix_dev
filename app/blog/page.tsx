@@ -21,13 +21,7 @@ export const metadata: Metadata = {
   title: 'UIX DEV : Blog',
   description: 'Description de la page blog',
 }
-if (process.env.NODE_ENV === 'production') {
-  console.error = (...args) => {
-    // Log errors in production
-    // You can also send the error data to a logging service
-    console.log(...args);
-  };
-}
+
 export default async function Blog({
   searchParams,
 }: {
