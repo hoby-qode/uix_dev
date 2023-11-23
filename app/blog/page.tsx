@@ -27,15 +27,15 @@ export default async function Blog({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
-  // const page = parseInt(searchParams?.page as string) || 1
-  // const postsPerPage = 2
-  // const skip = (page - 1) * postsPerPage
+  const page = parseInt(searchParams?.page as string) || 1
+  const postsPerPage = 2
+  const skip = (page - 1) * postsPerPage
 
   // const allPosts = await findAllPosts()
   // const countAllPosts = allPosts.length
 
   // const tags = await getTags()
-  // const posts = await findPosts(page, postsPerPage, skip)
+  const posts = await findPosts(page, postsPerPage, skip)
   return (
     <main className="container">
       <Anchor />
@@ -56,11 +56,12 @@ export default async function Blog({
             capitalizeLinks
           />
           <div className="row">
-            {/* {posts.map((article: embeddable, key: number) => (
+             {posts.map((article: embeddable, key: number) => (
               <div className="col-xl-4 col-lg-6" key={key}>
-                <TeasePost article={article} key={key} />
+                {/* <TeasePost article={article} key={key} /> */}
+                <h2>{article.title.rendered}</h2>
               </div>
-            ))} */}
+            ))} 
           </div>
           {/* <Pagination postsPerPage={postsPerPage} totalPosts={countAllPosts} /> */}
         </section>

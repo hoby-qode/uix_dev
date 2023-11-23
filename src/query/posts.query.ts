@@ -9,7 +9,7 @@ export async function findAllPosts() {
 }
 
 export async function findPosts(page:number, postsPerPage:number, skip:number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, { cache: 'no-cache' })
     
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
