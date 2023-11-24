@@ -8,6 +8,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    serverComponentsExternalPackages: [
+      '@react-email/components',
+      '@react-email/render',
+      '@react-email/tailwind'
+    ]
+  },
   images: {
     remotePatterns: [
       {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { revalidatePath } from 'next/cache';
+import {useFormStatus} from 'react-dom'
+
 import {replyComment} from '@/app/actions/actions'
 const FormCommentsModal = ({ idComment, idPost }: { idComment: number,idPost:number }) => {
   const replyCommentWithId = replyComment.bind(null,{idPost, idComment})
@@ -23,12 +24,15 @@ const FormCommentsModal = ({ idComment, idPost }: { idComment: number,idPost:num
         <label htmlFor="commentaire">Votre commentaire</label>
       </div>
       <div className="text-right">
-        <button type="submit" className="btn btn-primary">
-          Envoyer
-        </button>
+        <Submit />
       </div>
     </form>
   )
 }
-
+function Submit() {
+  const status = useFormStatus();
+  console.log(status);
+  
+   return <button type="submit" className="btn btn-primary" disabled={status.pending}>{status.pending ? 'Loading...' : 'Envoyer'}</button>
+}
 export default FormCommentsModal

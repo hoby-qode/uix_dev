@@ -22,7 +22,8 @@ const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
     <motion.div 
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-    viewport={{ once: true }} 
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }} 
     className={styles.teaseComment}>
       <div className={styles.teaseComment_head}>
         <div className={styles.teaseComment_head_picture}>
@@ -36,7 +37,7 @@ const TeaseComment = ({ comment, idPost }: { comment: any;idPost:number }) => {
       <div className={styles.teaseComment_content}>
         <InnerHTML html={{ __html: comment.content.rendered }} />
       </div>
-      <span className="d-flex align-items-center" onClick={openModal}>
+      <span className="d-flex align-items-center" onClick={openModal} style={{cursor: 'pointer'}}>
         <FaRegCommentDots className='mr-2'/> Répondre
       </span>
 

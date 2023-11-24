@@ -53,3 +53,27 @@ export async function replyComment({idPost, idComment}:{idPost:number;idComment:
   revalidatePath('/blog/[slug]', 'page')
 }
 
+export async function sendMailBrevoApi(formData: FormData) {
+  const response = await fetch(
+    `${process.env.ENDPOINT_API_BREVO}/contacts/`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': `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`
+      },
+      body: JSON.stringify({email: formData.get('email')}),
+    },
+  );
+
+  if (!response.ok) {
+    // La requête a retourné un code d'erreur (par exemple, 404, 500)
+    console.error('Erreur de requête:', response.status, response.statusText);
+  } else {
+    // La requête a réussi
+    console.log('Requête réussie !');
+  }
+
+  revalidatePath('/blog/[slug]', 'page')
+}
+

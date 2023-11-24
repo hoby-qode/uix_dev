@@ -24,7 +24,7 @@ const FooterLink = () => {
       <div className={`${styles.connectLinks} row`}>
         <div className="col-md-4">
           <Link
-            href="https://dribbble.com/"
+            href="https://dribbble.com/hobyqode"
             target="_blank"
             passHref
             className={styles.linkFooter}
@@ -34,7 +34,7 @@ const FooterLink = () => {
           </Link>
 
           <Link
-            href="https://www.behance.net/"
+            href="https://www.behance.net/houbbyrakoton"
             target="_blank"
             passHref
             className={styles.linkFooter}
@@ -45,7 +45,7 @@ const FooterLink = () => {
         </div>
         <div className="col-md-4 mb-5 mb-md-0">
           <Link
-            href="https://www.facebook.com/"
+            href="https://www.facebook.com/uixdev"
             target="_blank"
             passHref
             className={styles.linkFooter}
@@ -55,7 +55,7 @@ const FooterLink = () => {
           </Link>
 
           <Link
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/rakotoanialy-hobitiana-marcel/"
             target="_blank"
             passHref
             className={styles.linkFooter}

@@ -1,13 +1,10 @@
 import React from 'react'
 import SearchFilter from '../components/searchFilter/SearchFilter'
 import TagFilter from '../components/tagsFilter/TagFilter'
-import InnerHTML from '@/components/ui/InnerHTML'
 import Link from 'next/link'
-import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter'
 import ProgessBar from '@/components/ui/progessBar'
 import { notFound } from 'next/navigation'
 import Anchor from '@/components/ui/Anchor'
-import Image from 'next/image'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import { ResolvingMetadata, Metadata } from 'next'
 import { Props } from 'next/script'
@@ -15,8 +12,6 @@ import { findPostBySlug, getTags } from '@/src/query/posts.query'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import 'react-loading-skeleton/dist/skeleton.css'
-import ListsComments from '../components/comments/lists/ListsComments'
-import FormComments from '../components/comments/form/FormCommentsModal'
 import { Post, embeddable } from '@/src/types/types'
 import Single from './Single'
 
@@ -40,7 +35,16 @@ export async function generateMetadata(
     publisher: 'https://uix-dev.vercel.app/blog/',
   }
 }
-
+export async function findMyEmail() {
+  const res = await fetch(`${process.env.ENDPOINT_API_BREVO}/contacts/`, { cache: 'no-cache',headers: {
+    'Content-Type': 'application/json',
+    'api-key': `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`
+  }, })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return res.json()
+}
 export default async function Blog({ params }: { params: { slug: string } }) {
   // Ajout du langage javascript dans le module highlightjs.org
   hljs.registerLanguage('javascript', javascript)
