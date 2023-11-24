@@ -9,6 +9,11 @@ import { useTheme } from 'next-themes'
 import MenuBurger from '@/components/ui/MenuBurger'
 
 const Header: React.FC = () => {
+  // Récupérer l'ancre de l'URL actuelle
+  var ancre = window.location.hash;
+
+  // Afficher l'ancre dans la console
+  console.log("Ancre de l'URL : " + ancre);
   const [showLogo, setShowLogo] = useState<boolean>(false)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const theme = useTheme()
