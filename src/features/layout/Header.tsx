@@ -18,21 +18,23 @@ const Header: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const theme = useTheme()
   useEffect(() => {
-    if (window.matchMedia('screen and (min-width:768px)').matches) {
-      const handleScroll = () => {
-        if (10 <= window.scrollY) {
-          setShowLogo(true)
-        } else {
-          setShowLogo(false)
+    if (typeof window !== 'undefined') {
+      if (window.matchMedia('screen and (min-width:768px)').matches) {
+        const handleScroll = () => {
+          if (10 <= window.scrollY) {
+            setShowLogo(true)
+          } else {
+            setShowLogo(false)
+          }
         }
-      }
-      window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll)
 
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
+        return () => {
+          window.removeEventListener('scroll', handleScroll)
+        }
+      } else {
+        setShowLogo(true)
       }
-    } else {
-      setShowLogo(true)
     }
   }, [])
 

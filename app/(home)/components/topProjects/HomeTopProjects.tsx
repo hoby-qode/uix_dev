@@ -9,7 +9,9 @@ const HomeTopProjects = () => {
   const [modal, setModal] = useState({ active: false, index: 0 })
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
-    setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    }
   },[isMobile])
   return (
     <>

@@ -13,7 +13,9 @@ export default function Double({ projects, reversed }) {
 
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
-    setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    }
   }, [isMobile])
   const manageMouseMove = (e: EventSourceInit) => {
     if (isMobile) {

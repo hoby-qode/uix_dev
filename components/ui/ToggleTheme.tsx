@@ -8,7 +8,9 @@ const ThemeToggle = () => {
   const { setTheme, theme } = useTheme()
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
-    setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.matchMedia('screen and (max-width:768px)').matches)
+    }
   }, [isMobile])
   return (
     <div className="toggleTheme d-flex align-items-center gap-10">
