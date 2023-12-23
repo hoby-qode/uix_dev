@@ -1,42 +1,55 @@
-export async function findAllPosts() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish`, { cache: 'force-cache' })
+export async function countOfAllPosts() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish&_fields=id`, 
+  { cache: 'force-cache' })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return parseInt(res.headers.get('x-wp-total') || '' , 10)
+}
+
+export async function getFeaturedMedia(idMedia:number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/media/${idMedia}?_fields=media_details,title`, 
+  { cache: 'force-cache' })
+  
+  if (!res.ok) {
+    return null
+  }
+  return res.json()
+}
+
+export async function findPosts(page:number, postsPerPage:number, skip:number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, 
+  { cache: 'force-cache' })
+  
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
   return res.json()
 }
 
-export async function findPosts(page:number, postsPerPage:number, skip:number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, { cache: 'no-cache' })
-    
-    if (!res.ok) {
-      throw new Error('Erreur lors de la récupération des données')
-    }
-    return res.json()
-}
-
 export async function findPostBySlug(slug:string) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&slug=${slug}&status=publish`, { cache: 'force-cache' })
-    if (!res.ok) {
-      throw new Error('Erreur lors de la récupération des données')
-    }
-    return res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&slug=${slug}&status=publish&_fields=id,title,slug,content,excerpt,featured_media,acf`, 
+  { cache: 'force-cache' })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return res.json()
 }
 
 export async function getCategories() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/category?hide_empty=true`, { cache: 'force-cache' })
-    if (!res.ok) {
-      throw new Error('Erreur lors de la récupération des données')
-    }
-    return res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/category?hide_empty=true`, { cache: 'force-cache' })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return res.json()
 }
 
 export async function getTags() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?hide_empty=true`, { cache: 'force-cache' })
-    if (!res.ok) {
-      throw new Error('Erreur lors de la récupération des données')
-    }
-    return res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?hide_empty=true`, { cache: 'force-cache' })
+  if (!res.ok) {
+    throw new Error('Erreur lors de la récupération des données')
+  }
+  return res.json()
 }
 
 export async function findPostsBytag(tag:string) {

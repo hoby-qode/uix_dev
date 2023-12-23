@@ -1,8 +1,8 @@
-import { Tag } from '@prisma/client';
+
 import Link from 'next/link'
 import React from 'react'
 
-const TagFilter = ({tags}:{tags:Tag[]}) => {
+const TagFilter = ({tags}:{tags:any}) => {
   return (
     <div>
       <h3>Tag:</h3>

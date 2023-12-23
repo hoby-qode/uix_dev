@@ -112,7 +112,8 @@ h2 {
     font-family: var(--antartica);
     font-variation-settings: "wght" 700, "wdth" 200;
   }
-  h2 strong {
+  h2 strong, h3 strong {
+    font-variation-settings: "wght" 700 , "wdth" 150,"ital" 10;
     color: hsl(var(--primary));
   }
   @media screen and (min-width:991px) {
@@ -124,8 +125,8 @@ h2 {
 
 h1, h2, h3, h4, h5, h6, .like-h1, .like-h2, .like-h3, .like-h4, .like-h5, .like-h6 {
   color: hsl(var(--foreground));
-  font-family: var(--raleway);
-  font-weight: 400;
+  font-family: var(--antartica);
+  font-variation-settings: "wght" 100 , "wdth" 150;
   margin-top: 0;
 }
 
@@ -134,11 +135,11 @@ h1, .like-h1 {
   line-height: 120%;
   margin-bottom: 18px;
   color: hsl(var(--primary));
-  font-weight: 700;
+  font-weight: 300;
 }
   @media (min-width: 991px) {
     h1, .like-h1 {
-        font-size: 5rem;
+        font-size: 3.5rem;
     }
   }
 
@@ -156,6 +157,14 @@ h3, .like-h3 {
   }
 
 
+  .commentItem .openModal {
+    opacity: 0;
+    transition: .4s;
+  }
+  .commentItem:hover .openModal {
+    opacity: 1;
+    transition: .4s;
+  }
 
 
 
@@ -295,3 +304,21 @@ h3, .like-h3 {
     background-color: #111111;
   }
 
+
+  .wp-block-media-text {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: auto;
+  }
+  .wp-block-media-text .wp-block-media-text__media {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+  }
+  .wp-block-media-text .wp-block-media-text__content {
+    direction: ltr;
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0 8%;
+    word-break: break-word;
+  }

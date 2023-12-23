@@ -5,15 +5,15 @@
     padding-bottom: 5px;
     position: relative;
 }
-.tab-navigation a:last-child {
+.tab-navigation span:last-child {
     margin-bottom: 0;
 }
-.tab-navigation a {
+.tab-navigation span {
     margin-bottom: 15px;
     color: hsl(var(--foreground));
     position: relative;
 }
-.tab-navigation a::before {
+.tab-navigation span::before {
     content: '';
     width: 3px;
     height: 100%;
@@ -23,7 +23,7 @@
     background-color: hsl(var(--primary));
     opacity: 0;
 }
-.tab-navigation a.active::before {
+.tab-navigation .active::before {
     opacity: 1;
 }
 .page-number.active {

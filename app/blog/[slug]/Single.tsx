@@ -1,36 +1,30 @@
 import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter'
 import InnerHTML from '@/components/ui/InnerHTML'
 import React from 'react'
-import ListsComments from '../components/comments/lists/ListsComments'
-import { embeddable } from '@/src/types/types'
 import Image from 'next/image'
 import FormComments from '../components/comments/form/FormComments'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-const renderCodeBlocks = (html:any) => {
-  const codeBlocks = html.match(/<pre[\s\S]*?<\/pre>/g) || [];
-  return codeBlocks.map((codeBlock:any, index:number) => (
-    <SyntaxHighlighter key={index} language="javascript" style={vs2015}>
-      {codeBlock.replace(/<\/?(code|pre)[^>]*>/g, '')}
-    </SyntaxHighlighter>
-  ));
-};
+import ListsComments from '../components/commentsV2/ListsComments'
 
-const extractCodeFromHtml = (html) => {
-  const codeBlocks = html.match(/<pre[\s\S]*?<\/pre>/g) || [];
-  return codeBlocks.map((codeBlock:any) => codeBlock.replace(/<\/?pre.*?>/g, ''));
-};
-const Single = ({post}:{post:any}) => {
-  const codeBlocks = extractCodeFromHtml(post.content.rendered);
+const Single = ({
+  post,
+  featured_media,
+  comments,
+  tags,
+}: {
+  post: any
+  featured_media: any
+  comments: any
+  tags: any
+}) => {
   return (
-    <article >
-      {post._embedded['wp:featuredmedia'] ? (
+    <article>
+      {featured_media ? (
         <div className="radius aspect-16-9 cover mb-5">
           <Image
-            src={post._embedded['wp:featuredmedia']['0'].source_url}
-            alt={post.title.rendered}
+            src={featured_media.media_details.sizes.large.source_url}
+            alt={featured_media.title.rendered}
             fill={true}
-            sizes="(max-width: 768px) 100%, 33%"
+            sizes="(max-width: 768px) 100%, 33%"  
           />
         </div>
       ) : (
@@ -40,16 +34,15 @@ const Single = ({post}:{post:any}) => {
       <div className="post-excerpt">
         <InnerHTML html={{ __html: post.excerpt.rendered }} />
       </div>
-      {}
       <NotificationNewsletter />
-      <div className="post-content">
-        <InnerHTML html={{ __html: post.content.rendered.replace(/<pre[\s\S]*?<\/pre>/g, '') }} />
-        {renderCodeBlocks(post.content.rendered)}
-      </div>
-
-      {post._embedded.replies ? (
+      <InnerHTML
+        html={{
+          __html: post.content.rendered.replace(/<pre[\s\S]*?<\/pre>/g, ''),
+        }}
+      />
+      {comments ? (
         <ListsComments
-          comments={post._embedded.replies}
+          comments={comments}
           postTitle={post.title.rendered}
           idPost={post.id}
         />

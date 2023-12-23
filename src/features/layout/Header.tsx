@@ -41,9 +41,7 @@ const Header: React.FC = () => {
   return (
     <header className={`${styles.header} `}>
       <div className="container">
-        <div
-          className={`${styles.showLogo} ${styles.headerLogo}`}
-        >
+        <div className={`${styles.showLogo} ${styles.headerLogo}`}>
           <Link href="/" passHref>
             <Image
               src="/images/uix_dev2.svg"

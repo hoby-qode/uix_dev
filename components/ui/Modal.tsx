@@ -1,7 +1,6 @@
 'use client'
 import FormCommentsModal from '@/app/blog/components/comments/form/FormCommentsModal'
 import React, { useState } from 'react'
-import { TbCross } from 'react-icons/tb'
 
 const Modal = ({
   isOpen,
@@ -13,7 +12,7 @@ const Modal = ({
   isOpen: boolean
   OnSetModal: Function
   idComment: number
-  idPost:number
+  idPost: number
   title: string
 }) => {
   return (
@@ -31,7 +30,11 @@ const Modal = ({
           </div>
         </div>
         <div className="modal-content">
-          <FormCommentsModal idComment={idComment} idPost={idPost} />
+          <FormCommentsModal
+            idComment={idComment}
+            idPost={idPost}
+            OnSetModal={OnSetModal}
+          />
         </div>
       </div>
       <div className="modal-outer" onClick={() => OnSetModal(false)}></div>

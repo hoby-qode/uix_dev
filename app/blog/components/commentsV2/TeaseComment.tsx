@@ -1,13 +1,11 @@
-import { replie } from '@/src/types/types'
-import React, { useState } from 'react'
+'use client'
 import InnerHTML from '@/components/ui/InnerHTML'
 import Modal from '@/components/ui/Modal'
-import styles from './comment.module.css'
-import Image from 'next/image'
 import { FaRegCommentDots } from 'react-icons/fa'
-import { useRouter } from 'next/navigation'
-import { motion } from 'framer-motion'
 import Skeleton from 'react-loading-skeleton'
+import styles from './comment.module.css'
+import React, { useState } from 'react'
+
 const TeaseComment = ({
   comment,
   idPost,
@@ -16,23 +14,19 @@ const TeaseComment = ({
   idPost: number
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const date = new Date(comment.date).toLocaleDateString()
-
-  const router = useRouter()
   const openModal = () => {
     setIsOpen(true)
   }
-
   return (
     <div className={`${styles.teaseComment} commentItem`}>
       <div className={styles.teaseComment_head}>
         <div className={styles.teaseComment_head_picture}>
           {/* <Image
-            src={comment.author_avatar_urls['96']}
-            alt={comment.author_name}
-            width={40}
-            height={40}
-          /> */}
+        src={comment.author_avatar_urls['96']}
+        alt={comment.author_name}
+        width={40}
+        height={40}
+      /> */}
         </div>
         <div className={styles.teaseComment_head_title}>
           <h4 className="d-flex align-items-center gap-10">

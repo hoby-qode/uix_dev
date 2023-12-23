@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Formulaire from '../form/Formulaire'
 // import HeaderImage from '@/public/images/18.jpg'
 import HeaderImage from '@/public/images/imageAbout.jpg'
+import SocialNetwork from '../socialNetwork/SocialNetwork'
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const FooterLink = () => {
       <div className={styles.connectTitle}>
         <p style={{}}>ON SE CONNECTE SUR</p>
       </div>
+      <SocialNetwork />
       <div className={`${styles.connectLinks} row`}>
         <div className="col-md-4">
           <Link

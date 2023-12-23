@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { TbMoonFilled, TbMoonStars } from 'react-icons/tb'
@@ -13,7 +14,12 @@ const ThemeToggle = () => {
     }
   }, [isMobile])
   return (
-    <div className="toggleTheme d-flex align-items-center gap-10">
+    <motion.div
+      initial={{ opacity: 0, transform: 'translateX(50px)' }}
+      animate={{ opacity: 1, transform: 'translateX(0)' }}
+      transition={{ duration: 0.5, delay: 1, ease: 'easeInOut' }}
+      className="toggleTheme d-flex align-items-center gap-10"
+    >
       {isMobile ? <span>Mode sombre</span> : ''}
       <input
         type="checkbox"
@@ -25,7 +31,7 @@ const ThemeToggle = () => {
         <TbMoonStars />
         <TbMoonFilled />
       </label>
-    </div>
+    </motion.div>
   )
 }
 

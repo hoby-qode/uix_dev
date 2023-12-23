@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Anchor = () => {
-  return (
-    <div style={{height:'50px'}}></div>
-  )
+const Anchor = ({ height = 50 }: { height: number }) => {
+  return <div style={{ height: `${height ? height : 50}px` }}></div>
 }
 
 export default Anchor

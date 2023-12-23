@@ -23,7 +23,8 @@ const ListsComments = ({
   }
 
   const renderComments = (comment: replie) => (
-    <div key={comment.id}>
+    <div key={comment.id} className="test">
+      {/* Afficher le commentaire parent */}
       <TeaseComment comment={comment} idPost={idPost} />
       {comment.parent !== 0 ? (
         <ShowMoreComments
@@ -33,6 +34,16 @@ const ListsComments = ({
       ) : (
         'pas de reponse'
       )}
+      {/* Afficher les réponses associées */}
+      {/* {commentsReplies
+        ? commentsReplies
+            .filter((c: replie) => c.parent === comment.id)
+            .map((reply: replie) => (
+              <div key={reply.id} className={`ml-5 ${styles.reply_comment}`}>
+                <TeaseComment comment={comment} idPost={idPost} />
+              </div>
+            ))
+        : 'loading...'} */}
     </div>
   )
 

@@ -8,12 +8,18 @@ import Anchor from '@/components/ui/Anchor'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import { ResolvingMetadata, Metadata } from 'next'
 import { Props } from 'next/script'
-import { findPostBySlug, getTags } from '@/src/query/posts.query'
+import {
+  findPostBySlug,
+  getFeaturedMedia,
+  getTags,
+} from '@/src/query/posts.query'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Post, embeddable } from '@/src/types/types'
 import Single from './Single'
+import { getCommentsByIdPost } from '@/src/query/comment.query'
+import Navigation from '../components/navigation/Navigation'
 
 export const revalidate = 10
 
@@ -35,32 +41,28 @@ export async function generateMetadata(
     publisher: 'https://uix-dev.vercel.app/blog/',
   }
 }
-export async function findMyEmail() {
-  const res = await fetch(`${process.env.ENDPOINT_API_BREVO}/contacts/`, { cache: 'no-cache',headers: {
-    'Content-Type': 'application/json',
-    'api-key': `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`
-  }, })
-  if (!res.ok) {
-    throw new Error('Erreur lors de la récupération des données')
-  }
-  return res.json()
-}
+
 export default async function Blog({ params }: { params: { slug: string } }) {
   // Ajout du langage javascript dans le module highlightjs.org
   hljs.registerLanguage('javascript', javascript)
 
   //Récupération du post avec son slug
   const posts = await findPostBySlug(String(params.slug))
-  const post = posts.find((post:Post) => post.slug === params.slug)
+  const post = posts.find((post: Post) => post.slug === params.slug)
+  const featured_media = await getFeaturedMedia(post.featured_media)
+
+  const comments = await getCommentsByIdPost(parseInt(post.id || '', 10))
+
   //Récupération des tags
-  
   const tags = await getTags()
   if (!posts) {
     return notFound()
   }
+
+
   return (
     <main className="container content">
-      <Anchor />
+      <Anchor height={50} />
       <ProgessBar />
 
       <div className="row justify-content-between">
@@ -74,7 +76,12 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             capitalizeLinks
           />
           <div className="row mx-0 mt-5">
-            <Single post={post} />
+            <Single
+              post={post}
+              featured_media={featured_media}
+              comments={comments}
+              tags={tags}
+            />
           </div>
         </section>
         <section className="col-md-2 order-1">
@@ -84,22 +91,9 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        <section className="col-lg-3 order-3  d-none d-md-block">
+        <section className="col-md-3 order-3  d-none d-md-block">
           <div className="sticky-top">
-            <div className="tab-navigation d-flex flex-column">
-              <Link href="#" className="active">
-                Qu&apos;est-ce que le Dark Mode ?
-              </Link>
-              <Link href="#" className="active">
-                Pourquoi devriez-vous l&apos;adopter ?
-              </Link>
-              <Link href="#" className="active">
-                Comment activer le Dark Mode ?
-              </Link>
-              <Link href="#" className="active">
-                Dark Mode et développement
-              </Link>
-            </div>
+            <Navigation links={post.acf} />
           </div>
         </section>
       </div>

@@ -1,39 +1,56 @@
+'use client'
 import React from 'react'
 import styles from './TeasePost.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import InnerHTML from '@/components/ui/InnerHTML'
 import { embeddable } from '@/src/types/types'
+import { motion } from 'framer-motion'
+import Skeleton from 'react-loading-skeleton'
 
 const TeasePost = ({ article }: { article: embeddable }) => {
   const date = new Date(article.date)
   const createdAt = date.toLocaleDateString()
 
   return (
-    <article className={styles.card}>
+    <motion.article
+      className={styles.card}
+      initial={{ opacity: 1, transform: 'translateY(50px)' }}
+      whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.6 }}
+    >
       {article._embedded['wp:featuredmedia'] ? (
-      <div className="picture">
-        <Link
-          href={`/blog/${article.slug}`}
-          className="position-relative cover zoom aspect-16-9 radius d-flex"
-        >
-            <Image
-              src={article._embedded['wp:featuredmedia']['0'].source_url}
-              alt="Lorem ipsum"
-              layout="fill"
-              fill={true}
-              objectFit="cover"
-              sizes="(max-width: 768px) 100%, 33%"
-            />
-        </Link>
-      </div>
+        <div className="picture">
+          <Link
+            href={`/blog/${article.slug}`}
+            className="position-relative cover zoom aspect-16-9 radius d-flex"
+          >
+            {article._embedded['wp:featuredmedia']['0'].source_url ? (
+              <Image
+                src={article._embedded['wp:featuredmedia']['0'].source_url}
+                alt="Lorem ipsum"
+                layout="fill"
+                fill={true}
+                objectFit="cover"
+                sizes="(max-width: 768px) 100%, 33%"
+              />
+            ) : (
+              <Skeleton height={136} />
+            )}
+          </Link>
+        </div>
       ) : (
         ''
       )}
       <h3 className="like-h4 color-primary">
-        <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
+        {article.title.rendered ? (
+          <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
+        ) : (
+          <Skeleton />
+        )}
       </h3>
-      <div className={styles.date}>Publié le : {createdAt}</div>
+      <div className={styles.date}>Publié le : {article.date}</div>
       {article.excerpt ? (
         <div>
           <InnerHTML html={{ __html: article.excerpt.rendered }} />
@@ -48,7 +65,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
       >
         Voir l&apos;article
       </Link>
-    </article>
+    </motion.article>
   )
 }
 

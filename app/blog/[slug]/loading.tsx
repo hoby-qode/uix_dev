@@ -1,73 +1,59 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import vs2015 from 'react-syntax-highlighter/dist/esm/styles/hljs/vs2015'
-import TeasePost from '../components/TeasePost.1'
+import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
+import ProgessBar from '@/components/ui/progessBar'
+import Navigation from '../components/navigation/Navigation'
 import SearchFilter from '../components/searchFilter/SearchFilter'
 import TagFilter from '../components/tagsFilter/TagFilter'
-import InnerHTML from '@/components/ui/InnerHTML'
+import Single from './Single-old'
+import Skeleton from 'react-loading-skeleton'
 import Link from 'next/link'
-import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter'
-import ProgessBar from '@/components/ui/progessBar'
-import { notFound } from 'next/navigation'
-import prisma from '@/libs/prisma'
 import Anchor from '@/components/ui/Anchor'
-import Image from 'next/image'
-import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
-import { ResolvingMetadata, Metadata } from 'next'
-import { Props } from 'next/script'
-
 export default function Loading() {
+  const tags = [1, 2, 3, 4, 5]
   return (
     <main className="container content">
-      <Anchor />
+      <Anchor height={50} />
+      <ProgessBar />
+
       <div className="row justify-content-between">
         <section className="col-md-6 order-2">
-          <div
-            className="breadcrumb"
-            style={{
-              background: 'gray',
-              height: '16px',
-              width: '150px',
-              borderRadius: 'var(--radius)',
-            }}
-          ></div>
+          <NextBreadcrumb
+            homeElement={'Uix dev'}
+            separator={<span> &gt; </span>}
+            activeClasses="active"
+            containerClasses="d-flex gap-10 ml-0 pl-0"
+            listClasses="list-style-none"
+            capitalizeLinks
+          />
           <div className="row mx-0 mt-5">
             <article>
               <div className="radius aspect-16-9 cover mb-5">
-                <div
-                  className="w-100 h-100"
-                  style={{ background: 'gray', borderRadius: 'var(--radius)' }}
-                ></div>
+                <Skeleton height={340} width={640} />
               </div>
-              <div
-                className="title"
-                style={{
-                  height: '62px',
-                  width: '100%',
-                  borderRadius: 'var(--radius)',
-                }}
-              ></div>
+              <Skeleton height={40} style={{ marginBottom: '10px' }} />
+              <div className="post-excerpt mb-4">
+                <Skeleton count={3} />
+              </div>
+              <Skeleton count={5} />
             </article>
           </div>
         </section>
         <section className="col-md-2 order-1">
           <div className="sticky-top">
-            <div
-              className="filter"
-              style={{
-                background: 'gray',
-                width: '186px',
-                height: '35px',
-                borderRadius: 'var(--radius)',
-              }}
-            ></div>
+            <SearchFilter />
+            <div>
+              <h3>Tag:</h3>
+              <div className="tags d-flex flex-wrap gap-10">
+                {tags.map((tag) => (
+                  <Skeleton key={tag} height={28} width={64} />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="col-lg-3 order-3">
+        <section className="col-lg-3 order-3  d-none d-md-block">
           <div className="sticky-top">
-            <div className="tab-navigation d-flex flex-column"></div>
+            {/* <Navigation links={post.acf} /> */}
           </div>
         </section>
       </div>

@@ -16,7 +16,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: hsl(var(--destructive) /85%);
+    background-color: hsl(var(--background) /85%);
     cursor: pointer;
     backdrop-filter: blur(3px);
 }

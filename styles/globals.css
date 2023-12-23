@@ -114,9 +114,18 @@ html.lenis {
   height: auto;
 }
 
+figure {
+  margin: 0;
+  padding: 0;
+}
 .content img {
   max-width: 100%;
   max-height: 100%;
+  height: auto;
+}
+.content h2 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1.8rem 0;
 }
 
 em {
@@ -132,3 +141,4 @@ pre {
   overflow: hidden;
   padding: 10px 15px!important;
 }
+
