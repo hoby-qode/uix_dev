@@ -35,18 +35,10 @@ const Competence = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6 mb-5 mb-md-0">
-            <p>Mes compétences</p>
-            <h2>
-              Lorem ipsum dolor sit <br />
-              amet, <strong>consectetur</strong>
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reprehenderit consectetur molestias repellendus earum cupiditate
-              nulla aspernatur iure officiis dicta tempore, iusto officia
-              dolores minima accusantium a sapiente. Dignissimos amet voluptates
-              dolore quos.
-            </p>
+          <p>Mes compétences</p>
+            <h2>Expérience dans le design et le développement web</h2>
+            <p>En tant que professionnel du web, je possède une solide expérience dans l&apos;utilisation d&apos;outils de conception pour créer des interfaces intuitives et esthétiques.</p>
+            <p>Mon expertise s&apos;étend également au développement de sites web, avec une maîtrise des technologies nécessaires pour concevoir et mettre en œuvre des solutions web modernes et performantes.</p>
             <Link href="/apropos" className="btn btn-primary">
               A propos
             </Link>
