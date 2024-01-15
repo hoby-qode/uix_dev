@@ -44,7 +44,7 @@ const HeaderPage = () => {
           <div className={`${styles.headerPage_right} col-lg-7`}>
             <div className={styles.headerPage__picture}>
               <Magnetic>
-                <Image src={picture} alt="H. Marcel" width={360} />
+                <Image src={picture} alt="H. Marcel" width={360} priority />
               </Magnetic>
               <div className={styles.headerPage__pictureBg}></div>
             </div>
