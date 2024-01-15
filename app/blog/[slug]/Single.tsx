@@ -27,7 +27,7 @@ const Single = ({
 
   return (
     <article>
-      {featured_media ? (
+      {/* {featured_media ? (
         <div className="radius aspect-16-9 cover mb-5">
           <Image
             src={featured_media.media_details.sizes.large.source_url}
@@ -38,7 +38,7 @@ const Single = ({
         </div>
       ) : (
         ''
-      )}
+      )} */}
       <h1>{post.title.rendered}</h1>
       <div className="post-excerpt">
         <InnerHTML html={{ __html: post.excerpt.rendered }} />
