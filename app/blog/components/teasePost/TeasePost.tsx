@@ -15,8 +15,8 @@ const TeasePost = ({ article }: { article: embeddable }) => {
   return (
     <motion.article
       className={styles.card}
-      initial={{ opacity: 1, transform: 'translateY(50px)' }}
-      whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.6 }}
     >
@@ -30,9 +30,8 @@ const TeasePost = ({ article }: { article: embeddable }) => {
               <Image
                 src={article._embedded['wp:featuredmedia']['0'].source_url}
                 alt="Lorem ipsum"
-                layout="fill"
+                style={{ objectFit: 'cover' }}
                 fill={true}
-                objectFit="cover"
                 sizes="(max-width: 768px) 100%, 33%"
               />
             ) : (

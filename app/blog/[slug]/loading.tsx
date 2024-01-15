@@ -39,7 +39,7 @@ export default function Loading() {
         </section>
         <section className="col-md-2 order-1">
           <div className="sticky-top">
-            <SearchFilter />
+            {/* <SearchFilter /> */}
             <div>
               <h3>Tag:</h3>
               <div className="tags d-flex flex-wrap gap-10">

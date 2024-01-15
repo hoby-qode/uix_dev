@@ -31,9 +31,10 @@ const Navigation = ({ links }) => {
   return (
     <nav>
       <div className="tab-navigation d-flex flex-column">
-        {Object.keys(links).map((e) =>
+        {Object.keys(links).map((e, key) =>
           links[e].titre != '' ? (
-            <Link 
+            <Link
+              key={key}
               href={`# ${links[e].ancre}`}
               onClick={() => scrollToSection(links[e].ancre)}
               className={

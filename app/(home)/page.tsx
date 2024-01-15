@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import React from 'react'
-import HomeHeaderPage from './components/headerpage/HomeHeaderPage'
 import HomeTopProjects from './components/topProjects/HomeTopProjects'
-import HomeProjectFun from './components/projectFun/HomeProjectFun'
-import HomeTexteMask from './components/texteMask/HomeTexteMask'
-import Example from './components/scrollHorizontal/HorizontalScrollCarousel'
+import HeaderPage from './components/headerPage'
+import About from './components/about'
+import Offer from './components/offer'
+import Competence from './components/competence'
 
 export const metadata: Metadata = {
   title: "Page d'Accueil ",
@@ -13,15 +13,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <HomeHeaderPage />
+      <HeaderPage />
 
-      <Example />
+      <About />
 
       <HomeTopProjects />
 
-      <HomeTexteMask />
+      <Offer />
 
-      <HomeProjectFun /> 
+      <Competence />
     </main>
   )
 }

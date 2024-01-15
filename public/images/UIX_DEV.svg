@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1746" height="762" viewBox="0 0 1746 762">
   <g id="Groupe_2" data-name="Groupe 2" transform="translate(-76 -109)">
     <g id="Groupe_1" data-name="Groupe 1">
-      <text id="UIX_DEV" transform="translate(98 659)" fill="#fff" font-size="372" font-family="Antarctica VAR" font-weight="700"><tspan x="0" y="0">UIX_DEV</tspan></text>
+      <text id="UIX_DEV" transform="translate(98 659)" fill="#fff" font-size="372" fontFamily="Antarctica VAR" fontWeight="700"><tspan x="0" y="0">UIX_DEV</tspan></text>
     </g>
     <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="378" cy="381" rx="378" ry="381" transform="translate(76 109)" fill="#fff" style="mix-blend-mode: difference;isolation: isolate"/>
   </g>

@@ -1,15 +1,10 @@
 import React from 'react'
 import { Metadata } from 'next'
 
-import { countOfAllPosts, findPosts, getTags } from '@/src/query/posts.query'
+import { getCountOfAllPosts, findPosts, getTags } from '@/src/query/posts.query'
 
-import SearchFilter from './components/searchFilter/SearchFilter'
-import TagFilter from './components/tagsFilter/TagFilter'
-import TeasePost from './components/teasePost/TeasePost'
+import Content from './Content'
 import Anchor from '@/components/ui/Anchor'
-import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
-import Pagination from '@/components/ui/Pagination'
-import { embeddable } from '@/src/types/types'
 
 export const revalidate = 3600
 
@@ -24,41 +19,21 @@ export default async function Blog({
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const page = parseInt(searchParams?.page as string) || 1
-  const postsPerPage = 9
+  const postsPerPage = 6
   const skip = (page - 1) * postsPerPage
 
-  const countAllPosts = await countOfAllPosts()
+  const countAllPosts = await getCountOfAllPosts()
   const tags = await getTags()
   const posts = await findPosts(page, postsPerPage, skip)
   return (
     <main className="container">
-      <Anchor />
-      <div className="row justify-content-between">
-        <section className="col-xl-2 col-lg-3">
-          <div className="sticky-top">
-            <SearchFilter />
-            <TagFilter tags={tags} />
-          </div>
-        </section>
-        <section className="col-md-9">
-          <NextBreadcrumb
-            homeElement={'Uix dev'}
-            separator={<span> &gt; </span>}
-            activeClasses="active"
-            containerClasses="d-flex gap-10 ml-0 pl-0"
-            listClasses="list-style-none"
-            capitalizeLinks
-          />
-          <div className="row">
-            {posts.map((article: embeddable, key: number) => (
-              <div className="col-xl-4 col-lg-6" key={key}>
-                <TeasePost article={article} />
-              </div>
-            ))}
-          </div>
-          <Pagination postsPerPage={postsPerPage} totalPosts={countAllPosts} />
-        </section>
-      </div>
+      <Anchor height={50} />
+      <Content
+        tags={tags}
+        posts={posts}
+        postsPerPage={postsPerPage}
+        countAllPosts={countAllPosts}
+      />
     </main>
   )
 }

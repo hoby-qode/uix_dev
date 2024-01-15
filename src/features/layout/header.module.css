@@ -13,7 +13,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px;
+        padding: 25px 15px;
     }
 
     
@@ -27,16 +27,17 @@
 .headerLogo a::before {
     content: '';
     position: absolute;
-    top: 20px;
+    top: -18px;
     left: -60px;
     width: 0;
     height: 0;
-    background: white;
+    background: hsl(var(--primary));
     border-radius: 50%;
     mix-blend-mode: difference;
     opacity: 0;
 }
 .showLogo a::before {
+    top: -18px!important;
     left: -2px;
     transition: .5s;
     animation: maskLogo 1s cubic-bezier(0.46, -0.01, 0, 1.55) .5s forwards;

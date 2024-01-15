@@ -17,6 +17,16 @@
     align-items: center;
     font-weight: 300;
     font-size: 14px;
+    border: 0;
+    outline: 0;
+    background: none;
+    cursor: pointer;
+}
+.search .ctrl_k:focus , .search .ctrl_k:hover {
+    border: 0;
+    outline: 0;
+    background: none;
+
 }
 .search input {
     border: 1px solid hsl(var(--border));

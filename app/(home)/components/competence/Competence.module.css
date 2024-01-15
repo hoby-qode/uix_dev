@@ -1,0 +1,45 @@
+.techno {
+    text-align: center;
+    background-color: hsl(var(--border));
+    border-radius: 18px;
+    padding: 23px;
+}
+.techno_picture {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 23px;
+}
+.competences {
+    margin-top: 50px;
+}
+@media screen and (min-width:768px) {
+    .competences {
+        margin-top: 170px;
+    }
+}
+.competences h2 {
+    font-size: 3rem;
+    font-variation-settings: "wght" 700, "wdth" 150;
+    margin-bottom: 0;
+}
+.competences p:first-child {
+    margin-bottom: 10px;
+}
+.competences p {
+    font-size: 2rem;
+    line-height: 140%;
+    margin-top: 1rem;
+    margin-bottom: 33px;
+}
+.techno p {
+    font-size: 2.1rem;
+    font-variation-settings: "wght" 400;
+    font-family: var(--antartica);
+    margin-bottom: 0;
+}
+@media screen and (min-width:768px) {
+    .techno p {
+        font-size: 1.6rem;
+    }
+}

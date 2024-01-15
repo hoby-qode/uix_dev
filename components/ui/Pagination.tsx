@@ -26,7 +26,7 @@ const Pagination = ({
     <ul className="d-flex align-items-center gap-10">
       {pageCurrent > 1 ? (
         <li className="list-style-none">
-          <Link href={`/blog?page=${pageCurrent - 1}`} className="prev btn">
+          <Link href={`?page=${pageCurrent - 1}`} className="prev btn">
             {`<`}
           </Link>
         </li>
@@ -42,10 +42,7 @@ const Pagination = ({
                 number === pageCurrent ? 'active' : ''
               }`}
             >
-              <Link
-                href={`/blog?page=${number}`}
-                className="page-number-link btn"
-              >
+              <Link href={`?page=${number}`} className="page-number-link btn">
                 {number}
               </Link>
             </li>
@@ -56,7 +53,7 @@ const Pagination = ({
         ''
       ) : (
         <li className="list-style-none">
-          <Link href={`/blog?page=${pageCurrent + 1}`} className="next btn">
+          <Link href={`?page=${pageCurrent + 1}`} className="next btn">
             {`>`}
           </Link>
         </li>

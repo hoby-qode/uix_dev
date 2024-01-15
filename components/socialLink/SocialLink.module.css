@@ -1,0 +1,16 @@
+.socialLink {
+    font-size: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--border));
+    transition: .3s;
+}
+.socialLink:hover {
+    background-color: hsl(var(--border));
+    transition: .3s;
+}

@@ -43,13 +43,31 @@ const Header: React.FC = () => {
       <div className="container">
         <div className={`${styles.showLogo} ${styles.headerLogo}`}>
           <Link href="/" passHref>
-            <Image
-              src="/images/uix_dev2.svg"
-              alt="UIX DEV"
-              width={120}
-              height={50}
-              priority
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="121"
+              height="27"
+              viewBox="0 0 121 27"
+            >
+              <g
+                id="Groupe_1"
+                data-name="Groupe 1"
+                transform="translate(-98 -345)"
+              >
+                <text
+                  id="UIX_DEV"
+                  transform="translate(98 367)"
+                  fill="hsl(var(--primary))"
+                  fontSize="26"
+                  fontFamily="Antarctica VAR"
+                  fontWeight="700"
+                >
+                  <tspan x="0" y="0">
+                    UIX_DEV
+                  </tspan>
+                </text>
+              </g>
+            </svg>
           </Link>
         </div>
         <Navbar isMenuOpen={isMenuOpen} />

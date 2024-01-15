@@ -1,9 +1,11 @@
+'use client'
 import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter'
 import InnerHTML from '@/components/ui/InnerHTML'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import FormComments from '../components/comments/form/FormComments'
-import ListsComments from '../components/commentsV2/ListsComments'
+import ListsComments from '../components/comments/ListsComments'
+import Link from 'next/link'
 
 const Single = ({
   post,
@@ -16,6 +18,13 @@ const Single = ({
   comments: any
   tags: any
 }) => {
+  const tagsCurrent = tags
+    .filter((tag: any) => post.tags.includes(tag.id))
+    .map((tag: any) => tag.slug)
+  console.log('---------------------------------')
+  console.log(tagsCurrent)
+  console.log('---------------------------------')
+
   return (
     <article>
       {featured_media ? (
@@ -24,7 +33,7 @@ const Single = ({
             src={featured_media.media_details.sizes.large.source_url}
             alt={featured_media.title.rendered}
             fill={true}
-            sizes="(max-width: 768px) 100%, 33%"  
+            sizes="(max-width: 768px) 100%, 33%"
           />
         </div>
       ) : (
@@ -40,6 +49,20 @@ const Single = ({
           __html: post.content.rendered.replace(/<pre[\s\S]*?<\/pre>/g, ''),
         }}
       />
+      <ul className="tags-lists d-flex gap-5">
+        {tagsCurrent.map((tag, key) => {
+          return (
+            <li key={key}>
+              <Link
+                href={`/blog/tags/${tag}`}
+                className="tag tag-outline-theme d-inline-flex"
+              >
+                {tag}
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
       {comments ? (
         <ListsComments
           comments={comments}
