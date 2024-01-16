@@ -26,7 +26,7 @@ const FooterLink = () => {
       <div className={`${styles.connectLinks} row`}>
         <div className="col-md-4">
           <Link
-            href="https://dribbble.com/hobyqode"
+            href="https://dribbble.com/uix-dev"
             target="_blank"
             passHref
             className={styles.linkFooter}

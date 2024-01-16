@@ -20,13 +20,13 @@ const SocialNetwork = () => {
     >
       {isMobile ? 'Suivez moi sur :' : ''}
       <ul>
-        <Item link="https://dribbble.com/">
+        <Item link="https://dribbble.com/uix-dev">
           {isMobile ? <AiFillDribbbleCircle /> : 'Dribbble'}
         </Item>
-        <Item link="https://www.behance.net/">
+        <Item link="https://www.behance.net/houbbyrakoton">
           {isMobile ? <AiFillBehanceCircle /> : 'Behance'}
         </Item>
-        <Item link="https://www.linkedin.com/">
+        <Item link="https://www.linkedin.com/in/rakotoanialy-hobitiana-marcel/">
           {isMobile ? <AiFillLinkedin /> : 'Linkedin'}
         </Item>
       </ul>
