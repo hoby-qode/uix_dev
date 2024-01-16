@@ -6,6 +6,7 @@ import Theme from '@/src/theme/theme'
 import '@/styles/app.css'
 import Footer from '@/src/features/layout/Footer'
 import Header from '@/src/features/layout/Header'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   verification: {
@@ -27,6 +28,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Theme>
+        <GoogleTagManager gtmId="GTM-MHPD58CZ" />
       </body>
     </html>
   )
