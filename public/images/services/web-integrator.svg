@@ -3,7 +3,7 @@
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 334.5 350.2" style="enable-background:new 0 0 334.5 350.2;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#F6F930;}
+	.st0{fill:hsl(var(--primary));}
 </style>
 <g>
 	<path class="st0" d="M42.9,55.8c0-5,0-9.4,0-13.9c0-7.4,0-14.7,0-22.1c0-11.3,5.7-17,17.1-17c54.3,0,108.6,0,162.8,0
