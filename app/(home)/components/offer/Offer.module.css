@@ -16,6 +16,9 @@
     padding: 27px 20px;
     border-radius: 10px;
 }
+.offer_cards {
+    row-gap: 25px;
+}
 .offer_cart h3 {
     margin: 0;
 }

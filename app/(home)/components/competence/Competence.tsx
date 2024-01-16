@@ -46,7 +46,7 @@ const Competence = () => {
           <div className="col-md-6">
             <div className="row">
               {technos.map((techno, key) => (
-                <div className="col-md-4 mb-5 col-6" key={key}>
+                <div className="col-lg-4 col-md-6 mb-5 col-6" key={key}>
                   <div className={styles.techno}>
                     <div className={styles.techno_picture}>
                       <Image
