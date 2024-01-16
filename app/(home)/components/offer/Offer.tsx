@@ -34,12 +34,12 @@ const Offer = () => {
   return (
     <div className="container">
       <div className={styles.offer}>
-        <h2>
+        <h2 className='mb-2'>
           Mes <strong>offres spécials</strong> <br /> pour vous
         </h2>
-        <p className='text-center'>Explorez ces offres spéciales et découvrez comment je peux donner vie à vos projets numériques de manière unique et professionnelle. </p>
         <div className="col-md-10 mx-auto">
-          <div className={`${styles.offer_cards} row justify-content-center`}>
+          <p className='text-center mb-5 col-lg-8 mx-auto'>Explorez ces offres spéciales et découvrez comment je peux donner vie à vos projets numériques de manière unique et professionnelle. </p>
+          <div className={`${styles.offer_cards} row justify-content-center pt-5cla`}>
             {offers.map((offer, key) => (
               <div className={`col-md-5 px-3`} key={key}>
                 <div className={styles.offer_cart}>
