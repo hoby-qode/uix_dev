@@ -1,19 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true
   },
   images: {
     unoptimized: true,
-  },
-  experimental: {
-    serverComponentsExternalPackages: [
-      '@react-email/components',
-      '@react-email/render',
-      '@react-email/tailwind'
-    ]
   },
   images: {
     remotePatterns: [
