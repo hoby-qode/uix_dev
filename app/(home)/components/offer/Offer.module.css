@@ -1,14 +1,7 @@
 .offer {
     margin-top: 40px;
 }
-@media screen and (min-width:768px) {
-    .offer {
-        margin-top: 110px;
-    }
-}
-.offer h2 {
-    text-align: center;
-}
+
 .offer_cart {
     display: flex;
     align-items: center;
@@ -34,8 +27,9 @@
     margin-right: 20px;
 }
 .offer h2 {
-    font-size: 4.5rem;
+    font-size: 2.6rem;
     font-variation-settings: "wght" 700, "wdth" 150;
+    text-align: center;
 }
 .offer_cart__infos h3 {
     font-size: 2rem;
@@ -61,4 +55,12 @@
 .offer_cart__link a:hover {
     background-color: hsl(var(--background)/30%);
     transition: .3s;
+}
+@media screen and (min-width:768px) {
+    .offer {
+        margin-top: 110px;
+    }
+    .offer h2 {
+        font-size: 4.5rem;
+    }
 }

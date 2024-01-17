@@ -19,7 +19,7 @@
     }
 }
 .competences h2 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-variation-settings: "wght" 700, "wdth" 150;
     margin-bottom: 0;
 }
@@ -41,5 +41,8 @@
 @media screen and (min-width:768px) {
     .techno p {
         font-size: 1.6rem;
+    }
+    .competences h2 {
+        font-size: 3rem;
     }
 }

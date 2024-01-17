@@ -1,16 +1,16 @@
 .about {
     display: flex;
     align-items: center;
-    margin: 10rem 0;
+    margin: 5rem 0;
 }
 .title {
-    font-size: 3rem;
+    font-size: 2rem;
     font-variation-settings: "wght" 700, "wdth" 150;
     margin-bottom: 36px;
     line-height: 120%;
 }
 .subtitle {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     line-height: 120%;
 }
@@ -23,6 +23,15 @@
 @media screen and (min-width:768px) {
     .withMarginLeft {
         margin-left: 7rem;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 2.5rem;
+    }
+    .about {
+        margin: 10rem 0;
     }
 }
 .linkAbout {
