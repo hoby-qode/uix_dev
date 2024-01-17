@@ -19,11 +19,6 @@ const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         href: '/',
       },
       {
-        label: 'Blog',
-        href: '/blog',
-        active: pathname === '/blog' || pathname.startsWith('/blog'),
-      },
-      {
         label: 'Portfolio',
         href: '/portfolio',
         active: pathname === '/portfolio' || pathname.startsWith('/portfolio'),
