@@ -44,7 +44,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -62,7 +62,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -80,7 +80,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -98,7 +98,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -116,7 +116,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -134,7 +134,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -152,7 +152,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -170,7 +170,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -188,7 +188,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -206,7 +206,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -224,7 +224,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -242,7 +242,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -260,7 +260,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}
@@ -278,7 +278,7 @@ export default async function Portfolio() {
           <div className="project-item">
             <div className="project-item_picture cover">
               <Image
-                src="/images/portfolio/le-bar-it-1.jpg"
+                src="./images/portfolio/le-bar-it-1.jpg"
                 alt="test"
                 width={300}
                 height={150}

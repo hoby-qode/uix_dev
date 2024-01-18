@@ -6,27 +6,27 @@ import Image from 'next/image'
 const Competence = () => {
   const technos = [
     {
-      picture: '/images/technos/photoshop.png',
+      picture: './images/technos/photoshop.png',
       title: 'Photoshop',
     },
     {
-      picture: '/images/technos/adobe-xd.png',
+      picture: './images/technos/adobe-xd.png',
       title: 'Adobe XD',
     },
     {
-      picture: '/images/technos/figma.png',
+      picture: './images/technos/figma.png',
       title: 'Figma',
     },
     {
-      picture: '/images/technos/wordpress.png',
+      picture: './images/technos/wordpress.png',
       title: 'Wordpress',
     },
     {
-      picture: '/images/technos/react-js.png',
+      picture: './images/technos/react-js.png',
       title: 'React.js',
     },
     {
-      picture: '/images/technos/nextjs.png',
+      picture: './images/technos/nextjs.png',
       title: 'Next.js',
     },
   ]

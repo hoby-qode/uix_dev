@@ -7,25 +7,25 @@ import { TbArrowUpRight } from 'react-icons/tb'
 const Offer = () => {
   const offers = [
     {
-      picture: '/images/services/conception-ux.svg',
+      picture: './images/services/conception-ux.svg',
       title: 'Web design',
       desc: 'Créativité visuelle, navigation intuitive, expérience immersive pour une présence en ligne moderne.',
       link: '/offer?type=web-design',
     },
     {
-      picture: '/images/services/logo-design.svg',
+      picture: './images/services/logo-design.svg',
       title: 'Logo design',
       desc: 'Identité distinctive, logos mémorables reflétant l\'essence unique de votre entreprise.',
       link: '/offer?type=dev-front',
     },
     {
-      picture: '/images/services/web-developer.svg',
+      picture: './images/services/web-developer.svg',
       title: 'Dev wordpress',
       desc: 'Sites personnalisés, gestion simplifiée, puissance sans tracas pour une présence en ligne efficace.',
       link: '/offer?type=dev-wordpress',
     },
     {
-      picture: '/images/services/web-integrator.svg',
+      picture: './images/services/web-integrator.svg',
       title: 'Dev Front-end',
       desc: 'Sites dynamiques alliant esthétique et convivialité pour une expérience optimale.',
       link: '/offer?type=dev-front',
