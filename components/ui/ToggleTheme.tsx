@@ -28,8 +28,8 @@ const ThemeToggle = () => {
         className="toggleTheme_input"
       />
       <label htmlFor="toggle-theme" className="toggleTheme_label">
-        <TbMoonStars />
         <TbMoonFilled />
+        <TbMoonStars />
       </label>
     </motion.div>
   )
