@@ -10,7 +10,6 @@ const ListsComments = ({
   postTitle: string
   idPost: number
 }) => {
-  console.log(comments)
 
   const count = comments.length
   const renderComments = (comment: any) => (

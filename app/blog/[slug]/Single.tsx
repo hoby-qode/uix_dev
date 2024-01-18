@@ -21,9 +21,6 @@ const Single = ({
   const tagsCurrent = tags
     .filter((tag: any) => post.tags.includes(tag.id))
     .map((tag: any) => tag.slug)
-  console.log('---------------------------------')
-  console.log(tagsCurrent)
-  console.log('---------------------------------')
 
   return (
     <article>
