@@ -36,15 +36,15 @@ export async function generateMetadata(
   }
 }
 
-export const revalidate = false
-export const dynamic = 'force-static'
+// export const revalidate = false
+// export const dynamic = 'force-static'
 
-export async function generateStaticParams() {
-  const posts = await getAllPosts()
-  return posts.map((p) => ({
-    slug: p.slug,
-  }))
-}
+// export async function generateStaticParams() {
+//   const posts = await getAllPosts()
+//   return posts.map((p) => ({
+//     slug: p.slug,
+//   }))
+// }
 
 export default async function Blog({ params }: { params: { slug: string } }) {
   // Ajout du langage javascript dans le module highlightjs.org

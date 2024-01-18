@@ -9,14 +9,14 @@ import {
 import Anchor from '@/components/ui/Anchor'
 import Content from './Content'
 
-export const revalidate = 3600
+// export const revalidate = 3600
 
-export async function generateStaticParams() {
-  const tags = await getTags()
-  return tags.map((t:any) => ({
-    slug: `/blog/tags/${t.slug}`,
-  }))
-}
+// export async function generateStaticParams() {
+//   const tags = await getTags()
+//   return tags.map((t:any) => ({
+//     slug: `/blog/tags/${t.slug}`,
+//   }))
+// }
 
 export default async function Tags({
   params,
