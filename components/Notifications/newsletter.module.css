@@ -31,3 +31,13 @@
     cursor: pointer;
     text-transform: uppercase;
 }
+.form_newsletter form button svg {
+    transition: .5s;
+}
+.form_newsletter form button:hover svg {
+    transform: translateX(5px);
+    transition: .5s;
+}
+.form_newsletter form button:active svg {
+    transform: translateX(150px);
+}

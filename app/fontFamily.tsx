@@ -65,7 +65,7 @@ const FontFamily = () => {
         html,
         body {
           font-family: ${raleway.style.fontFamily};
-          font-weight: 300;
+          font-weight: 400;
         }
         :root {
           --antartica: ${antartica.style.fontFamily};

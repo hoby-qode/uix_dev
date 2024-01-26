@@ -1,11 +1,18 @@
 'use client'
 import NotificationNewsletter from '@/components/Notifications/NotificationNewsletter'
 import InnerHTML from '@/components/ui/InnerHTML'
-import React, { useEffect } from 'react'
+import React, { useEffect , ReactDOM } from 'react'
 import Image from 'next/image'
 import FormComments from '../components/comments/form/FormComments'
 import ListsComments from '../components/comments/ListsComments'
 import Link from 'next/link'
+import Prism from 'prismjs';
+import "prismjs/themes/prism-dracula.css";
+import "prismjs/plugins/toolbar/prism-toolbar.min.css";
+import "prismjs/plugins/toolbar/prism-toolbar.min";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min";
+import { createPortal } from 'react-dom';
+
 
 const Single = ({
   post,
@@ -18,13 +25,17 @@ const Single = ({
   comments: any
   tags: any
 }) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   const tagsCurrent = tags
     .filter((tag: any) => post.tags.includes(tag.id))
     .map((tag: any) => tag.slug)
-
+  console.log(post);
+  
   return (
-    <article>
-      {/* {featured_media ? (
+    <article className='blog'>
+      {featured_media ? (
         <div className="radius aspect-16-9 cover mb-5">
           <Image
             src={featured_media.media_details.sizes.large.source_url}
@@ -35,7 +46,7 @@ const Single = ({
         </div>
       ) : (
         ''
-      )} */}
+      )}
       <h1>{post.title.rendered}</h1>
       <div className="post-excerpt">
         <InnerHTML html={{ __html: post.excerpt.rendered }} />
@@ -43,9 +54,10 @@ const Single = ({
       <NotificationNewsletter />
       <InnerHTML
         html={{
-          __html: post.content.rendered.replace(/<pre[\s\S]*?<\/pre>/g, ''),
+          __html: post.content.rendered,
         }}
       />
+      
       <ul className="tags-lists d-flex gap-5">
         {tagsCurrent.map((tag, key) => {
           return (
@@ -60,6 +72,7 @@ const Single = ({
           )
         })}
       </ul>
+      <hr style={{maxWidth: '100%',marginTop: '3rem'}}/>
       {comments ? (
         <ListsComments
           comments={comments}
@@ -74,4 +87,11 @@ const Single = ({
   )
 }
 
+const CopyButton = () => {
+  return (
+    <button className="copy-to-clipboard-button" type="button" data-copy-state="copy">
+      <span>Copy</span>
+    </button>
+  )
+}
 export default Single

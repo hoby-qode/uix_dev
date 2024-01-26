@@ -10,7 +10,6 @@ import {
   getFeaturedMedia,
   getTags,
 } from '@/src/query/posts.query'
-import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Post } from '@/src/types/types'
@@ -40,20 +39,17 @@ export async function generateMetadata(
   }
 }
 
-// export const revalidate = false
-// export const dynamic = 'force-static'
+export const revalidate = false
+export const dynamic = 'force-static'
 
-// export async function generateStaticParams() {
-//   const posts = await getAllPosts()
-//   return posts.map((p) => ({
-//     slug: p.slug,
-//   }))
-// }
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  return posts.map((p:any) => ({
+    slug: p.slug,
+  }))
+}
 
 export default async function Blog({ params }: { params: { slug: string } }) {
-  // Ajout du langage javascript dans le module highlightjs.org
-  hljs.registerLanguage('javascript', javascript)
-
   //Récupération du post avec son slug
   const posts = await findPostBySlug(String(params.slug))
   const post = posts.find((post: Post) => post.slug === params.slug)

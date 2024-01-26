@@ -53,7 +53,9 @@ export async function replyComment({idPost, idComment}:{idPost:number;idComment:
   revalidatePath('/blog/[slug]', 'page')
 }
 
-export async function sendMailBrevoApi(formData: FormData) {
+export async function sendMailBrevoApi(prevState:any, formData: FormData) {
+  console.log(formData);
+  
   const response = await fetch(
     `${process.env.ENDPOINT_API_BREVO}/contacts/`,
     {
@@ -72,6 +74,7 @@ export async function sendMailBrevoApi(formData: FormData) {
   } else {
     // La requête a réussi
     console.log('Requête réussie !');
+    return 'Abonné à mon newsletter est bien réussie'
   }
 
   revalidatePath('/blog/[slug]', 'page')

@@ -9,7 +9,7 @@
     margin-top: 15px;
 }
 .date {
-    font-size: 1rem;
-    color: hsl(var(--foreground) / 50%);
+    font-size: 1.2rem;
+    color: hsl(var(--foreground) / 80%);
     margin-bottom: 15px;
 }

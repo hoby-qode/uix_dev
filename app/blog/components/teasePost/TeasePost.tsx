@@ -26,7 +26,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
             href={`/blog/${article.slug}`}
             className="position-relative cover zoom aspect-16-9 radius d-flex"
           >
-            {/* {article._embedded['wp:featuredmedia']['0'].source_url ? (
+            {article._embedded['wp:featuredmedia']['0'].source_url ? (
               <Image
                 src={article._embedded['wp:featuredmedia']['0'].source_url}
                 alt="Lorem ipsum"
@@ -36,7 +36,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
               />
             ) : (
               <Skeleton height={136} />
-            )} */}
+            )}
           </Link>
         </div>
       ) : (
@@ -52,7 +52,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
       <div className={styles.date}>Publié le : {article.date}</div>
       {article.excerpt ? (
         <div>
-          <InnerHTML html={{ __html: article.excerpt.rendered }} />
+          <InnerHTML html={{ __html: article.excerpt.rendered.slice(0, 175) }} />
         </div>
       ) : (
         ''

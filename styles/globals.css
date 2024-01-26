@@ -87,6 +87,9 @@ body {
 body p {
   color: hsl(var(--foreground)/80%);
 }
+.light body p {
+  color: hsl(var(--foreground)/95%);
+}
 @media screen and (max-width:991px) {
   body {
     font-size: 1.4rem;

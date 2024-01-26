@@ -126,7 +126,7 @@ h2 {
 h1, h2, h3, h4, h5, h6, .like-h1, .like-h2, .like-h3, .like-h4, .like-h5, .like-h6 {
   color: hsl(var(--foreground));
   font-family: var(--antartica);
-  font-variation-settings: "wght" 100 , "wdth" 150;
+  font-variation-settings: "wght" 300 , "wdth" 150;
   margin-top: 0;
 }
 
@@ -175,7 +175,9 @@ hr {
   border-color: hsl(var(--border));
 }
 
-
+.isDisable {
+  cursor: not-allowed!important;
+}
 
   /* styles.css */
 
@@ -353,4 +355,32 @@ hr {
   .show-more:hover::after {
     transform: translateY(5px);
     transition: transform .5s;
+  }
+
+
+
+  .blog p {
+    line-height: 160%;
+  }
+  .blog h2 {
+    color: hsl(var(--foreground));
+  }
+  h2 strong {
+    color: hsl(var(--foreground));
+  }
+  .copy-to-clipboard-button[data-copy-state='copy'] span {
+    display: none;
+  }
+  .copy-to-clipboard-button {
+    background-image: url(/images/copy.svg)!important;
+    width: 25px;
+    height: 25px;
+    background-size: 70%!important;
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+    background-color: hsl(var(--background))!important;
+  }
+  .copy-to-clipboard-button[data-copy-state='copy-success'] {
+    width: 55px;
+    background-image: initial!important;
   }
