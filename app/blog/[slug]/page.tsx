@@ -17,9 +17,13 @@ import { Post } from '@/src/types/types'
 import { getCommentsByIdPost } from '@/src/query/comment.query'
 import Content from './Content'
 
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 export async function generateMetadata(
   { params, searchParams }: Props,
-  parent: ResolvingMetadata,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const slug = params.slug

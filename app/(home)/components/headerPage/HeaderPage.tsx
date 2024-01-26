@@ -21,11 +21,11 @@ const HeaderPage = () => {
                 UI/UX & Dev
               </span>
             </h1>
-            <p className={styles.headerPage_text}>
+            <h2 className={styles.headerPage_text}>
               Je suis un Développeur web avec 4ans d&apos;expérience, dont les 2
               dernières années ont été consacrées à perfectionner mes
               compétences dans Wordpress, react.js et Next.js
-            </p>
+            </h2>
             <div className={styles.headerPage_buttons}>
               <Link className="btn btn-primary" href="/apropos">
                 A propos

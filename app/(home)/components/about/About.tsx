@@ -23,11 +23,11 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-7">
-            <h2 className={styles.title}>
+            <p className={styles.title}>
               En tant que <strong>concepteur web</strong>, je me spécialise dans
               la création d&apos;expériences numériques exceptionnelles et
               percutantes.
-            </h2>
+            </p>
             <div className={styles.withMarginLeft} ref={textContainer}>
               <p className={styles.subtitle}>
                 Je m&apos;appelle Rakotonialy Hobitiana Marcel, mais vous pouvez
