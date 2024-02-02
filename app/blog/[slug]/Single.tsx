@@ -7,7 +7,6 @@ import FormComments from '../components/comments/form/FormComments'
 import ListsComments from '../components/comments/ListsComments'
 import Link from 'next/link'
 import Prism from 'prismjs';
-import "prismjs/themes/prism-dracula.css";
 import "prismjs/plugins/toolbar/prism-toolbar.min.css";
 import "prismjs/plugins/toolbar/prism-toolbar.min";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min";
