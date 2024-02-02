@@ -65,11 +65,11 @@ export default function Double({ projects, reversed }) {
         </div>
       </div>
 
-      <div ref={secondImage} className={styles.imageContainer}>
+      {/* <div ref={secondImage} className={styles.imageContainer}>
         <div className={styles.stretchyWrapper}>
           <Image src={`${projects[1].picture}`} fill={true} alt={'image'} />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -27,12 +27,12 @@ const Galerie = () => {
           </div>
         </div>
       </div>
-      <div className={`${styles.galleryProject} container`}>
+      {/* <div className={`${styles.galleryProject} container`}>
         <Double projects={[projects[0], projects[1]]} reversed={false} />
         <Double projects={[projects[2], projects[3]]} reversed={true} />
         <Double projects={[projects[0], projects[1]]} reversed={false} />
         <Double projects={[projects[2], projects[3]]} reversed={true} />
-      </div>
+      </div> */}
     </>
   )
 }
