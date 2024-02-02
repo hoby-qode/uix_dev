@@ -34,7 +34,7 @@ export default function Loading() {
               >
                 <article>
                   <div className="picture">
-                    <Skeleton height={146} width={260} />
+                    <Skeleton height={146} width={300} />
                   </div>
                   <h3 className="like-h4 color-primary">
                     <Skeleton />

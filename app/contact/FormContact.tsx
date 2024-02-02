@@ -6,7 +6,7 @@ import Anchor from "@/components/ui/Anchor"
 
 const FormContact = () => {
     return (
-        <div className={`${styles.contact} container`} >
+        <div className={`${styles.contact} container`} title="En maintenance">
             <Anchor />
             <div className={`${styles.footerHead} mx-0`}>
                 <div className={styles.picture}>

@@ -35,12 +35,17 @@ const Single = ({
   return (
     <article className='blog'>
       {featured_media ? (
-        <div className="radius aspect-16-9 cover mb-5">
+        <div className="radius mb-5">
           <Image
             src={featured_media.media_details.sizes.large.source_url}
             alt={featured_media.title.rendered}
-            fill={true}
             sizes="(max-width: 768px) 100%, 33%"
+            width={500}
+            height={500}
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
           />
         </div>
       ) : (

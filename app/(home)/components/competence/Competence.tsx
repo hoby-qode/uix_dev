@@ -51,7 +51,6 @@ const Competence = () => {
       x: angleX,
       y: angleY,
     })
-    console.log(posBg.x);
   }
   return (
     <div className={styles.competences}>
