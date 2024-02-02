@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import styles from './Competence.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -30,13 +31,35 @@ const Competence = () => {
       title: 'Next.js',
     },
   ]
+  
+  const handleMouseMove = (e) => {
+    // const width = e.currentTarget.offsetWidth
+    // const height = e.currentTarget.offsetHeight
+    // const posCursorInDiv = e;
+
+    let card3dRect = e.currentTarget.getBoundingClientRect()
+    let x = e.clientX - card3dRect.x
+    let y = e.clientY - card3dRect.y
+
+    let midCardWidth = card3dRect.width / 2
+    let midCardHeight = card3dRect.height / 2
+
+    let angleY = -(x - midCardWidth) / 8
+    let angleX = (y - midCardHeight) / 8
+    
+    setPosBg({
+      x: angleX,
+      y: angleY,
+    })
+    console.log(posBg.x);
+  }
   return (
     <div className={styles.competences}>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6 mb-5 mb-md-0">
             <p>Mes compétences</p>
-            <h2>Expérience dans le design et le développement web</h2>
+            <h2>Expérience dans le <strong>design</strong> et le <strong>développement web</strong></h2>
             <p>En tant que professionnel du web, je possède une solide expérience dans l&apos;utilisation d&apos;outils de conception pour créer des interfaces intuitives et esthétiques.</p>
             <p>Mon expertise s&apos;étend également au développement de sites web, avec une maîtrise des technologies nécessaires pour concevoir et mettre en œuvre des solutions web modernes et performantes.</p>
             <Link href="/apropos" className="btn btn-primary">
@@ -46,20 +69,7 @@ const Competence = () => {
           <div className="col-md-6">
             <div className="row">
               {technos.map((techno, key) => (
-                <div className="col-lg-4 col-md-6 mb-5 col-6" key={key}>
-                  <div className={styles.techno}>
-                    <div className={styles.techno_picture}>
-                      <Image
-                        src={techno.picture}
-                        alt={techno.title}
-                        height={80}
-                        width={150}
-                        style={{ objectFit: 'contain' }}
-                      />
-                    </div>
-                    <p>{techno.title}</p>
-                  </div>
-                </div>
+                <Techno picture={techno.picture} title={techno.title} key={key}/>
               ))}
             </div>
           </div>
@@ -69,4 +79,45 @@ const Competence = () => {
   )
 }
 
+const Techno = ({picture, title}:{picture:string; title:string}) => {
+  const [posBg, setPosBg] = useState({
+    x: 50,
+    y: 50
+  })
+  const handleMouseMove = (e:any) => {
+    let card3dRect = e.currentTarget.getBoundingClientRect()
+    let x = e.clientX - card3dRect.x
+    let y = e.clientY - card3dRect.y
+
+    let midCardWidth = card3dRect.width / 2
+    let midCardHeight = card3dRect.height / 2
+
+    let angleY = (y - midCardWidth) + 55
+    let angleX = (x - midCardHeight) + 35
+    
+    setPosBg({
+      x: angleX,
+      y: angleY,
+    })
+  }
+  return (
+    <div className="col-lg-4 col-md-6 mb-5 col-6">
+      <div className={styles.technoContainer} onMouseMove={(e) => handleMouseMove(e)}>
+        <div className={styles.techno}>
+          <div className={styles.techno_picture}>
+            <Image
+              src={picture}
+              alt={title}
+              height={80}
+              width={150}
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+          <p>{title}</p>
+        </div>
+        <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--primary)),transparent)`}}></div>
+      </div>
+    </div>
+  )
+}
 export default Competence

@@ -6,9 +6,11 @@ const Navigation = ({ links }) => {
   const [activeSection, setActiveSection] = useState('')
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section')
+      const sections = document.querySelectorAll('.wp-block-group')
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect()
+        console.log(rect);
+        
         if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
           setActiveSection(section.id)
         }
@@ -35,12 +37,12 @@ const Navigation = ({ links }) => {
           links[e].titre != '' ? (
             <Link
               key={key}
-              href={`# ${links[e].ancre}`}
+              href={`#${links[e].ancre}`}
               onClick={() => scrollToSection(links[e].ancre)}
               className={
-                activeSection === links[e].ancre
+                `${activeSection === links[e].ancre
                   ? 'active'
-                  : `item ${links[e].ancre}`
+                  : ''} item ${links[e].ancre}`
               }
             >
               {links[e].titre}

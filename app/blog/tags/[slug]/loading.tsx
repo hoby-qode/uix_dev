@@ -2,6 +2,7 @@ import NextBreadcrumb from "@/components/breadcrumb/NextBreadcrumb"
 import Anchor from "@/components/ui/Anchor"
 import ProgessBar from "@/components/ui/progessBar"
 import Skeleton from "react-loading-skeleton"
+import 'react-loading-skeleton/dist/skeleton.css'
 import SearchFilter from "../../[slug]/SearchFilter"
 
 export default function Loading() {

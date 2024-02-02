@@ -10,7 +10,6 @@ import {
   getFeaturedMedia,
   getTags,
 } from '@/src/query/posts.query'
-import javascript from 'highlight.js/lib/languages/javascript'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Post } from '@/src/types/types'
 import { getCommentsByIdPost } from '@/src/query/comment.query'

@@ -3,6 +3,7 @@ import InnerHTML from '@/components/ui/InnerHTML'
 import Modal from '@/components/ui/Modal'
 import { FaRegCommentDots } from 'react-icons/fa'
 import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './comment.module.css'
 import React, { useState } from 'react'
 

@@ -1,11 +1,8 @@
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import Anchor from '@/components/ui/Anchor'
-import { embeddable } from '@/src/types/types'
-import Image from 'next/image'
 import SearchFilter from './components/searchFilter/SearchFilter'
-import TagFilter from './components/tagsFilter/TagFilter'
-import TeasePost from './components/teasePost/TeasePost'
 import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Loading() {
   const array = [1, 2, 3, 4, 5]

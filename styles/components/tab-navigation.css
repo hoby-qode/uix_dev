@@ -8,12 +8,12 @@
 .tab-navigation span:last-child {
     margin-bottom: 0;
 }
-.tab-navigation span {
+.tab-navigation a {
     margin-bottom: 15px;
     color: hsl(var(--foreground));
     position: relative;
 }
-.tab-navigation span::before {
+.tab-navigation a::before {
     content: '';
     width: 3px;
     height: 100%;

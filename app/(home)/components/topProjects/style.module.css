@@ -74,7 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 20px solid hsl(var(--primary));
+    border: 2px solid hsl(var(--primary));
     z-index: 99;
 }
 .modalSlider {
@@ -92,7 +92,8 @@
     justify-content: center;
 }
 .modal img {
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 .cursor, .cursorLabel {
     width: 80px;

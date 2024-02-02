@@ -365,7 +365,7 @@ hr {
   .blog h2 {
     color: hsl(var(--foreground));
   }
-  h2 strong {
+  .blog h2 strong {
     color: hsl(var(--foreground));
   }
   .copy-to-clipboard-button[data-copy-state='copy'] span {

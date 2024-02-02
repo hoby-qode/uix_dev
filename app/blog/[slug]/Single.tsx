@@ -47,7 +47,7 @@ const Single = ({
       ) : (
         ''
       )}
-      <h1>{post.title.rendered}</h1>
+      <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
       <div className="post-excerpt">
         <InnerHTML html={{ __html: post.excerpt.rendered }} />
       </div>

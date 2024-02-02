@@ -7,6 +7,7 @@ import InnerHTML from '@/components/ui/InnerHTML'
 import { embeddable } from '@/src/types/types'
 import { motion } from 'framer-motion'
 import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const TeasePost = ({ article }: { article: embeddable }) => {
   const date = new Date(article.date)
@@ -44,7 +45,9 @@ const TeasePost = ({ article }: { article: embeddable }) => {
       )}
       <h3 className="like-h4 color-primary">
         {article.title.rendered ? (
-          <Link href={`/blog/${article.slug}`}>{article.title.rendered}</Link>
+          <Link href={`/blog/${article.slug}`}>
+            <p dangerouslySetInnerHTML={{ __html: article.title.rendered }} />
+          </Link>
         ) : (
           <Skeleton />
         )}

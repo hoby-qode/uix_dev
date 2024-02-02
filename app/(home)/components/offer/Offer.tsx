@@ -1,31 +1,37 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import styles from './Offer.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { TbArrowUpRight } from 'react-icons/tb'
+import { useTheme } from 'next-themes'
 
-const Offer = () => {
+const Offers = () => {
   const offers = [
     {
       picture: '/images/services/conception-ux.svg',
+      pictureDark: '/images/services/conception-ux-dark.svg',
       title: 'Web design',
       desc: 'Créativité visuelle, navigation intuitive, expérience immersive pour une présence en ligne moderne.',
       link: '/offer?type=web-design',
     },
     {
       picture: '/images/services/logo-design.svg',
+      pictureDark: '/images/services/logo-design-dark.svg',
       title: 'Logo design',
       desc: 'Identité distinctive, logos mémorables reflétant l\'essence unique de votre entreprise.',
       link: '/offer?type=dev-front',
     },
     {
       picture: '/images/services/web-developer.svg',
+      pictureDark: '/images/services/web-developer-dark.svg',
       title: 'Dev wordpress',
       desc: 'Sites personnalisés, gestion simplifiée, puissance sans tracas pour une présence en ligne efficace.',
       link: '/offer?type=dev-wordpress',
     },
     {
       picture: '/images/services/web-integrator.svg',
+      pictureDark: '/images/services/web-integrator-dark.svg',
       title: 'Dev Front-end',
       desc: 'Sites dynamiques alliant esthétique et convivialité pour une expérience optimale.',
       link: '/offer?type=dev-front',
@@ -41,22 +47,7 @@ const Offer = () => {
           <p className='text-center mb-5 col-lg-8 mx-auto'>Explorez ces offres spéciales et découvrez comment je peux donner vie à vos projets numériques de manière unique et professionnelle. </p>
           <div className={`${styles.offer_cards} row justify-content-center pt-5cla`}>
             {offers.map((offer, key) => (
-              <div className={`col-md-5 px-3`} key={key}>
-                <div className={styles.offer_cart}>
-                  <div className={styles.offer_cart__picture}>
-                    <Image src={offer.picture} alt={offer.title} fill={true} />
-                  </div>
-                  <div className={styles.offer_cart__infos}>
-                    <h3>{offer.title}</h3>
-                    <p>{offer.desc}</p>
-                  </div>
-                  <div className={styles.offer_cart__link}>
-                    <Link href={offer.link}>
-                      <TbArrowUpRight />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <Offer picture={offer.picture} pictureDark={offer.pictureDark} title={offer.title} desc={offer.desc} link={offer.link} key={key} />
             ))}
           </div>
         </div>
@@ -64,5 +55,50 @@ const Offer = () => {
     </div>
   )
 }
+const Offer = ({picture, pictureDark, title, desc, link}) => {
+  const [posBg, setPosBg] = useState({
+    x: 50,
+    y: 50
+  })
+  const handleMouseMove = (e:any) => {
+    let card3dRect = e.currentTarget.getBoundingClientRect()
+    let x = e.clientX - card3dRect.x
+    let y = e.clientY - card3dRect.y
 
-export default Offer
+    let midCardWidth = card3dRect.width / 2
+    let midCardHeight = card3dRect.height / 2
+
+    let angleY = (y - midCardWidth) 
+    let angleX = (x - midCardHeight) 
+    
+    setPosBg({
+      x: angleX,
+      y: angleY,
+    })
+  }
+
+  const { theme, setTheme } = useTheme()
+  const image = theme == 'dark' ? picture : pictureDark
+  return (
+    <div className={`col-md-5 px-3`} >
+      <div className={styles.offer_container} onMouseMove={(e) => handleMouseMove(e)}>
+        <div className={styles.offer_cart}>
+          <div className={styles.offer_cart__picture}>
+            <Image src={image} alt={title} fill={true} />
+          </div>
+          <div className={styles.offer_cart__infos}>
+            <h3><Link href={link}>{title}</Link></h3>
+            <p>{desc}</p>
+          </div>
+          <div className={styles.offer_cart__link}>
+            <Link href={link}>
+              <TbArrowUpRight />
+            </Link>
+          </div>
+        </div>
+        <div className={styles.offer_bg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--primary)),transparent)`}}></div>
+      </div>
+    </div>
+  )
+}
+export default Offers

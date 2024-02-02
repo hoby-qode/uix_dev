@@ -8,7 +8,9 @@
     background-color: hsl(var(--border));
     padding: 27px 20px;
     border-radius: 10px;
+    transition: .5s;
 }
+
 .offer_cards {
     row-gap: 25px;
 }
@@ -54,6 +56,7 @@
 }
 .offer_cart__link a:hover {
     background-color: hsl(var(--background)/30%);
+    border-color: hsl(var(--primary)/30%);
     transition: .3s;
 }
 @media screen and (min-width:768px) {
@@ -63,4 +66,22 @@
     .offer h2 {
         font-size: 4.5rem;
     }
+}
+
+
+.offer_container {
+    position: relative;
+}
+.offer_bg {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background-image: radial-gradient(circle at 50% 50%, hsl(var(--primary)), transparent);
+    border-radius: 10px;
+}
+.offer_cart {
+    position: relative;
+    z-index: 11;
 }

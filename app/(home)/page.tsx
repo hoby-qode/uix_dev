@@ -3,7 +3,7 @@ import React from 'react'
 import HomeTopProjects from './components/topProjects/HomeTopProjects'
 import HeaderPage from './components/headerPage'
 import About from './components/about'
-import Offer from './components/offer'
+import Offers from './components/offer'
 import Competence from './components/competence'
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function Home() {
 
       <HomeTopProjects />
 
-      <Offer />
+      <Offers />
 
       <Competence />
     </main>

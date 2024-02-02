@@ -8,6 +8,8 @@ export async function getCommentsByIdPost(idPost:number) {
 }
 
 export async function getCommentsChild(idCommentParent:number) {
+  console.log(idCommentParent);
+  
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/comments/?parent=${idCommentParent}`, { cache: 'no-cache' })
   
   if (!res.ok) {

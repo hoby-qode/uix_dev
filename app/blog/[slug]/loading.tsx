@@ -1,12 +1,9 @@
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import ProgessBar from '@/components/ui/progessBar'
-import Navigation from '../components/navigation/Navigation'
-import SearchFilter from '../components/searchFilter/SearchFilter'
-import TagFilter from '../components/tagsFilter/TagFilter'
-import Single from './Single-old'
 import Skeleton from 'react-loading-skeleton'
-import Link from 'next/link'
 import Anchor from '@/components/ui/Anchor'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 export default function Loading() {
   const tags = [1, 2, 3, 4, 5]
   return (

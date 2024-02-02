@@ -11,7 +11,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 export const metadata: Metadata = {
   verification: {
     google: "VMtBT6bUjPi5vgrhOPcAcNcauAERZEDq-OmariuuxiI"
-  }
+  },
 }
 
 export default function RootLayout({
