@@ -66,7 +66,7 @@ const Competence = () => {
             </Link>
           </div>
           <div className="col-md-6">
-            <div className="row">
+            <div className={`${styles.listTechno} row`}>
               {technos.map((techno, key) => (
                 <Techno picture={techno.picture} title={techno.title} key={key}/>
               ))}
@@ -74,6 +74,7 @@ const Competence = () => {
           </div>
         </div>
       </div>
+      <div className={styles.competencesBg}></div>
     </div>
   )
 }
@@ -100,7 +101,7 @@ const Techno = ({picture, title}:{picture:string; title:string}) => {
     })
   }
   return (
-    <div className="col-lg-4 col-md-6 mb-5 col-6">
+    <div className={`col-lg-4 col-md-6 col-6 ${styles.technoItem}`}>
       <div className={styles.technoContainer} onMouseMove={(e) => handleMouseMove(e)}>
         <div className={styles.techno}>
           <div className={styles.techno_picture}>

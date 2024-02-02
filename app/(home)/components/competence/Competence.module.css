@@ -30,6 +30,9 @@
     top: initial;
     bottom: calc(100% - 60px);
 }
+.listTechno {
+    row-gap: 3rem;
+}
 .competencesBg {
     position: absolute;
     background-image: url(/images/pro-upgrade-grid-bg.svg),radial-gradient(circle at 30% 100%, rgba(246,249,48,.11) 0%, rgba(246,249,48,.008) 29%);
