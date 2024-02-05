@@ -1,6 +1,6 @@
 export async function getCountOfAllPosts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish&_fields=id`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -8,7 +8,7 @@ export async function getCountOfAllPosts() {
 }
 
 export async function getCountOfAllPostsByTag(tag:string) {
-  const getTag = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?slug=${tag}&status=publish`, { cache: 'force-cache' })
+  const getTag = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?slug=${tag}&status=publish`, { cache: 'no-store' })
   if (!getTag.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -19,7 +19,7 @@ export async function getCountOfAllPostsByTag(tag:string) {
   }
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?tags=${tagJson[0].id}&_fields=id`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -28,7 +28,7 @@ export async function getCountOfAllPostsByTag(tag:string) {
 
 export async function getFeaturedMedia(idMedia:number) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/media/${idMedia}?_fields=media_details,title`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   
   if (!res.ok) {
     return null
@@ -38,7 +38,7 @@ export async function getFeaturedMedia(idMedia:number) {
 
 export async function findPosts(page:number, postsPerPage:number, skip:number) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&page=${page}&per_page=${postsPerPage}&offset=${skip}&status=publish`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
@@ -48,7 +48,7 @@ export async function findPosts(page:number, postsPerPage:number, skip:number) {
 
 export async function findPostBySlug(slug:string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?_embed&slug=${slug}&status=publish&_fields=id,title,slug,content,excerpt,featured_media,acf,tags`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -72,7 +72,7 @@ export async function getTags() {
 }
 
 export async function findPostsBytag(tag:string, page:number, postsPerPage:number, skip:number) {
-  const getTag = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?slug=${tag}&status=publish`, { cache: 'force-cache' })
+  const getTag = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/tags?slug=${tag}&status=publish`, { cache: 'no-store' })
   if (!getTag.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
@@ -88,7 +88,7 @@ export async function findPostsBytag(tag:string, page:number, postsPerPage:numbe
 
 export async function getAllPosts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish&_fields=slug`, 
-  { cache: 'force-cache' })
+  { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
