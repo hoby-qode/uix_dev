@@ -24,9 +24,9 @@ const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         active: pathname === '/blog' || pathname.startsWith('/blog'),
       },
       {
-        label: 'Portfolio',
-        href: '/portfolio',
-        active: pathname === '/portfolio' || pathname.startsWith('/portfolio'),
+        label: 'Projets',
+        href: '/projets',
+        active: pathname === '/projets' || pathname.startsWith('/projets'),
       },
       {
         label: 'Contact',

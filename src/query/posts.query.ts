@@ -86,7 +86,7 @@ export async function findPostsBytag(tag:string, page:number, postsPerPage:numbe
   return res.json()
 }
 
-export async function getAllPosts() {
+export async function getAllProjects() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/posts?status=publish&_fields=slug`, 
   { cache: 'no-store' })
   if (!res.ok) {

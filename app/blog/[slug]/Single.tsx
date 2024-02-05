@@ -33,7 +33,7 @@ const Single = ({
   console.log(post);
   
   return (
-    <article className='blog'>
+    <article className='blog w-100'>
       {featured_media ? (
         <div className="radius mb-5">
           <Image
