@@ -1,0 +1,87 @@
+.title {
+    font-size: 9.5rem;
+    color: hsl(var(--foreground));
+    font-variation-settings: "wght" 600 , "wdth" 200;
+}
+.intro {
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 5rem;
+}
+.desc {
+    font-size: 2rem;
+    font-variation-settings: "wght" 400 ;
+    font-family: var(--antartica);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 140%;
+    margin-bottom: 28px;
+}
+.featured {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    perspective: 2000px;
+}
+.featured3D {
+    width: 100%;
+    height: 100%;
+    transition: transform 400ms ease-out 0s;
+    transform: rotateX(30deg);
+    border-radius: 8px;
+    overflow: hidden;
+    background-image: radial-gradient(ellipse 50% 80% at 20% 40%,rgba(93,52,221,0.1),hsla(0,0%,100%,0)),radial-gradient(ellipse 50% 80% at 80% 50%,rgba(120,119,198,0.15),hsla(0,0%,100%,0));
+}
+.featured3D img {
+    opacity: 0;
+    transition: 2s;
+}
+.featured3D::after {
+    content: "";
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    mask-image: linear-gradient(black, black), linear-gradient(black, black);
+    -webkit-mask-position-x: 0%, 0%;
+    -webkit-mask-position-y: 0%, 0%;
+    mask-size: auto, auto;
+    mask-repeat: repeat, repeat;
+    mask-origin: content-box, border-box;
+    mask-clip: content-box, border-box;
+    mask-mode: match-source, match-source;
+    mask-composite: exclude;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 108%);
+}
+.featured3D.visible {
+    animation-duration: 1400ms;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-name: featured;
+    animation-timeline: auto;
+    animation-range: normal;
+    animation-delay: calc(0s + 400ms);
+}
+@keyframes featured {
+    0% {
+        transform: rotateX(30deg);
+    }
+    25% {
+        transform: rotateX(30deg) scale(0.9);
+    }
+    60%, 100% {
+        transform: none;
+    }
+}
+.featured3D.visible img {
+    opacity: 1;
+    transition: 2s;
+}
