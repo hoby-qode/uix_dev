@@ -115,7 +115,7 @@ const Techno = ({picture, title}:{picture:string; title:string}) => {
           </div>
           <p>{title}</p>
         </div>
-        <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--primary)),transparent)`}}></div>
+        <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--foreground)),transparent)`}}></div>
       </div>
     </div>
   )

@@ -5,7 +5,7 @@
 .offer_cart {
     display: flex;
     align-items: center;
-    background-color: hsl(var(--border));
+    background-color: hsl(var(--foreground)/3%);
     padding: 27px 20px;
     border-radius: 10px;
     transition: .5s;
@@ -84,4 +84,26 @@
 .offer_cart {
     position: relative;
     z-index: 11;
+}
+.offer_cart::before {
+    content: "";
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    mask-image: linear-gradient(black, black), linear-gradient(black, black);
+    -webkit-mask-position-x: 0%, 0%;
+    -webkit-mask-position-y: 0%, 0%;
+    mask-size: auto, auto;
+    mask-repeat: repeat, repeat;
+    mask-origin: content-box, border-box;
+    mask-clip: content-box, border-box;
+    mask-mode: match-source, match-source;
+    mask-composite: exclude;
+    border-radius: var(--radius);
+    padding: 1px;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 108%);
 }

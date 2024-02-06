@@ -96,7 +96,7 @@ const Offer = ({picture, pictureDark, title, desc, link}) => {
             </Link>
           </div>
         </div>
-        <div className={styles.offer_bg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--primary)),transparent)`}}></div>
+        {/* <div className={styles.offer_bg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--primary)),transparent)`}}></div> */}
       </div>
     </div>
   )
