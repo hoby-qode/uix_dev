@@ -4,7 +4,7 @@
     top: 0;
     z-index: 9999999;
     width: 100%;
-    backdrop-filter: brightness(0.2) blur(15px);
+    backdrop-filter: brightness(0.8) blur(15px);
 }
 .theme_light {
     backdrop-filter: brightness(.95) blur(15px);
