@@ -54,7 +54,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
       </h3>
       <div className={styles.date}>Publié le : {article.date}</div>
       {article.excerpt ? (
-        <div>
+        <div className={styles.resum}>
           <InnerHTML html={{ __html: article.excerpt.rendered.slice(0, 175) }} />
         </div>
       ) : (
