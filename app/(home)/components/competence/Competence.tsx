@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './Competence.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 const Competence = () => {
   const technos = [
@@ -32,6 +33,7 @@ const Competence = () => {
     },
   ]
   
+  const { theme, setTheme } = useTheme()
   const handleMouseMove = (e) => {
     // const width = e.currentTarget.offsetWidth
     // const height = e.currentTarget.offsetHeight
@@ -68,7 +70,7 @@ const Competence = () => {
           <div className="col-md-6">
             <div className={`${styles.listTechno} row`}>
               {technos.map((techno, key) => (
-                <Techno picture={techno.picture} title={techno.title} key={key}/>
+                <Techno picture={techno.picture} title={techno.title} key={key} theme={theme}/>
               ))}
             </div>
           </div>
@@ -79,7 +81,7 @@ const Competence = () => {
   )
 }
 
-const Techno = ({picture, title}:{picture:string; title:string}) => {
+const Techno = ({picture, title, theme}:{picture:string; title:string;theme:string}) => {
   const [posBg, setPosBg] = useState({
     x: 50,
     y: 50
@@ -102,7 +104,7 @@ const Techno = ({picture, title}:{picture:string; title:string}) => {
   }
   return (
     <div className={`col-lg-4 col-md-6 col-6 ${styles.technoItem}`}>
-      <div className={styles.technoContainer} onMouseMove={(e) => handleMouseMove(e)}>
+      <div className={`${styles.technoContainer} ${theme == 'dark' ? styles.technoDark : styles.technoLight}`} onMouseMove={(e) => handleMouseMove(e)}>
         <div className={styles.techno}>
           <div className={styles.techno_picture}>
             <Image
@@ -115,7 +117,7 @@ const Techno = ({picture, title}:{picture:string; title:string}) => {
           </div>
           <p>{title}</p>
         </div>
-        <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsl(var(--foreground)),transparent)`}}></div>
+        <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsla(var(--foreground)/25%),transparent)`}}></div>
       </div>
     </div>
   )

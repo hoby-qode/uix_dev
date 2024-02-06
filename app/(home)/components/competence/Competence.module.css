@@ -1,10 +1,19 @@
 .techno {
     text-align: center;
-    background-color: hsl(var(--border)/90%);
+    background-color: hsl(var(--foreground)/3%);
     border-radius: 18px;
     padding: 23px;
     position: relative;
     z-index: 10;
+}
+.technoDark .techno {
+    background-color: #070918;
+}
+.technoLight .techno {
+    background-color: #f7f7f7;
+}
+.techno {
+    background-color: #070918;
 }
 .techno_picture {
     text-align: center;
