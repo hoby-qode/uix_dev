@@ -106,7 +106,7 @@ const Techno = ({picture, title, theme}:{picture:string; title:string;theme:stri
     <div className={`col-lg-4 col-md-6 col-6 ${styles.technoItem}`}>
       <div className={`${styles.technoContainer} ${theme == 'dark' ? styles.technoDark : styles.technoLight}`} onMouseMove={(e) => handleMouseMove(e)}>
         <div className={styles.techno}>
-          <div className={styles.techno_picture}>
+          <div className={styles.techno_picture} style={{mixBlendMode: `${title == 'Next.js' ? 'exclusion': 'normal'}`}}>
             <Image
               src={picture}
               alt={title}
