@@ -5,6 +5,8 @@ import styles from './Project.module.css'
 import Image from 'next/image'
 import Featured3D from './components/Featured3D'
 import Technos from './components/Technos'
+import Description from './components/Description'
+import Galerie from './components/Galerie'
 
 const Content = ({project}:{project:any}) => {
   return (
@@ -18,6 +20,10 @@ const Content = ({project}:{project:any}) => {
         <Image src="/images/souris.svg" alt='Scroll bottom' width={35} height={50}/>
       </div>
       <Featured3D />
+      
+      <Description />
+
+      <Galerie/>
       
       <Technos />
     </>

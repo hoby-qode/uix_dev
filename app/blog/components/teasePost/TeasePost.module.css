@@ -25,7 +25,7 @@
     mask-composite: exclude;
     border-radius: var(--radius);
     padding: 1px;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 108%);
+    background: linear-gradient(hsla(var(--foreground)/15%), hsla(var(--background)/0%) 108%);
 }
 .card h2, .card h3, .card h4 {
     margin-bottom: 10px;
@@ -41,4 +41,7 @@
 }
 .resum p {
     color: hsl(var(--foreground)/50%);
+}
+.linkImage {
+    box-shadow: 0 0 20px rgba(0,0,0,.04);
 }

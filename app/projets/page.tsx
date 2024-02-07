@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 }
 export default async function Portfolio() {
   // const allProjects = await findAllPorfolios()
-
+  await new Promise(resolve => setTimeout(resolve, 5000));
   return (
     <>
       <div className={`${styles.galleryProject_filter} container`}>

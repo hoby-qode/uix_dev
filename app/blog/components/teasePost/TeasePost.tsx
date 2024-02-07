@@ -25,7 +25,7 @@ const TeasePost = ({ article }: { article: embeddable }) => {
         <div className="picture">
           <Link
             href={`/blog/${article.slug}`}
-            className="position-relative cover zoom aspect-16-9 radius d-flex"
+            className={`position-relative cover zoom aspect-16-9 radius d-flex ${styles.linkImage}`}
           >
             {article._embedded['wp:featuredmedia']['0'].source_url ? (
               <Image

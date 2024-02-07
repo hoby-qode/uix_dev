@@ -77,9 +77,9 @@ const ItemProject = ({ index, setModal, ...props }) => {
             >
               <span style={{ marginRight: '5px' }}>{techno}</span>
               {techno === 'React Js' ? (
-                <TbBrandNextjs />
-              ) : techno == 'NextJS' ? (
                 <BiLogoReact />
+              ) : techno == 'NextJS' ? (
+                <TbBrandNextjs />
               ) : techno == 'Prisma' ? (
                 <TbBrandPrisma />
               ) : techno == 'Recoil' ? (
