@@ -52,9 +52,9 @@ const About = () => {
             </p>
             <div ref={linkButton}>
               <Magnetic>
-                <Link href="/apropos" className={styles.linkAbout}>
+                <Link href="/contact" className={styles.linkAbout}>
                   <Magnetic>
-                    <span style={{ display: 'block' }}>A propos</span>
+                    <span style={{ display: 'block' }}>Contact</span>
                   </Magnetic>
                 </Link>
               </Magnetic>

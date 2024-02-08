@@ -24,3 +24,14 @@ export async function getAllProjects() {
   }
   return res.json()
 }
+
+
+export async function getFeaturedMedia(idMedia:number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/media/${idMedia}?_fields=media_details,title`, 
+  { cache: 'no-store' })
+  
+  if (!res.ok) {
+    return null
+  }
+  return res.json()
+}
