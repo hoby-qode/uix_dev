@@ -1,8 +1,9 @@
 import React from 'react'
+import Offer from '../(home)/components/offer'
 
 const Offers = () => {
   return (
-    <div>Offers</div>
+    <Offer titleIsH1={true} />
   )
 }
 

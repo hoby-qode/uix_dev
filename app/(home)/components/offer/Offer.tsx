@@ -6,43 +6,45 @@ import Link from 'next/link'
 import { TbArrowUpRight } from 'react-icons/tb'
 import { useTheme } from 'next-themes'
 
-const Offers = () => {
+const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
   const offers = [
     {
       picture: '/images/services/conception-ux.svg',
       pictureDark: '/images/services/conception-ux-dark.svg',
       title: 'Web design',
       desc: 'Créativité visuelle, navigation intuitive, expérience immersive pour une présence en ligne moderne.',
-      link: '/offer?type=web-design',
+      link: '/offres/web-design',
     },
     {
       picture: '/images/services/logo-design.svg',
       pictureDark: '/images/services/logo-design-dark.svg',
       title: 'Logo design',
       desc: 'Identité distinctive, logos mémorables reflétant l\'essence unique de votre entreprise.',
-      link: '/offer?type=dev-front',
+      link: '/offres/dev-front',
     },
     {
       picture: '/images/services/web-developer.svg',
       pictureDark: '/images/services/web-developer-dark.svg',
       title: 'Dev wordpress',
       desc: 'Sites personnalisés, gestion simplifiée, puissance sans tracas pour une présence en ligne efficace.',
-      link: '/offer?type=dev-wordpress',
+      link: '/offres/dev-wordpress',
     },
     {
       picture: '/images/services/web-integrator.svg',
       pictureDark: '/images/services/web-integrator-dark.svg',
       title: 'Dev Front-end',
       desc: 'Sites dynamiques alliant esthétique et convivialité pour une expérience optimale.',
-      link: '/offer?type=dev-front',
+      link: '/offres/dev-front',
     },
   ]
   return (
     <div className="container">
       <div className={styles.offer}>
-        <h2 className='mb-2'>
+        { titleIsH1 ? <h1 className='mb-2'>
           Mes <strong>offres spécials</strong> <br /> pour vous
-        </h2>
+        </h1> : <h2 className='mb-2'>
+          Mes <strong>offres spécials</strong> <br /> pour vous
+        </h2>}
         <div className="col-md-10 mx-auto">
           <p className='text-center mb-5 col-lg-8 mx-auto'>Explorez ces offres spéciales et découvrez comment je peux donner vie à vos projets numériques de manière unique et professionnelle. </p>
           <div className={`${styles.offer_cards} row justify-content-center pt-5cla`}>

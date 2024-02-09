@@ -14,13 +14,11 @@ export const metadata: Metadata = {
   description: 'Description de la page portfolio',
 }
 export default async function Portfolio() {
-  // const allProjects = await findAllPorfolios()
-  await new Promise(resolve => setTimeout(resolve, 5000));
   return (
     <>
       <div className={`${styles.galleryProject_filter} container`}>
         <Anchor height={30} />
-        <h1 className='text-center'>Mes projets 2023</h1>
+        <h1 className='text-center'>Mes projets <br /> 2023</h1>
         <HomeTopProjects />
       </div>
     </>

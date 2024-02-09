@@ -1,3 +1,9 @@
 .galleryProject_filter {
     margin-top: 9rem;
 }
+.galleryProject_filter h1 {
+    margin-bottom: 9rem;
+    font-size: 6.5rem;
+    color: hsl(var(--foreground));
+    font-variation-settings: "wght" 600 , "wdth" 200;
+}
