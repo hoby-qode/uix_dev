@@ -27,6 +27,12 @@ const Single = ({
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+  const imageUrl = featured_media.media_details.sizes.full ? 
+  featured_media.media_details.sizes.full.source_url : 
+  (featured_media.media_details.sizes.large ? 
+    featured_media.media_details.sizes.large.source_url : 
+      null);
+  
   const tagsCurrent = tags
     .filter((tag: any) => post.tags.includes(tag.id))
     .map((tag: any) => tag.slug)
@@ -37,7 +43,7 @@ const Single = ({
       {featured_media ? (
         <div className="radius mb-5">
           <Image
-            src={featured_media.media_details.sizes.large.source_url}
+            src={imageUrl}
             alt={featured_media.title.rendered}
             sizes="(max-width: 768px) 100%, 33%"
             width={500}
