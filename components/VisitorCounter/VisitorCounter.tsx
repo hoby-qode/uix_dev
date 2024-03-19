@@ -1,5 +1,6 @@
 "use client"
 
+import { getVisits, updateVisits } from '@/libs/visits';
 import React, { useState, useEffect } from 'react';
 
 const VisitorCounter = () => {
@@ -10,26 +11,10 @@ const VisitorCounter = () => {
     }, []);
 
     const fetchVisitorCount = async () => {
-        
-        console.log("response");
         try {
-            const response = await fetch(
-                `http://uixdev.s193304.mos2.atester.fr/wp-json/uixdev/v1/visitor-count`, 
-                {
-                  method: 'GET',
-                  mode: 'cors', // Active le mode CORS
-                  credentials: 'same-origin',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                }
-              );
-            if (response.ok) {
-                const data = await response.json();
-                setVisitorCount(data);
-            } else {
-                throw new Error('Error fetching visitor count');
-            }
+            const count = await getVisits();
+            setVisitorCount(count);
+            await updateVisits(); // Mettre à jour le compteur de visites après l'avoir récupéré
         } catch (error) {
             console.error('Error fetching visitor count:', error);
         }
