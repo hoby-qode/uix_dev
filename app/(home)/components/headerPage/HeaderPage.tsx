@@ -5,6 +5,7 @@ import { TbDownload } from 'react-icons/tb'
 import Image from 'next/image'
 import picture from '@/public/images/headerpage.png'
 import Magnetic from '@/components/ui/Magnetic'
+import VisitorCounter from '@/components/VisitorCounter/VisitorCounter'
 
 const HeaderPage = () => {
   return (
@@ -60,9 +61,9 @@ const HeaderPage = () => {
                 <div className={styles.headerPage__label}>Projets livrés</div>
               </div>
               <div className={styles.headerPage__infos_item}>
-                <div className={styles.headerPage__value}>99%</div>
+                <div className={styles.headerPage__value}><VisitorCounter /></div>
                 <div className={styles.headerPage__label}>
-                  Clients satisfaits
+                  Nombre de visiteurs
                 </div>
               </div>
             </div>

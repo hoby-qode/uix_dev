@@ -7,7 +7,7 @@ const Description = () => {
     <div className={styles.description}>
         <div className="row">
             <div className="col-md-7">
-                <h2 className={styles.title}>We Create digital Product For Business</h2>
+                <h2 className={styles.title}>Contexte client et missions confiées</h2>
                 <div className={styles.intro}>
                     <div className={styles.introPicto}>
                         <Image src="/images/probleme.png" alt="c'est quoi le problème ?" width={150} height={150} quality={100}/>
