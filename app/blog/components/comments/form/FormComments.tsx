@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import {useFormStatus} from 'react-dom'
 
 import { createComment } from '@/app/actions/actions';
+
 const FormComments = ({ idPost }: { idPost: number }) => {
   const CommentWithId = createComment.bind(null,idPost)
   return (
