@@ -82,7 +82,7 @@ const Modal = ({ projects, modal }) => {
             return (
               <div className={`${styles.modal} cover `} key={`modal_${index}`}>
                 <Image
-                  src={project.picture}
+                  src={project._embedded['wp:featuredmedia']['0'].source_url}
                   alt={project.title}
                   width={300}
                   height={0}

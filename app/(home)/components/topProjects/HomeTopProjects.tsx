@@ -3,9 +3,9 @@ import style from './style.module.css'
 import Modal from './Modal'
 import { useEffect, useState } from 'react'
 import ItemProject from './ItemProject'
-import { projects } from '@/src/datas/projets'
 
-const HomeTopProjects = () => {
+//Todo : typé le projets
+const HomeTopProjects = ({projects}:{projects:any}) => {
   const [modal, setModal] = useState({ active: false, index: 0 })
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
@@ -21,12 +21,12 @@ const HomeTopProjects = () => {
             <ItemProject
               index={index}
               setModal={setModal}
-              title={project.title}
+              title={project.title.rendered}
               slug={project.slug}
-              desc={project.desc}
-              picture={project.picture}
-              services={project.services}
-              technos={project.technos}
+              desc={project.content.rendered}
+              picture={project._embedded['wp:featuredmedia']['0'].source_url}
+              services={project._embedded['wp:term']}
+              technos={project._embedded['wp:term']}
               key={index}
             />
           )

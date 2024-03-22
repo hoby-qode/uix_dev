@@ -49,8 +49,6 @@ export default async function Projet({ params }: { params: { slug: string } }) {
   //Récupération du post avec son slug
   const projects = await findProjectBySlug(String(params.slug))
   const project = projects.find((project: any) => project.slug === params.slug)
-  const featured_media = await getFeaturedMedia(project.featured_media)
-  console.log(featured_media);
   
   if (!project) {
     return notFound()

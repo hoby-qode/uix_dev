@@ -6,10 +6,10 @@ import Image from 'next/image'
 import { TbBrandNextjs, TbBrandPrisma } from 'react-icons/tb'
 import { BiLogoReact } from 'react-icons/bi'
 import { SiStrapi, SiAdobexd, SiRecoil } from 'react-icons/si'
-import { DiPhotoshop } from 'react-icons/di'
+import { DiHtml5, DiJavascript, DiPhotoshop, DiPhp, DiWordpress } from 'react-icons/di'
 const ItemProject = ({ index, setModal, ...props }) => {
   const projectItem = useRef(null)
-
+  console.log("props.picture", props.picture)
   return (
     <div
       ref={projectItem}
@@ -31,16 +31,16 @@ const ItemProject = ({ index, setModal, ...props }) => {
         data-scroll
         data-scroll-speed={0.05}
       >
-        {props.services.map((service: string, key: number) => {
+        {props.services && props.services[0].map((service: string, key: number) => {
           return (
             <Button
               href="#test"
               type={
-                key == 0 ? 'primary' : key == 1 ? 'secondary' : 'theme-color'
+                'outline-theme'
               }
               key={key}
             >
-              {service}
+              {service.name}
             </Button>
           )
         })}
@@ -51,7 +51,7 @@ const ItemProject = ({ index, setModal, ...props }) => {
         data-scroll-speed={0.08}
       >
         <h2>{props.title}</h2>
-        <div className={styles.projectIntro}>{props.desc}</div>
+        <div className={styles.projectIntro}><p dangerouslySetInnerHTML={{__html: props.desc}} /></div>
         <Link
           href={`/projets/${props.slug}`}
           className={styles.link}
@@ -68,27 +68,35 @@ const ItemProject = ({ index, setModal, ...props }) => {
         data-scroll
         data-scroll-speed={0.09}
       >
-        {props.technos.map((techno: string, key: number) => {
+        {props.services && props.services[1].map((techno: string, key: number) => {
           return (
             <Link
               href="#"
               className="tag tag-theme-color btn-rounded d-inline-flex align-items-center"
               key={key}
             >
-              <span style={{ marginRight: '5px' }}>{techno}</span>
-              {techno === 'React Js' ? (
+              <span style={{ marginRight: '5px' }}><span dangerouslySetInnerHTML={{__html: techno.name}} /></span>
+              {techno.slug === 'react-js' ? (
                 <BiLogoReact />
-              ) : techno == 'NextJS' ? (
+              ) : techno.slug == 'next-js' ? (
                 <TbBrandNextjs />
-              ) : techno == 'Prisma' ? (
+              ) : techno.slug == 'prisma' ? (
                 <TbBrandPrisma />
-              ) : techno == 'Recoil' ? (
+              ) : techno.slug == 'recoil' ? (
                 <SiRecoil />
-              ) : techno == 'Abode XD' ? (
+              ) : techno.slug == 'adobe-xd' ? (
                 <SiAdobexd />
-              ) : techno == 'Photoshop' ? (
+              ) : techno.slug == 'photoshop' ? (
                 <DiPhotoshop />
-              ) : techno == 'Strapi' ? (
+              ) : techno.slug == 'javascript' ? (
+                <DiJavascript />
+              ) : techno.slug == 'php' ? (
+                <DiPhp />
+              ) : techno.slug == 'wordpress' ? (
+                <DiWordpress />
+              ) : techno.slug == 'htmlcss' ? (
+                <DiHtml5 />
+              ) : techno.slug == 'strapi' ? (
                 <SiStrapi />
               ) : (
                 ''

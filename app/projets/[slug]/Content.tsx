@@ -10,6 +10,7 @@ import Galerie from './components/galerie/Galerie'
 import Magnetic from '@/components/ui/Magnetic'
 
 const Content = ({project}:{project:any}) => {
+  console.log(project)
   return (
     <>
       <div className={styles.intro}>
@@ -22,9 +23,18 @@ const Content = ({project}:{project:any}) => {
         <Image src="/images/souris.svg" alt='Scroll bottom' width={35} height={50}/>
 
       </div>
-      {/* <Featured3D image={} video={} /> */}
+      <Featured3D image={project._embedded['wp:featuredmedia']['0'].source_url} video={project.acf.video} />
       
-      <Description />
+      <Description 
+        sous_titre={project.acf.sous_titre} 
+        probleme={project.acf.probleme} 
+        solution={project.acf.solution} 
+        services={project.acf.services} 
+        categorie={project.acf.categorie}
+        client={project.acf.client}
+        localisation={project.acf.localisation}
+        duree={project.acf.duree}
+        />
 
       <Galerie/>
       

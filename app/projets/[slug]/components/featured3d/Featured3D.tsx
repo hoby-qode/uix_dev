@@ -16,13 +16,12 @@ const Featured3D = ({image, video}:{image: string | null;video: string | null}) 
             }     
         }  
     })
+    
     return (
         <div className={styles.featured} ref={ref}>
             <motion.div className={`${styles.featured3D} ${isInView ? styles.visible : ''}`}>
                 { video 
-                    ? <video controls controlsList="nodownload" style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} autoPlay={isInView}>
-                            <source src="/videos/Showreel 2022 — Repin Agency.mp4" type="video/mp4" />
-                        </video>
+                    ? <iframe style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} width="1250" height="703" src={`${video}${isInView ? '?autoplay=1' : ''}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     : image && <Image src={image} alt='featured' fill style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} />
                 }
             </motion.div>

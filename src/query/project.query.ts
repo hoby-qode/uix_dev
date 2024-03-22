@@ -8,7 +8,7 @@ export async function findAllPorfolios() {
 }
 
 export async function findProjectBySlug(slug:string) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/portfolio`, 
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/portfolio?_embed`, 
     { cache: 'no-store' })
     if (!res.ok) {
       throw new Error('Erreur lors de la récupération des données')
@@ -17,7 +17,7 @@ export async function findProjectBySlug(slug:string) {
 }
 
 export async function getAllProjects() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/portfolio?status=publish&_fields=slug`, 
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/portfolio?status=publish&_embed`, 
   { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
