@@ -21,7 +21,7 @@ const Featured3D = ({image, video}:{image: string | null;video: string | null}) 
         <div className={styles.featured} ref={ref}>
             <motion.div className={`${styles.featured3D} ${isInView ? styles.visible : ''}`}>
                 { video 
-                    ? <iframe style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} width="1250" height="703" src={`${video}${isInView ? '?autoplay=1' : ''}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    ? <iframe style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} width="1270" height="714" src={`${video}${isInView ? '?autoplay=1' : ''}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     : image && <Image src={image} alt='featured' fill style={{objectFit: 'cover', opacity: isInView ? 1 : 0}} />
                 }
             </motion.div>
