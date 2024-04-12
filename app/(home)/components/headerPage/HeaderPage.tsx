@@ -28,8 +28,8 @@ const HeaderPage = () => {
               compétences dans Wordpress, react.js et Next.js
             </h2>
             <div className={styles.headerPage_buttons}>
-              <Link className="btn btn-primary" href="/apropos">
-                A propos
+              <Link className="btn btn-primary" href="/contact">
+                Contactez-moi
               </Link>
               <Link
                 href="/RAKOTONIALY-H.Marcel-CV.pdf"

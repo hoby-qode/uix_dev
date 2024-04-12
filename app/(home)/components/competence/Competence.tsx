@@ -63,8 +63,8 @@ const Competence = () => {
             <h2>Expérience dans le <strong>design</strong> et le <strong>développement web</strong></h2>
             <p>En tant que professionnel du web, je possède une solide expérience dans l&apos;utilisation d&apos;outils de conception pour créer des interfaces intuitives et esthétiques.</p>
             <p>Mon expertise s&apos;étend également au développement de sites web, avec une maîtrise des technologies nécessaires pour concevoir et mettre en œuvre des solutions web modernes et performantes.</p>
-            <Link href="/apropos" className="btn btn-primary">
-              A propos
+            <Link href="/contact" className="btn btn-primary">
+              Contactez-moi
             </Link>
           </div>
           <div className="col-md-6">
