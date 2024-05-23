@@ -9,7 +9,6 @@ import { SiStrapi, SiAdobexd, SiRecoil } from 'react-icons/si'
 import { DiHtml5, DiJavascript, DiPhotoshop, DiPhp, DiWordpress } from 'react-icons/di'
 const ItemProject = ({ index, setModal, ...props }) => {
   const projectItem = useRef(null)
-  console.log("props.picture", props.picture)
   return (
     <div
       ref={projectItem}

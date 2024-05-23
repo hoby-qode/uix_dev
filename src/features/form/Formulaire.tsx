@@ -4,7 +4,7 @@ import Textarea from '@/components/ui/Textarea'
 import styles from './styles.module.css'
 import { useState } from 'react'
 import Magnetic from '@/components/ui/Magnetic'
-// import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 const Formulaire = () => {
   const [formData, setFormData] = useState({
@@ -25,38 +25,38 @@ const Formulaire = () => {
     e.preventDefault()
 
     // Créer un transporteur Nodemailer
-    // const transporter = nodemailer.createTransport({
-    //   service: 'Gmail', // Remplacez par le service de votre choix
-    //   auth: {
-    //     user: 'houbby22@gmail.com',
-    //     pass: 'Vadikotiako22',
-    //   },
-    // })
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // Remplacez par le service de votre choix
+      auth: {
+        user: 'houbby22@gmail.com',
+        pass: 'Vadikotiako22',
+      },
+    })
 
-    // const mailOptions = {
-    //     from: 'houbby22@gmail.com',
-    //     to: 'marcel@medialibs.com', // L'adresse à laquelle vous souhaitez envoyer l'e-mail
-    //     subject: 'Test',
-    //     text: `
-    //     Nom: ${formData.name}
-    //     Email: ${formData.mail}
-    //     Message: ${formData.message}
-    //     `,
-    // };
+    const mailOptions = {
+        from: 'houbby22@gmail.com',
+        to: 'marcel@medialibs.com', // L'adresse à laquelle vous souhaitez envoyer l'e-mail
+        subject: 'Test',
+        text: `
+        Nom: ${formData.name}
+        Email: ${formData.mail}
+        Message: ${formData.message}
+        `,
+    };
 
-    // // Envoyer l'e-mail
-    // try {
-    //     await transporter.sendMail(mailOptions);
-    //     console.log('E-mail envoyé avec succès');
-    //     // Réinitialiser le formulaire après l'envoi
-    //     setFormData({
-    //     name: '',
-    //     mail: '',
-    //     message: '',
-    //     });
-    // } catch (error) {
-    //     console.error('Erreur lors de l\'envoi de l\'e-mail:', error);
-    // }
+    // Envoyer l'e-mail
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log('E-mail envoyé avec succès');
+        // Réinitialiser le formulaire après l'envoi
+        setFormData({
+        name: '',
+        mail: '',
+        message: '',
+        });
+    } catch (error) {
+        console.error('Erreur lors de l\'envoi de l\'e-mail:', error);
+    }
   }
 
   return (
