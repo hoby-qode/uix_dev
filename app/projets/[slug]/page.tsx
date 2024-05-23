@@ -5,7 +5,7 @@ import { ResolvingMetadata, Metadata } from 'next'
 import { Props } from 'next/script'
 import styles from './Project.module.css'
 import {
-  getFeaturedMedia,
+  getMediaDetails,
 } from '@/src/query/posts.query'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Post } from '@/src/types/types'

@@ -5,9 +5,9 @@ import Anchor from '@/components/ui/Anchor'
 import { ResolvingMetadata, Metadata } from 'next'
 import { Props } from 'next/script'
 import {
-  findPostBySlug,
+  getPostBySlug,
   getAllPosts,
-  getFeaturedMedia,
+  getMediaDetails,
   getTags,
 } from '@/src/query/posts.query'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -25,7 +25,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read route params
   const slug = params.slug
-  const post = await findPostBySlug(String(slug))
+  const post = await getPostBySlug(String(slug))
 
   return {
     title: post?.title,
@@ -50,9 +50,9 @@ export async function generateStaticParams() {
 
 export default async function Blog({ params }: { params: { slug: string } }) {
   //Récupération du post avec son slug
-  const posts = await findPostBySlug(String(params.slug))
+  const posts = await getPostBySlug(String(params.slug))
   const post = posts.find((post: Post) => post.slug === params.slug)
-  const featured_media = await getFeaturedMedia(post.featured_media)
+  const featured_media = await getMediaDetails(post.featured_media)
 
   const comments = await getCommentsByIdPost(parseInt(post.id || '', 10))
 

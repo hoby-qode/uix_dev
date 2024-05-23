@@ -26,7 +26,7 @@ export async function getAllProjects() {
 }
 
 
-export async function getFeaturedMedia(idMedia:number) {
+export async function getMediaDetails(idMedia:number) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT}/media/${idMedia}?_fields=media_details,title`, 
   { cache: 'no-store' })
   

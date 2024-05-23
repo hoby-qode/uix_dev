@@ -1,4 +1,4 @@
-import { findPostBySlug } from '@/src/query/posts.query'
+import { getPostBySlug } from '@/src/query/posts.query'
 import { ResolvingMetadata, Metadata } from 'next'
 import React from 'react'
 
@@ -12,7 +12,7 @@ export async function generateMetadata(
   ): Promise<Metadata> {
     // read route params
     const slug = params.slug
-    const post = await findPostBySlug(String(slug))
+    const post = await getPostBySlug(String(slug))
   
     return {
       title: post?.title,

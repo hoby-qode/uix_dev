@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 
-import { getCountOfAllPosts, findPosts, getTags } from '@/src/query/posts.query'
+import { getCountOfAllPosts, getPosts, getTags } from '@/src/query/posts.query'
 
 import Content from './Content'
 import Anchor from '@/components/ui/Anchor'
@@ -24,7 +24,7 @@ export default async function Blog({
 
   const countAllPosts = await getCountOfAllPosts()
   const tags = await getTags()
-  const posts = await findPosts(page, postsPerPage, skip)
+  const posts = await getPosts(page, postsPerPage, skip)
   return (
     <main className="container">
       <Anchor height={50} />

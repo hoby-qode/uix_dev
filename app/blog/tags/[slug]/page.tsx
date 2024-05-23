@@ -1,8 +1,8 @@
 import React from 'react'
 import {
   getCountOfAllPosts,
-  findPostBySlug,
-  findPostsBytag,
+  getPostBySlug,
+  getPostsByTag,
   getTags,
   getCountOfAllPostsByTag,
 } from '@/src/query/posts.query'
@@ -31,7 +31,7 @@ export default async function Tags({
   const skip = (page - 1) * postsPerPage
 
   const countAllPosts = await getCountOfAllPostsByTag(params.slug)
-  const posts = await findPostsBytag(params.slug, page, postsPerPage, skip)
+  const posts = await getPostsByTag(params.slug, page, postsPerPage, skip)
 
   return (
     <main className="container">
