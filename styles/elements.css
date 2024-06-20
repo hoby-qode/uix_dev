@@ -384,3 +384,29 @@ hr {
     width: 55px;
     background-image: initial!important;
   }
+
+
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  
+  .ellipsis--2 {
+    -webkit-line-clamp: 2;
+  }
+  
+  .ellipsis--3 {
+    -webkit-line-clamp: 3;
+  }
+  
+  .ellipsis--4 {
+    -webkit-line-clamp: 4;
+  }
+  
+  .ellipsis>* {
+    margin: 0;
+  }
+  
