@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 
-import { getCountOfAllPosts, getPosts, getTags } from '@/src/query/posts.query'
+import { getTotalPostCount, getPosts, getTags } from '@/src/query/posts.query'
 
 import Content from './Content'
 import Anchor from '@/components/ui/Anchor'
@@ -22,8 +22,9 @@ export default async function Blog({
   const postsPerPage = 6
   const skip = (page - 1) * postsPerPage
 
-  const countAllPosts = await getCountOfAllPosts()
+  const countAllPosts = await getTotalPostCount()
   const tags = await getTags()
+  console.log(tags)
   const posts = await getPosts(page, postsPerPage, skip)
   return (
     <main className="container">

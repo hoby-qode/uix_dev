@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const TagFilter = ({ tags, tagCurrent }: { tags: any; tagCurrent: any }) => {
+const TagFilter = ({ tags, tagCurrent }: { tags: any; tagCurrent?: any }) => {
   return (
     <div>
       <h3>Tag:</h3>

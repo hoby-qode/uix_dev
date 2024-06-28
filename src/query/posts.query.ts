@@ -73,6 +73,7 @@ export async function getTags() {
   if (!res.ok) {
     throw new Error('Erreur lors de la récupération des données')
   }
+  console.log(res)
   return res.json()
 }
 
