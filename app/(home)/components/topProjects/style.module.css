@@ -75,6 +75,7 @@
     align-items: center;
     justify-content: center;
     border: 2px solid hsl(var(--primary));
+    border-radius: 25px;
     z-index: 99;
 }
 .modalSlider {
