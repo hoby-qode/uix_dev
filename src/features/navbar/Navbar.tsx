@@ -30,7 +30,7 @@ const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
       },
       {
         label: 'Me contacter',
-        href: '/contact',
+        href: '#contact',
         active: pathname === '/contact',
       },
     ],
@@ -107,11 +107,24 @@ const LinkNavbar: React.FC<LinkNavbarProps> = ({
   id,
 }) => {
   const animation = id * 0.1
-
+  const handleOpenChat = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.toggle();  // Ouvre ou ferme la bulle de chat
+    }
+  };
   return (
     <>
       {isMobile ? (
-        <Link
+        href == '#contact' ? <Link
+        href={href}
+        className={`navbar_link ishover ${active ? 'active' : ''}`}
+        onMouseEnter={(e) => onMouseEnter(e)}
+        onMouseOut={onMouseOut}
+        target="_top"
+        onClick={handleOpenChat}
+      >
+        {active ? <strong>{label}</strong> : label}
+      </Link> : <Link
           href={href}
           className={`navbar_link ishover ${active ? 'active' : ''}`}
           onMouseEnter={(e) => onMouseEnter(e)}
@@ -121,7 +134,23 @@ const LinkNavbar: React.FC<LinkNavbarProps> = ({
           {active ? <strong>{label}</strong> : label}
         </Link>
       ) : (
-        <Link
+        href == '#contact' ? <Link
+        href={href}
+        passHref
+        className={`navbar_link ishover ${active ? 'active' : ''}`}
+        onMouseEnter={(e) => onMouseEnter(e)}
+        onMouseOut={onMouseOut}
+        onClick={handleOpenChat}
+      >
+        <motion.span
+          initial={{ transform: 'translateY(-50px)' }}
+          animate={{ transform: 'translateY(0)' }}
+          transition={{ delay: animation, duration: 0.5, ease: 'easeOut' }}
+          className="d-block"
+        >
+          {active ? <strong>{label}</strong> : label}
+        </motion.span>
+      </Link> : <Link
           href={href}
           passHref
           className={`navbar_link ishover ${active ? 'active' : ''}`}
@@ -136,7 +165,7 @@ const LinkNavbar: React.FC<LinkNavbarProps> = ({
           >
             {active ? <strong>{label}</strong> : label}
           </motion.span>
-        </Link>
+        </Link> 
       )}
     </>
   )
