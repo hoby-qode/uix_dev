@@ -17,10 +17,7 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'uixdev.s193304.mos2.atester.fr',
-      },
+      
       {
         protocol: 'http',
         hostname: 'localhost',

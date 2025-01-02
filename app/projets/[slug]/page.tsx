@@ -38,26 +38,26 @@ export async function generateMetadata(
 export const revalidate = false
 export const dynamic = 'force-static'
 
-export async function generateStaticParams() {
-  const projects = await getAllProjects()
-  return projects.map((p:any) => ({
-    slug: p.slug,
-  }))
-}
+// export async function generateStaticParams() {
+//   const projects = await getAllProjects()
+//   return projects.map((p:any) => ({
+//     slug: p.slug,
+//   }))
+// }
 
 export default async function Projet({ params }: { params: { slug: string } }) {
   //Récupération du post avec son slug
-  const projects = await findProjectBySlug(String(params.slug))
-  const project = projects.find((project: any) => project.slug === params.slug)
+  // const projects = await findProjectBySlug(String(params.slug))
+  // const project = projects.find((project: any) => project.slug === params.slug)
   
-  if (!project) {
-    return notFound()
-  }
+  // if (!project) {
+  //   return notFound()
+  // }
 
   return (
     <main className="container content">
       <Anchor height={50} />
-      <Content project={project} />
+      {/* <Content project={project} /> */}
     </main>
   )
 }
