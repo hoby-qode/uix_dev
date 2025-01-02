@@ -6,7 +6,8 @@ import Image from 'next/image'
 import { TbBrandNextjs, TbBrandPrisma } from 'react-icons/tb'
 import { BiLogoReact } from 'react-icons/bi'
 import { SiStrapi, SiAdobexd, SiRecoil } from 'react-icons/si'
-import { DiHtml5, DiJavascript, DiPhotoshop, DiPhp, DiWordpress } from 'react-icons/di'
+import { DiDocker, DiHtml5, DiJavascript, DiJira, DiPhotoshop, DiPhp, DiSymfony, DiWordpress } from 'react-icons/di'
+import { FaFigma, FaGitlab, FaSlack } from 'react-icons/fa'
 const ItemProject = ({ index, setModal, ...props }) => {
   const projectItem = useRef(null)
   return (
@@ -33,7 +34,7 @@ const ItemProject = ({ index, setModal, ...props }) => {
         {props.services && props.services[0].map((service: string, key: number) => {
           return (
             <Button
-              href="#test"
+              href="#"
               type={
                 'outline-theme'
               }
@@ -52,7 +53,7 @@ const ItemProject = ({ index, setModal, ...props }) => {
         <h2>{props.title}</h2>
         <div className={styles.projectIntro}><p dangerouslySetInnerHTML={{__html: props.desc}} /></div>
         <Link
-          href={`/projets/${props.slug}`}
+          href={`${props.slug}`}
           className={styles.link}
           onMouseEnter={() => {
             setModal({ active: true, index: index })
@@ -60,6 +61,7 @@ const ItemProject = ({ index, setModal, ...props }) => {
           onMouseLeave={() => {
             setModal({ active: false, index: index })
           }}
+          target='_blank'
         ></Link>
       </div>
       <div
@@ -95,6 +97,18 @@ const ItemProject = ({ index, setModal, ...props }) => {
                 <DiWordpress />
               ) : techno.slug == 'htmlcss' ? (
                 <DiHtml5 />
+              ) : techno.slug == 'gitlab' ? (
+                <FaGitlab />
+              ) : techno.slug == 'jira' ? (
+                <DiJira />
+              ) : techno.slug == 'docker' ? (
+                <DiDocker />
+              ) : techno.slug == 'slack' ? (
+                <FaSlack />
+              ) : techno.slug == 'figma' ? (
+                <FaFigma />
+              ) : techno.slug == 'symfony' ? (
+                <DiSymfony />
               ) : techno.slug == 'strapi' ? (
                 <SiStrapi />
               ) : (
