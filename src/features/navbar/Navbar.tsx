@@ -18,18 +18,18 @@ const Navbar = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         active: pathname === '/',
         href: '/',
       },
+      // {
+      //   label: 'Blog',
+      //   href: '/blog',
+      //   active: pathname === '/blog' || pathname.startsWith('/blog'),
+      // },
       {
-        label: 'Blog',
-        href: '/blog',
-        active: pathname === '/blog' || pathname.startsWith('/blog'),
-      },
-      {
-        label: 'Projets',
+        label: 'Portfolio',
         href: '/projets',
         active: pathname === '/projets' || pathname.startsWith('/projets'),
       },
       {
-        label: 'Contact',
+        label: 'Me contacter',
         href: '/contact',
         active: pathname === '/contact',
       },

@@ -41,6 +41,17 @@ const HeaderPage = () => {
                 <TbDownload />
               </Link>
             </div>
+            <div className='flex gap-4 ' style={{marginTop: "35px", justifyContent: "space-between", flexWrap: "wrap"}}>
+              <div>
+                <Image src="/images/header/Typography Design 3D Model (HD).png" alt="Typography Design" width={130} height={100} style={{objectFit: "contain"}} />
+              </div>
+              <div>
+                <Image src="/images/header/Web Ads (HD).png" alt="Web Ads" width={130} height={100} style={{objectFit: "contain"}} />
+              </div>
+              <div>
+                <Image src="/images/header/Web Design (HD).png" alt="Web Design" width={130} height={100} style={{objectFit: "contain"}} />
+              </div>
+            </div>
           </div>
           <div className={`${styles.headerPage_right} col-lg-7`}>
             <div className={styles.headerPage__picture}>
