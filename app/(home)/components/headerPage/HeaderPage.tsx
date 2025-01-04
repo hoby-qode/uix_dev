@@ -6,8 +6,10 @@ import Image from 'next/image'
 import picture from '@/public/images/headerpage.png'
 import Magnetic from '@/components/ui/Magnetic'
 import VisitorCounter from '@/components/VisitorCounter/VisitorCounter'
+import LinkContactMe from './LinkContactMe'
 
 const HeaderPage = () => {
+  
   return (
     <div className={styles.headerpage}>
       <div className={` container`}>
@@ -28,9 +30,8 @@ const HeaderPage = () => {
               compétences dans Wordpress, react.js et Next.js
             </h2>
             <div className={styles.headerPage_buttons}>
-              <Link className="btn btn-primary" href="/contact">
-                Contactez-moi
-              </Link>
+              <LinkContactMe />
+              
               <Link
                 href="/RAKOTONIALY-H.Marcel-CV.pdf"
                 target="_blank"

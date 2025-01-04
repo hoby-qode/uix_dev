@@ -54,6 +54,11 @@ const Competence = () => {
       y: angleY,
     })
   }
+  const handleOpenChat = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.toggle();  // Ouvre ou ferme la bulle de chat
+    }
+  };
   return (
     <div className={styles.competences}>
       <div className="container">
@@ -63,7 +68,7 @@ const Competence = () => {
             <h2>Expérience dans le <strong>design</strong> et le <strong>développement web</strong></h2>
             <p>En tant que professionnel du web, je possède une solide expérience dans l&apos;utilisation d&apos;outils de conception pour créer des interfaces intuitives et esthétiques.</p>
             <p>Mon expertise s&apos;étend également au développement de sites web, avec une maîtrise des technologies nécessaires pour concevoir et mettre en œuvre des solutions web modernes et performantes.</p>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="#contact" onClick={handleOpenChat} className="btn btn-primary">
               Contactez-moi
             </Link>
           </div>
