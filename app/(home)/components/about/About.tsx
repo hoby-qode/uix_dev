@@ -18,6 +18,11 @@ const About = () => {
       // }
     }
   }, [])
+  const handleOpenChat = () => {
+    if (window.Tawk_API) {
+      window.Tawk_API.toggle();  // Ouvre ou ferme la bulle de chat
+    }
+  };
   return (
     <div className={styles.about}>
       <div className="container">
@@ -52,7 +57,7 @@ const About = () => {
             </p>
             <div ref={linkButton}>
               <Magnetic>
-                <Link href="/contact" className={styles.linkAbout}>
+                <Link href="#contact" onClick={handleOpenChat} className={styles.linkAbout}>
                   <Magnetic>
                     <span style={{ display: 'block' }}>Contact</span>
                   </Magnetic>
