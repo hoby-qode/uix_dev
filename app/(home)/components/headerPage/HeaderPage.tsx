@@ -25,9 +25,7 @@ const HeaderPage = () => {
               </span>
             </h1>
             <h2 className={styles.headerPage_text}>
-              Je suis un Développeur web avec 4ans d&apos;expérience, dont les 2
-              dernières années ont été consacrées à perfectionner mes
-              compétences dans Wordpress, react.js et Next.js
+            Avec 4 ans d&apos;expérience en développement web, j&apos;ai acquis une solide expertise en <strong>WordPress, React.js et Next.js</strong>, me permettant de créer des interfaces intuitives et performantes.
             </h2>
             <div className={styles.headerPage_buttons}>
               <LinkContactMe />
