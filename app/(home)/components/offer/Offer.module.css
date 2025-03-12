@@ -107,3 +107,35 @@
     padding: 1px;
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 108%);
 }
+.etiquette {
+    padding: 5px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+.offer_title {
+    font-variation-settings: "wght" 700;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+.offer_sous_titre {
+    font-variation-settings: "wght" 700;
+    color: hsl(var(--foreground) / 90%);
+}
+.offer_desc {
+    font-variation-settings: "wght" 400;
+    line-height: 140%;
+    color: hsl(var(--foreground) / 80%);
+    margin: 15px 0;
+}
+.offer_ideal {
+    margin: 0;
+    color: hsl(var(--foreground) / 90%);
+}
+.offer_picture {
+    aspect-ratio: 412/231;
+    border-radius: 10px;
+    overflow: hidden;
+}

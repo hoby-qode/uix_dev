@@ -5,36 +5,42 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { TbArrowUpRight } from 'react-icons/tb'
 import { useTheme } from 'next-themes'
+import Badge from '@/components/ui/Badge'
 
 const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
   const offers = [
     {
-      picture: '/images/services/conception-ux.svg',
-      pictureDark: '/images/services/conception-ux-dark.svg',
-      title: 'Web design',
-      desc: 'Créativité visuelle, navigation intuitive, expérience immersive pour une présence en ligne moderne.',
-      link: '/offres/web-design',
+      picture: '/images/services/conception.jpg',
+      title: '🎨 Conception de Maquettes & Design UI/UX (Figma → Web)',
+      subtitle: 'Je crée des maquettes modernes et ergonomiques pour une expérience utilisateur optimale',
+      desc: <>✅ Design sur-mesure adapté à votre identité visuelle <br />
+      ✅ Prototypage interactif avec Figma <br />
+      ✅ Optimisation UX/UI pour une navigation fluide <br />
+      ✅ Conversion Figma → WordPress, ReactJS, NextJS </>,
+      ideal: 'Sites vitrine, e-commerce, app web, SaaS',
+      tag: 'Design sur-mesure'
     },
     {
-      picture: '/images/services/logo-design.svg',
-      pictureDark: '/images/services/logo-design-dark.svg',
-      title: 'Logo design',
-      desc: 'Identité distinctive, logos mémorables reflétant l\'essence unique de votre entreprise.',
-      link: '/offres/dev-front',
+      picture: '/images/services/wordpress.jpg',
+      title: '🚀 Création et Personnalisation de Sites WordPress',
+      subtitle: 'Je développe des sites WordPress performants et faciles à gérer',
+      desc: <>✅ Thèmes sur mesure (PHP, Elementor, Divi) <br />
+      ✅ Intégration avancée avec ACF et WooCommerce <br />
+      ✅ Optimisation SEO et temps de chargement <br />
+      ✅ Site 100% responsive et évolutif </>,
+      ideal: 'Entrepreneurs, PME, freelances, blogueurs',
+      tag: 'WordPress'
     },
     {
-      picture: '/images/services/web-developer.svg',
-      pictureDark: '/images/services/web-developer-dark.svg',
-      title: 'Dev wordpress',
-      desc: 'Sites personnalisés, gestion simplifiée, puissance sans tracas pour une présence en ligne efficace.',
-      link: '/offres/dev-wordpress',
-    },
-    {
-      picture: '/images/services/web-integrator.svg',
-      pictureDark: '/images/services/web-integrator-dark.svg',
-      title: 'Dev Front-end',
-      desc: 'Sites dynamiques alliant esthétique et convivialité pour une expérience optimale.',
-      link: '/offres/dev-front',
+      picture: '/images/services/fix.jpg',
+      title: '🛠️ Maintenance, Sécurité & Débogage WordPress',
+      subtitle: "J'optimise, sécurise et résous les problèmes de votre site WordPress",
+      desc: <>✅ Résolution des bugs et erreurs PHP/JS <br />
+      ✅ Sécurisation contre les attaques et malware <br />
+      ✅ Optimisation des performances et du référencement technique <br />
+      ✅ Mises à jour régulières et support technique </>,
+      ideal: 'Sites WordPress en panne, maintenance préventive, refonte technique',
+      tag: 'Maintenance & Sécurité'
     },
   ]
   return (
@@ -45,13 +51,42 @@ const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
         </h1> : <h2 className='mb-2'>
           Mes <strong>offres spécials</strong> <br /> pour vous
         </h2>}
-        <div className="col-md-10 mx-auto">
-          <p className='text-center mb-5 col-lg-8 mx-auto'>Explorez ces offres spéciales et découvrez comment je peux donner vie à vos projets numériques de manière unique et professionnelle. </p>
-          <div className={`${styles.offer_cards} row justify-content-center pt-5cla`}>
-            {offers.map((offer, key) => (
-              <Offer picture={offer.picture} pictureDark={offer.pictureDark} title={offer.title} desc={offer.desc} link={offer.link} key={key} />
-            ))}
-          </div>
+        <div id="offers" className='mt-5 row'>
+          {offers.map((offer) => (
+            <div className="col-md-4 px-[10px] flex flex-column mb-5">
+              <div className={`${styles.offer_picture} mb-4`}>
+                <Image
+                  src={offer.picture}
+                  alt="titre"
+                  width={412}
+                  height={231}
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className="flex flex-column align-items-start">
+                <div className={`${styles.etiquette}`}>
+                  {offer.tag}
+                </div>
+                <h3 className={styles.offer_title}>
+                  {offer.title}
+                </h3>
+                <strong className={styles.offer_sous_titre}>
+                  {offer.subtitle}
+                </strong>
+                <p className={styles.offer_desc}>
+                  {offer.desc}
+                </p>
+                <p className={styles.offer_ideal}>
+                  <strong>💡 Idéal pour :</strong>  {offer.ideal}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-content-center mt-5">
+          <Link href="/projets" className="btn btn-primary">
+            Voir toutes mes offres
+          </Link>
         </div>
       </div>
     </div>

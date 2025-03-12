@@ -120,7 +120,7 @@ const Techno = ({picture, title, theme}:{picture:string; title:string;theme:stri
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <p>{title}</p>
+          <p className={styles.technoTitle}>{title}</p>
         </div>
         <div className={styles.technoBg} style={{backgroundImage: `radial-gradient(circle at ${posBg.x}% ${posBg.y}%, hsla(var(--foreground)/25%),transparent)`}}></div>
       </div>

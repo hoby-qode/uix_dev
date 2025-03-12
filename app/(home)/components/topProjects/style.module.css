@@ -16,7 +16,7 @@
 .projectsItem {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    padding: 60px 0;
+    padding: 60px 0 0 0;
     position: relative;
     margin-bottom: -1px;
     opacity: 1;
