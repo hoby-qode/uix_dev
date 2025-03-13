@@ -7,7 +7,7 @@ import { TbArrowUpRight } from 'react-icons/tb'
 import { useTheme } from 'next-themes'
 import Badge from '@/components/ui/Badge'
 
-const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
+const Offers = () => {
   const offers = [
     {
       picture: '/images/services/conception.jpg',
@@ -46,11 +46,9 @@ const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
   return (
     <div className="container">
       <div className={styles.offer}>
-        { titleIsH1 ? <h1 className='mb-2'>
-          Mes <strong>offres spécials</strong> <br /> pour vous
-        </h1> : <h2 className='mb-2'>
-          Mes <strong>offres spécials</strong> <br /> pour vous
-        </h2>}
+        <h2 className='mb-2'>
+          Mes services
+        </h2>
         <div id="offers" className='mt-5 row'>
           {offers.map((offer, key) => (
             <div className="col-md-4 px-[10px] flex flex-column mb-5" key={key}>
@@ -84,7 +82,7 @@ const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
           ))}
         </div>
         <div className="flex justify-content-center mt-5">
-          <Link href="/projets" className="btn btn-primary">
+          <Link href="/services" className="btn btn-primary">
             Voir toutes mes offres
           </Link>
         </div>
