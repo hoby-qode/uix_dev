@@ -9,7 +9,7 @@ interface SocialLinkProp {
 }
 const SocialLink: FC<SocialLinkProp> = ({ href, icon }) => {
   return (
-    <Link href={href} className={styles.socialLink}>
+    <Link href={href} className={styles.socialLink} target='_blank'>
       {icon}
     </Link>
   )
