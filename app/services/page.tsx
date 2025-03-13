@@ -40,9 +40,9 @@ const Services = () => {
   ]
   return (
     <div>
-      <h2 className='mb-2'>
+      <h1 className='mb-2'>
         Mes services
-      </h2>
+      </h1>
       <div id="offers" className='mt-5 row'>
         {offers.map((offer, key) => (
           <div className="col-md-4 px-[10px] flex flex-column mb-5" key={key}>

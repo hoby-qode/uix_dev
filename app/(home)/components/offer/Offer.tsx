@@ -83,7 +83,7 @@ const Offers = () => {
         </div>
         <div className="flex justify-content-center mt-5">
           <Link href="/services" className="btn btn-primary">
-            Voir toutes mes offres
+            Voir tous mes services
           </Link>
         </div>
       </div>
