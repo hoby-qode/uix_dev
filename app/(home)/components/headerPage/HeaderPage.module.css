@@ -37,7 +37,7 @@
 .headerPage_text {
     color: hsl(var(--foreground)/85%);
     font-size: 1.6rem;
-    line-height: 120%;
+    line-height: 140%;
     margin-bottom: 30px;
 }
 
