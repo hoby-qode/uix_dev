@@ -52,8 +52,8 @@ const Offers = ({titleIsH1}:{titleIsH1?:number}) => {
           Mes <strong>offres spécials</strong> <br /> pour vous
         </h2>}
         <div id="offers" className='mt-5 row'>
-          {offers.map((offer) => (
-            <div className="col-md-4 px-[10px] flex flex-column mb-5">
+          {offers.map((offer, key) => (
+            <div className="col-md-4 px-[10px] flex flex-column mb-5" key={key}>
               <div className={`${styles.offer_picture} mb-4`}>
                 <Image
                   src={offer.picture}
