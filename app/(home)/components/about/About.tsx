@@ -43,7 +43,7 @@ const About = () => {
               </p>
               <hr />
               <div className="d-flex gap-10">
-                <SocialLink href="https://www.linkedin.com/in/rakotoanialy-hobitiana-marcel/" icon={<BiLogoLinkedin />} />
+                <SocialLink href="https://www.linkedin.com/in/h-marcel-rakotonialy-2845282b2/" icon={<BiLogoLinkedin />} />
                 <SocialLink href="https://www.behance.net/houbbyrakoton" icon={<TbBrandBehance />} />
                 <SocialLink href="https://dribbble.com/uix-dev" icon={<TbBrandDribbble />} />
               </div>

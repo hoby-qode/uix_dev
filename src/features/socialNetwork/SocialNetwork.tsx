@@ -26,7 +26,7 @@ const SocialNetwork = () => {
         <Item link="https://www.behance.net/houbbyrakoton">
           {isMobile ? <AiFillBehanceCircle /> : 'Behance'}
         </Item>
-        <Item link="https://www.linkedin.com/in/rakotoanialy-hobitiana-marcel/">
+        <Item link="https://www.linkedin.com/in/h-marcel-rakotonialy-2845282b2/">
           {isMobile ? <AiFillLinkedin /> : 'Linkedin'}
         </Item>
       </ul>

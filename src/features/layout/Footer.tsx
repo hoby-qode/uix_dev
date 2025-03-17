@@ -57,7 +57,7 @@ const FooterLink = () => {
           </Link>
 
           <Link
-            href="https://www.linkedin.com/in/rakotoanialy-hobitiana-marcel/"
+            href="https://www.linkedin.com/in/h-marcel-rakotonialy-2845282b2/"
             target="_blank"
             passHref
             className={styles.linkFooter}
