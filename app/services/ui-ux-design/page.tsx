@@ -30,7 +30,7 @@ const page = () => {
           </div>
           <p>😁 Vous avez un projet de site web et souhaitez offrir à vos utilisateurs <strong>une expérience fluide, intuitive et visuellement attrayante</strong> ?</p>
           <p>😪 Vous avez un site existant qui ne convertit pas ? Vous avez du mal à attirer des clients ou à offrir une expérience utilisateur satisfaisante ?</p>
-          <p>😏 Vous avez de la chance, mon métier de designer UX/UI  consiste justement à améliorer le design et l'experience utilisateur pour une meilleure conversion.</p>
+          <p>😏 Vous avez de la chance, mon métier de designer UX/UI  consiste justement à améliorer le design et l&apos;experience utilisateur pour une meilleure conversion.</p>
           <p>Ce service va vous permettre de <strong>TRANSFORMER</strong> vos utilisateurs en clients grâce à un <strong>design moderne, unique et des expériences utilisateur fluides et engageantes.</strong></p>
 
           <h3 style={{fontSize: "1.4rem"}}>

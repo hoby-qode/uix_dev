@@ -31,7 +31,7 @@ const page = () => {
 
           <p>&#128295; Vous rencontrez des problèmes techniques sur votre site WordPress ? Des erreurs PHP/JS ou des bugs qui affectent son bon fonctionnement ?</p>
           <p>&#128679; Vous souhaitez sécuriser votre site contre les attaques et les vulnérabilités ?</p>
-          <p>&#128736; Vous avez besoin d'une maintenance régulière pour garantir la stabilité et la performance de votre site ?</p>
+          <p>&#128736; Vous avez besoin d&apos;une maintenance régulière pour garantir la stabilité et la performance de votre site ?</p>
           <p>Ce service est conçu pour <strong>résoudre vos problèmes techniques</strong>, <strong>assurer la sécurité</strong> et <strong>maintenir votre site WordPress</strong> en parfait état de fonctionnement.</p>
 
           <h3 className={styles.subheading}>

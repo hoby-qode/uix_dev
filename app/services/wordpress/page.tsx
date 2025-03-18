@@ -31,9 +31,9 @@ const page = () => {
           </div>
 
           <p>&#128187; Vous souhaitez créer un site WordPress professionnel, moderne et adapté à vos besoins ?</p>
-          <p>&#128736; Vous avez besoin de personnaliser un thème ou d'ajouter des fonctionnalités spécifiques ?</p>
+          <p>&#128736; Vous avez besoin de personnaliser un thème ou d&apos;ajouter des fonctionnalités spécifiques ?</p>
           <p>&#128640; Vous voulez un site optimisé pour le SEO et les performances ?</p>
-          <p>Ce service est conçu pour <strong>créer</strong> et <strong>personnaliser</strong> votre site WordPress afin qu'il reflète parfaitement votre identité et vos objectifs.</p>
+          <p>Ce service est conçu pour <strong>créer</strong> et <strong>personnaliser</strong> votre site WordPress afin qu&apos;il reflète parfaitement votre identité et vos objectifs.</p>
 
           <h3 className={styles.subheading}>
             &#128295; Ce que je vous propose
