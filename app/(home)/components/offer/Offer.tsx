@@ -18,7 +18,8 @@ const Offers = () => {
       ✅ Optimisation UX/UI pour une navigation fluide <br />
       ✅ Conversion Figma → WordPress, ReactJS, NextJS </>,
       ideal: 'Sites vitrine, e-commerce, app web, SaaS',
-      tag: 'Design sur-mesure'
+      tag: 'Design sur-mesure',
+      link: '/services/ui-ux-design'
     },
     {
       picture: '/images/services/wordpress.jpg',
@@ -29,7 +30,8 @@ const Offers = () => {
       ✅ Optimisation SEO et temps de chargement <br />
       ✅ Site 100% responsive et évolutif </>,
       ideal: 'Entrepreneurs, PME, freelances, blogueurs',
-      tag: 'WordPress'
+      tag: 'WordPress',
+      link: '/services/wordpress'
     },
     {
       picture: '/images/services/fix.jpg',
@@ -40,7 +42,8 @@ const Offers = () => {
       ✅ Optimisation des performances et du référencement technique <br />
       ✅ Mises à jour régulières et support technique </>,
       ideal: 'Sites WordPress en panne, maintenance préventive, refonte technique',
-      tag: 'Maintenance & Sécurité'
+      tag: 'Maintenance & Sécurité',
+      link: '/services/maintenance'
     },
   ]
   return (
@@ -60,6 +63,9 @@ const Offers = () => {
                   height={231}
                   style={{ objectFit: 'cover' }}
                 />
+                <Link className={styles.offer_link} href={offer.link}>
+                  En savoir plus
+                </Link>
               </div>
               <div className="flex flex-column align-items-start">
                 <div className={`${styles.etiquette}`}>

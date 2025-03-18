@@ -138,4 +138,29 @@
     aspect-ratio: 412/231;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+}
+.offer_link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    z-index: 100;
+    background-color: rgb(197 156 87 / 87%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-underline-position: under;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: .3s;
+}
+.offer_picture:hover .offer_link {
+    opacity: 1;
+    transition: .3s;
 }

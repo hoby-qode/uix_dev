@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from '../(home)/components/offer/Offer.module.css'
+import Link from 'next/link'
 
 const Services = () => {
   const offers = [
@@ -13,7 +14,8 @@ const Services = () => {
       ✅ Optimisation UX/UI pour une navigation fluide <br />
       ✅ Conversion Figma → WordPress, ReactJS, NextJS </>,
       ideal: 'Sites vitrine, e-commerce, app web, SaaS',
-      tag: 'Design sur-mesure'
+      tag: 'Design sur-mesure',
+      link: '/services/ui-ux-design'
     },
     {
       picture: '/images/services/wordpress.jpg',
@@ -24,7 +26,8 @@ const Services = () => {
       ✅ Optimisation SEO et temps de chargement <br />
       ✅ Site 100% responsive et évolutif </>,
       ideal: 'Entrepreneurs, PME, freelances, blogueurs',
-      tag: 'WordPress'
+      tag: 'WordPress',
+      link: '/services/wordpress'
     },
     {
       picture: '/images/services/fix.jpg',
@@ -35,7 +38,8 @@ const Services = () => {
       ✅ Optimisation des performances et du référencement technique <br />
       ✅ Mises à jour régulières et support technique </>,
       ideal: 'Sites WordPress en panne, maintenance préventive, refonte technique',
-      tag: 'Maintenance & Sécurité'
+      tag: 'Maintenance & Sécurité',
+      link: '/services/maintenance'
     },
   ]
   return (
@@ -54,6 +58,11 @@ const Services = () => {
                 height={231}
                 style={{ objectFit: 'cover' }}
               />
+              <Link href={offer.link}>
+                <a className={styles.offer_link}>
+                  En savoir plus
+                </a>
+              </Link>
             </div>
             <div className="flex flex-column align-items-start">
               <div className={`${styles.etiquette}`}>
